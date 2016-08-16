@@ -131,7 +131,7 @@ Enter the command below into your terminal. It will download the python script a
 From the Git folder in the Start Menu, open the Git Bash terminal.
 
 ~~~ {.code}
-curl -L http://goo.gl/HuPJu3 | python
+curl -L http://goo.gl/qQ4d5J | python
 ~~~
 
 #### Mac OS X, Linux
@@ -139,7 +139,7 @@ curl -L http://goo.gl/HuPJu3 | python
 Close your existing terminal and reopen it.  **This is important!**
 
 ~~~ {.code}
-curl -L http://goo.gl/HuPJu3 | python3.4
+curl -L http://goo.gl/qQ4d5J | python3.4
 ~~~
 
 
