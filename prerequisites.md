@@ -160,4 +160,4 @@ If anything fails, please [contact us](mailto:rsg-info@soton.ac.uk) before the w
 
 ## During the workshop
 
-We will make use of the [Etherpad](https://public.etherpad-mozilla.org/p/SWC-Soton-Dec2015) collaboration tool during the workshop (Etherpad allows a group to edit documents online collaboratively in real-time). Please use this to keep collaborative notes and ask (and answer!) each others questions.
+We will make use of the [Etherpad](https://public.etherpad-mozilla.org/p/SWC-Soton-Aug2016) collaboration tool during the workshop (Etherpad allows a group to edit documents online collaboratively in real-time). Please use this to keep collaborative notes and ask (and answer!) each others questions.
