@@ -73,13 +73,15 @@ Download the [Python3.4 Anaconda installation script](https://repo.continuum.io/
 bash Anaconda3-2.3.0-Linux-x86_64.sh
 ~~~
 
+When asked "Do you wish the installer to prepend the Anaconda install location to PATH", answer "yes".
+
 ## Git
 
 Git is the version control software we will use. It allows you to keep track of your software and the edits made to it.
 
 ####Create a Github account
 
-**You should must create a Github account before attending the workshop!**
+**You  must create a Github account before attending the workshop!**
 
 To create an account, [go to the Github website](https://github.com/join) and provide your details. It's quick and it's free. Once you have your account, you need to install the Git software as described below.
 
@@ -89,7 +91,7 @@ Download and install [Git for Windows](http://git-scm.com/download/win). **Pleas
 
 #### Mac OS X
 
-On Mac OS X 10.9 Mavericks and 10.10 Yosemite, Git will be installed automatically the first time you try to run it.  Open a terminal and enter:
+On Mac OS X 10.11 El Capitan, 10.10 Yosemite and 10.9 Mavericks, Git will be installed automatically the first time you try to run it.  Open a terminal and enter:
 
 ~~~ {.code}
 git
