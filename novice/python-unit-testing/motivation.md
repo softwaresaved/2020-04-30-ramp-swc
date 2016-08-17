@@ -106,34 +106,32 @@ Letters – Retraction, Science 22 December 2006
 
 ## Challenge
 
-A colleague of yours has written a function that calculates the running total of all the values in a list, e.g., running([0, 1, 2]) produces the list [0, 1, 3]. 
+A colleague of yours has written a function that calculates the running total of all the values in a list, e.g., **running([0, 1, 2])** produces the list **[0, 1, 3]**. 
 
 Write some unit test functions for it in a **test_running.py** file (including **from running import running** at the top), and then use **nosetests** to see what bugs you can find.
 
 ## Challenge
 
-1. Write some unit tests for the 	`fahr_to_kelvin` function in `temp_conversion.py`, which you can find in `python-unit-testing/code/temp_conversion.py`. Place your unit tests in a 
-new file  called `test_temp_conversion.py` in the `python-unit-testing/code` directory, and use `nose` to run the tests. Try and think  about tests that could **break** your code - what 
-are its limits?
+1. Write some unit tests for the **fahr_to_kelvin** function in **temp_conversion.py** (in **code** directory). Place your unit tests in a new file  called **test_temp_conversion.py** in the same directory, and use **nosetests** to run the tests. Write tests that could **break** your code - what are its limits?
 
 2. Once you've completed your tests, add them to version control along with your climate code.
 
 ## Challenge
 
-Write a function called **addnumbers** in **addnumbers.py** that passes the unit tests in **test_addnumbers.py**.
+Write a function called **addnumbers** in **addnumbers.py** that passes the unit tests that are already in **test_addnumbers.py**.
 
-All addnumbers should do is add together all the numbers in a list and return the result.
+All **addnumbers** should do is add together all the numbers in a list and return the result.
 
 ## OK, What's the big deal?
 
-- Writing the tests made us look deeper
+- Made us think more about what the code is supposed to **do**
 
-- made us read the code very carefully
+- Made us read the code very carefully
 
-- made us see both the good and the bad side 
+- Helped us refactor some incorrect or messy code
 
-- Refactored some incorrect or messy code
+- We have more confidence modifying the code even though we didn't write it
 
-- In the end, we have absolutely no fear about tearing the code to pieces and putting it back together again, even though we didn't write it
+- We have gone some way to creating a fail fast environment
 
 ## Thank You!
