@@ -32,7 +32,7 @@
 </ol></h2>
           <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -42,7 +42,7 @@
 </section>
 <section class="prereq panel panel-warning">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-education"></span>Prerequisites</h2>
+<h2 id="prerequisites"><span class="glyphicon glyphicon-education"></span>Prerequisites</h2>
 </div>
 <div class="panel-body">
 <p>In this lesson we use Git from the Bash Shell. Some previous experience with the shell is expected, <em>but isn’t mandatory</em>.</p>
@@ -53,19 +53,24 @@
 <p><strong>[Post-Its Reminder]</strong> / <strong>[Switch out of fullscreen]</strong></p>
 <p><strong>[Open Terminal]</strong> / <strong>[Use other projector]</strong></p>
 <div class="figure">
-<img src="img/slides/version-control-with-git-slides%20-%2009.jpg" alt="Local Configuration" /><p class="caption">Local Configuration</p>
+<img src="img/slides/version-control-with-git-slides%20-%2009.jpg" alt="Local Configuration" />
+<p class="caption">Local Configuration</p>
 </div>
 <p><strong>Working individually</strong>, we’ll start by exploring how version control can be used to keep track of what <em>one person</em> did and when.</p>
 <h2 id="setting-up">Setting Up</h2>
 <p>The first time we use Git on a new machine, we need to configure a few things.</p>
 <p>Make sure you’re in your home directory (not another repository).</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span></code></pre></div>
 <p>Set some global options</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> config --global user.name <span class="st">&quot;Norbert Nodinkle&quot;</span>
-$ <span class="kw">git</span> config --global user.email <span class="st">&quot;norbert@nodinkle.com&quot;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> config --global user.name <span class="st">&quot;Norbert Nodinkle&quot;</span>
+$ <span class="kw">git</span> config --global user.email <span class="st">&quot;norbert@nodinkle.com&quot;</span></code></pre></div>
 <p>(Please use your own name and email address instead of Norbert’s.)</p>
 <p>You can set your favourite text editor, following this table:</p>
 <table>
+<colgroup>
+<col width="29%" />
+<col width="70%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Editor</th>
@@ -92,7 +97,7 @@ $ <span class="kw">git</span> config --global user.email <span class="st">&quot;
 </ul>
 <p>The three commands above only need to be run once: the flag <code>--global</code> tells Git to use the settings for every project on this machine.</p>
 <p>You can check your settings at any time:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> config --list</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> config --list</code></pre></div>
 <p><a href="02-create.html">Next - Creating a Repository</a></p>
         </div>
       </div>
@@ -100,7 +105,7 @@ $ <span class="kw">git</span> config --global user.email <span class="st">&quot;
       <div class="footer">
         This work is derived from prior works that are Copyright © <a href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
-        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2015-12-15-Southampton">Source</a>
+        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2016-08-31-Southampton">Source</a>
       </div>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->

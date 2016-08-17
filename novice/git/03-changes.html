@@ -32,7 +32,7 @@
 </ol></h2>
           <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -42,13 +42,14 @@
 </div>
 </section>
 <div class="figure">
-<img src="img/slides/version-control-with-git-slides%20-%2011.jpg" alt="Tracking changes to files" /><p class="caption">Tracking changes to files</p>
+<img src="img/slides/version-control-with-git-slides%20-%2011.jpg" alt="Tracking changes to files" />
+<p class="caption">Tracking changes to files</p>
 </div>
 <h3 id="add-to-version-control">Add to Version Control</h3>
 <p>We can tell Git to track a file using <code>git add</code>:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add climate_analysis.py temp_conversion.py</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add climate_analysis.py temp_conversion.py</code></pre></div>
 <p>and then check that the right thing happened:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> status</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> status</code></pre></div>
 <pre class="output"><code>On branch master
 
 Initial commit
@@ -61,7 +62,7 @@ Changes to be committed:
 <p>Git now knows that it’s supposed to keep track of <code>climate_analysis.py</code> and <code>temp_conversion.py</code>, but it hasn’t recorded these changes as a commit yet.</p>
 <h3 id="initial-commit">Initial Commit</h3>
 <p>To get it to do that, we need to run one more command:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> commit -m <span class="st">&quot;Initial commit of climate analysis code&quot;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> commit -m <span class="st">&quot;Initial commit of climate analysis code&quot;</span></code></pre></div>
 <p>We use the <code>-m</code> flag (for “<strong>message</strong>”) to record a short, descriptive, and specific comment that will help us remember later on what we did and why. If we just run <code>git commit</code> without the <code>-m</code> option, Git will launch <code>nano</code> (or whatever other editor we configured at the start) so that we can write a longer message.</p>
 <p><strong>Good commit messages</strong> start with a brief (&lt;50 characters) summary of changes made in the commit.</p>
 <p><strong>NOT “Bug Fixes”</strong> or <strong>“Changes”</strong>!</p>
@@ -72,20 +73,22 @@ Changes to be committed:
  create mode 100644 temp_conversion.py</code></pre>
 <p>When we run <code>git commit</code>, Git takes everything we have told it to save by using <code>git add</code> and stores a copy permanently inside the special <code>.git</code> directory. This permanent copy is called a <a href="reference.html#revision">revision</a> and its short identifier is <code>a10bd8f</code>. (Your revision will have different identifier.)</p>
 <p>If we run <code>git status</code> now:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> status</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> status</code></pre></div>
 <pre class="output"><code># On branch master
 nothing to commit, working directory clean</code></pre>
 <p>it tells us everything is up to date.</p>
 <div class="figure">
-<img src="img/slides/version-control-with-git-slides%20-%2012.jpg" alt="Add and Commit" /><p class="caption">Add and Commit</p>
+<img src="img/slides/version-control-with-git-slides%20-%2012.jpg" alt="Add and Commit" />
+<p class="caption">Add and Commit</p>
 </div>
 <p>Git has a special <strong>staging</strong> area where it keeps track of things that have been <strong>added</strong> to the current <a href="reference.html#change-set">change set</a> but <strong>not yet committed</strong>. <code>git add</code> puts things in this area, and <code>git commit</code> then copies them to long-term storage (as a commit)</p>
 <div class="figure">
-<img src="img/slides/version-control-with-git-slides%20-%2013.jpg" alt="Exploring history #1" /><p class="caption">Exploring history #1</p>
+<img src="img/slides/version-control-with-git-slides%20-%2013.jpg" alt="Exploring history #1" />
+<p class="caption">Exploring history #1</p>
 </div>
 <h3 id="review-the-log">Review the Log</h3>
 <p>If we want to know what we’ve done recently, we can ask Git to show us the project’s history using <code>git log</code>:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> log</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> log</code></pre></div>
 <pre class="output"><code>commit a10bd8f6192f9ab29b1821d7d7929fbf6484686a
 Author: John R &lt;j.robinson@software.ac.uk&gt;
 Date:   Mon Dec 7 14:13:32 2015 +0000
@@ -95,7 +98,7 @@ Date:   Mon Dec 7 14:13:32 2015 +0000
 <p>The listing for each revision includes the revision’s full identifier (which starts with the same characters as the short identifier printed by the <code>git commit</code> command earlier), the revision’s author, when it was created, and the log message Git was given when the revision was created.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Where Are My Changes?</h2>
+<h2 id="where-are-my-changes"><span class="glyphicon glyphicon-pushpin"></span>Where Are My Changes?</h2>
 </div>
 <div class="panel-body">
 <p>If we run <code>ls</code> at this point, we will still see just our original files called <code>climate_analysis.py</code> and <code>temp_conversion.py</code>. That’s because Git saves information about files’ history in the special <code>.git</code> directory mentioned earlier so that our filesystem doesn’t become cluttered (and so that we can’t accidentally edit or delete an old version).</p>
@@ -103,10 +106,10 @@ Date:   Mon Dec 7 14:13:32 2015 +0000
 </aside>
 <h3 id="modify-a-file-1">Modify a file (1)</h3>
 <p>Now suppose we add more information, a <strong>Docstring</strong>, to the <strong>top</strong> of one of the files:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> climate_analysis.py</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> climate_analysis.py</code></pre></div>
 <pre class="output"><code>&quot;&quot;&quot; Climate Analysis Tools &quot;&quot;&quot;</code></pre>
 <p>When we run <code>git status</code> now, it tells us that a file it already knows about has been modified:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> status</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> status</code></pre></div>
 <pre class="output"><code>On branch master
 Changes not staged for commit:
   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
@@ -120,7 +123,7 @@ no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&q
 <p><strong>It’s important to remember that git only stores changes when you make a commit</strong></p>
 <h3 id="review-changes-and-commit">Review Changes and Commit</h3>
 <p>It is good practice to always review our changes before saving them. We do this using <code>git diff</code>. This shows us the differences between the current state of the file and the most recently saved version:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> diff</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> diff</code></pre></div>
 <pre class="output"><code>diff --git a/climate_analysis.py b/climate_analysis.py
 index 277d6c7..d5b442d 100644
 --- a/climate_analysis.py
@@ -132,7 +135,7 @@ import temp_conversion
 import signal</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Windows users note</h2>
+<h2 id="windows-users-note"><span class="glyphicon glyphicon-pushpin"></span>Windows users note</h2>
 </div>
 <div class="panel-body">
 <p><strong>No newline at end of file</strong> This message is displayed because otherwise there is no way to tell the difference between a file where there is a newline at the end and one where is not. Diff has to output a newline anyway, or the result would be harder to read or process automatically. This can safely be ignored, but you can avoid seeing it by leaving a blank line at the end of your file.</p>
@@ -147,29 +150,30 @@ import signal</code></pre>
 <li>Below that, the changes - note the ‘<strong>+</strong>’ marker which shows an addtion</li>
 </ol>
 <p>After reviewing our change, it’s time to commit it:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> commit -m <span class="st">&quot;Add Docstring&quot;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> commit -m <span class="st">&quot;Add Docstring&quot;</span></code></pre></div>
 <pre class="output"><code>On branch master
 Changes not staged for commit:
         modified:   climate_analysis.py
 
 no changes added to commit</code></pre>
 <p><strong>Whoops</strong>: Git won’t commit because we didn’t use <code>git add</code> first. Let’s fix that:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add climate_analysis.py
-$ <span class="kw">git</span> commit -m <span class="st">&quot;Add Docstring&quot;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add climate_analysis.py
+$ <span class="kw">git</span> commit -m <span class="st">&quot;Add Docstring&quot;</span></code></pre></div>
 <pre class="output"><code>[master 6077ba7] Add Docstring
  1 file changed, 1 insertion(+)</code></pre>
 <p><img src="img/slides/version-control-with-git-slides%20-%2012.jpg" alt="Add and Commit" /> ** Recapping add / commit**</p>
 <p>Git insists that we <strong>add</strong> files to the set we want to commit before actually committing anything because we may not want to commit everything at once.</p>
 <p>For example, suppose we’re adding a few citations to our supervisor’s work to our thesis. We might want to commit those additions, and the corresponding addition to the bibliography, but <em>not</em> commit the work we’re doing on the conclusion (which we haven’t finished yet).</p>
 <div class="figure">
-<img src="img/slides/version-control-with-git-slides%20-%2013.jpg" alt="Exploring history #1" /><p class="caption">Exploring history #1</p>
+<img src="img/slides/version-control-with-git-slides%20-%2013.jpg" alt="Exploring history #1" />
+<p class="caption">Exploring history #1</p>
 </div>
 <h3 id="one-more-addition">One more addition</h3>
 <p>Let’s add another line to the end of the file:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> climate_analysis.py</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> climate_analysis.py</code></pre></div>
 <pre class="output"><code># TODO(js-robinson): Add call to process rainfall</code></pre>
 <p>Check what’s changed with <strong>diff</strong>:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> diff</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> diff</code></pre></div>
 <pre class="output"><code>diff --git a/climate_analysis.py b/climate_analysis.py
 index d5b442d..c463f71 100644
 --- a/climate_analysis.py
@@ -182,13 +186,13 @@ index d5b442d..c463f71 100644
 +# TODO(js-robinson): Add call to process rainfall</code></pre>
 <p>So far, so good: we’ve added one line to the end of the file (shown with a <code>+</code> in the first column).</p>
 <p>Now let’s put that change in the staging area (or <strong>add it to the change set</strong>) and see what <code>git diff</code> reports:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add climate_analysis.py
-$ <span class="kw">git</span> diff</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add climate_analysis.py
+$ <span class="kw">git</span> diff</code></pre></div>
 <pre class="output"><code></code></pre>
 <p><strong>There is no output</strong>:</p>
 <p><strong>git diff</strong> shows us the differences between the <em>working copy</em> and what’s been added to the <strong>change set</strong> in staging area.</p>
 <p>However, if we do this:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> diff --staged</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> diff --staged</code></pre></div>
 <pre class="output"><code>diff --git a/climate_analysis.py b/climate_analysis.py
 index d5b442d..c463f71 100644
 --- a/climate_analysis.py
@@ -201,18 +205,19 @@ index d5b442d..c463f71 100644
 +# TODO(me): Add call to process rainfall</code></pre>
 <p>it shows us the difference between the last <strong>committed change</strong> and what’s in the <strong>staging area</strong>.</p>
 <div class="figure">
-<img src="img/slides/version-control-with-git-slides%20-%2014.jpg" alt="Git diff #1" /><p class="caption">Git diff #1</p>
+<img src="img/slides/version-control-with-git-slides%20-%2014.jpg" alt="Git diff #1" />
+<p class="caption">Git diff #1</p>
 </div>
 <p>Let’s <strong>commit</strong> our changes:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> commit -m <span class="st">&quot;Add rainfall processing placeholder&quot;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> commit -m <span class="st">&quot;Add rainfall processing placeholder&quot;</span></code></pre></div>
 <pre class="output"><code>[master dab17a9] Add rainfall processing placeholder
  1 file changed, 2 insertions(+)</code></pre>
 <p>check our status:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> status</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> status</code></pre></div>
 <pre class="output"><code># On branch master
 nothing to commit, working directory clean</code></pre>
 <p>and now look at the history of what we’ve done so far:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> log</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> log</code></pre></div>
 <pre class="output"><code>commit dab17a9f0d2e8e598522a1c06dcaf396084f60e6
 Author: John R &lt;j.robinson@software.ac.uk&gt;
 Date:   Mon Dec 7 14:57:39 2015 +0000
@@ -239,7 +244,7 @@ Date:   Mon Dec 7 14:13:32 2015 +0000
       <div class="footer">
         This work is derived from prior works that are Copyright © <a href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
-        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2015-12-15-Southampton">Source</a>
+        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2016-08-31-Southampton">Source</a>
       </div>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->

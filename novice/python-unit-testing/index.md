@@ -22,4 +22,4 @@ Does the code developed by you work the way it should do? Can you (or others) ve
 ## Other Resources
 
 * [Motivation](motivation.html)
-* [code/](https://github.com/Southampton-RSG/2015-12-15-Southampton/tree/gh-pages/novice/python-unit-testing/code) - Python code for the material.
+* [code/](https://github.com/Southampton-RSG/2016-08-31-Southampton/tree/gh-pages/novice/python-unit-testing/code) - Python code for the material.

@@ -32,7 +32,7 @@
           <h2 class="subtitle">Unit Testing</h2>
           <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -50,40 +50,40 @@
 </ul>
 <p>Test results must also be reliable. If a testing tool says that code is working when it’s not, or reports problems when there actually aren’t any, people will lose faith in it and stop using it.</p>
 <p>The simplest kind of test is a <strong>unit test</strong> that checks the behavior of one component of a program. As an example, suppose we’re testing a function called <code>rectangle_area</code> that returns the area of an <code>(x0, y0, x1, y1)</code> rectangle. We’ll start by testing our code directly using <code>assert</code>. Here, we call the function three times with different arguments, checking that the right value is returned each time.</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> rectangle2 <span class="ch">import</span> rectangle_area
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> rectangle2 <span class="im">import</span> rectangle_area
 
-<span class="kw">assert</span> rectangle_area([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>]) == <span class="fl">1.0</span>
-<span class="kw">assert</span> rectangle_area([<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">4</span>]) == <span class="fl">9.0</span>
-<span class="kw">assert</span> rectangle_area([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">7</span>]) == <span class="fl">24.0</span></code></pre>
+<span class="cf">assert</span> rectangle_area([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>]) <span class="op">==</span> <span class="fl">1.0</span>
+<span class="cf">assert</span> rectangle_area([<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">4</span>]) <span class="op">==</span> <span class="fl">9.0</span>
+<span class="cf">assert</span> rectangle_area([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">7</span>]) <span class="op">==</span> <span class="fl">24.0</span></code></pre></div>
 <pre class="output"><code>---------------------------------------------------------------------------
 Traceback (most recent call last):
   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
 AssertionError</code></pre>
 <p>This result is used, in the sense that we know something’s wrong, but look closely at what happens if we run the tests in a different order:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">assert</span> rectangle_area([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">7</span>]) == <span class="fl">24.0</span>
-<span class="kw">assert</span> rectangle_area([<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">4</span>]) == <span class="fl">9.0</span>
-<span class="kw">assert</span> rectangle_area([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>]) == <span class="fl">1.0</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">assert</span> rectangle_area([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">7</span>]) <span class="op">==</span> <span class="fl">24.0</span>
+<span class="cf">assert</span> rectangle_area([<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">4</span>]) <span class="op">==</span> <span class="fl">9.0</span>
+<span class="cf">assert</span> rectangle_area([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>]) <span class="op">==</span> <span class="fl">1.0</span></code></pre></div>
 <pre class="output"><code>---------------------------------------------------------------------------
 Traceback (most recent call last):
   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
 AssertionError</code></pre>
 <p>Python halts at the first failed assertion, so the second and third tests aren’t run at all. It would be more helpful if we could get data from all of our tests every time they’re run, since the more information we have, the faster we’re likely to be able to track down bugs. It would also be helpful to have some kind of summary report: if our test suite includes thirty or forty tests (as it well might for a complex function or library that’s widely used), we’d like to know how many passed or failed.</p>
 <p>So - let’s look at the code to see what’s wrong.</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> rectangle_area(coords):
-    x0, y0, x1, y1 = coords
-    <span class="kw">return</span> (x1 - x0) * (x1 - y0)</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> rectangle_area(coords):
+    x0, y0, x1, y1 <span class="op">=</span> coords
+    <span class="cf">return</span> (x1 <span class="op">-</span> x0) <span class="op">*</span> (x1 <span class="op">-</span> y0)</code></pre></div>
 <p>Clearly <code>x1 - y0</code> should be <code>y1-y0</code>! But let’s not fix it yet…</p>
 <p>Here’s a different approach. First, let’s create a new file called <code>test_rectangle2.py</code> (note the <code>test_</code> prefix - this is important!), and put each test in a function with a meaningful name.</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> rectangle2 <span class="ch">import</span> rectangle_area
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> rectangle2 <span class="im">import</span> rectangle_area
 
 <span class="kw">def</span> test_unit_square():
-    <span class="kw">assert</span> rectangle_area([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>]) == <span class="fl">1.0</span>
+    <span class="cf">assert</span> rectangle_area([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>]) <span class="op">==</span> <span class="fl">1.0</span>
 
 <span class="kw">def</span> test_large_square():
-    <span class="kw">assert</span> rectangle_area([<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">4</span>]) == <span class="fl">9.0</span>
+    <span class="cf">assert</span> rectangle_area([<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">4</span>]) <span class="op">==</span> <span class="fl">9.0</span>
 
 <span class="kw">def</span> test_actual_rectangle():
-    <span class="kw">assert</span> rectangle_area([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">7</span>]) == <span class="fl">24.0</span></code></pre>
+    <span class="cf">assert</span> rectangle_area([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">7</span>]) <span class="op">==</span> <span class="fl">24.0</span></code></pre></div>
 <p>Next, we can use the <code>nose</code> package to run our tests for us:</p>
 <pre class="in"><code>$ nosetests</code></pre>
 <pre class="output"><code>..F
@@ -108,13 +108,13 @@ FAILED (failures=1)</code></pre>
 <li>If any other exception occurs, we count it as an <em>error</em>, because the odds are that the test itself is broken.</li>
 </ul>
 <p>So now we can fix our code in rectangle2.py, so it should read:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> rectangle_area(coords):
-    x0, y0, x1, y1 = coords
-    <span class="kw">return</span> (x1 - x0) * (y1 - y0)</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> rectangle_area(coords):
+    x0, y0, x1, y1 <span class="op">=</span> coords
+    <span class="cf">return</span> (x1 <span class="op">-</span> x0) <span class="op">*</span> (y1 <span class="op">-</span> y0)</code></pre></div>
 <p><code>nose</code> is an xUnit testing library. The name “xUnit” comes from the fact that many of them are imitations of a Java testing library called JUnit. The <a href="http://en.wikipedia.org/wiki/List_of_unit_testing_frameworks">Wikipedia page</a> on the subject lists dozens of similar frameworks in almost as many languages, all of which have a similar structure: each test is a single function that follows some naming convention (e.g., starts with <code>'test_'</code>), and the framework runs them in some order and reports how many passed, failed, or were broken.</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Challenge</h2>
+<h2 id="challenge"><span class="glyphicon glyphicon-pencil"></span>Challenge</h2>
 </div>
 <div class="panel-body">
 <ol style="list-style-type: decimal">
@@ -126,7 +126,7 @@ FAILED (failures=1)</code></pre>
 <p>Going back to our climate analysis code, you’ll remember we wrote two temperature conversion functions. Let’s write some unit tests for them.</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Challenge</h2>
+<h2 id="challenge-1"><span class="glyphicon glyphicon-pencil"></span>Challenge</h2>
 </div>
 <div class="panel-body">
 <ol style="list-style-type: decimal">
@@ -143,7 +143,7 @@ FAILED (failures=1)</code></pre>
       <div class="footer">
         This work is derived from prior works that are Copyright © <a href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
-        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2015-12-15-Southampton">Source</a>
+        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2016-08-31-Southampton">Source</a>
       </div>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->

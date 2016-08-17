@@ -32,7 +32,7 @@
           <h2 class="subtitle">Defensive Programming</h2>
           <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -47,7 +47,6 @@
 <li>How can we guard against introducing new errors in code as we modify it?</li>
 </ul>
 <!-- include mention of research into searching for bugs in same place -->
-
 <p>The first step is to use <em>defensive programming</em>, i.e., to assume that mistakes <em>will</em> happen and to guard against them.</p>
 <p>One way to do this is to add <em>assertions</em> to our code so that it checks itself as it runs. An assertion is simply a statement that something must be true at a certain point in a program. When Python sees one, it checks the assertion’s condition:</p>
 <ul>
@@ -55,11 +54,11 @@
 <li>If <em>false</em>, Python halts the program immediately and prints the error message provided</li>
 </ul>
 <p>For example, this piece of code halts as soon as the loop encounters a value that isn’t positive:</p>
-<pre class="sourceCode python"><code class="sourceCode python">numbers = [<span class="fl">1.5</span>, <span class="fl">2.3</span>, <span class="fl">0.7</span>, -<span class="fl">0.001</span>, <span class="fl">4.4</span>]
-total = <span class="fl">0.0</span>
-<span class="kw">for</span> n in numbers:
-    <span class="kw">assert</span> n &gt;= <span class="fl">0.0</span>, <span class="st">&#39;Data should only contain positive values&#39;</span>
-    total += n</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">numbers <span class="op">=</span> [<span class="fl">1.5</span>, <span class="fl">2.3</span>, <span class="fl">0.7</span>, <span class="op">-</span><span class="fl">0.001</span>, <span class="fl">4.4</span>]
+total <span class="op">=</span> <span class="fl">0.0</span>
+<span class="cf">for</span> n <span class="op">in</span> numbers:
+    <span class="cf">assert</span> n <span class="op">&gt;=</span> <span class="fl">0.0</span>, <span class="st">&#39;Data should only contain positive values&#39;</span>
+    total <span class="op">+=</span> n</code></pre></div>
 <pre class="output"><code>Traceback (most recent call last):
   File &quot;&lt;stdin&gt;&quot;, line 2, in &lt;module&gt;
 AssertionError: Data should only contain positive values</code></pre>
@@ -71,45 +70,45 @@ AssertionError: Data should only contain positive values</code></pre>
 <li>An <strong>invariant</strong> something that is always true at a particular point inside a piece of code.</li>
 </ul>
 <p>For example, let’s look at rectangle1.py (in the code subdirectory). Suppose we are representing rectangles using a tuple of four coordinates <code>(x0, y0, x1, y1)</code>, representing the lower left and upper right corners of the rectangle. In order to do some calculations, we need to normalize the rectangle so that the lower left corner is at the origin and 1.0 units long on its longest axis. The function does that, but checks that its input is correctly formatted and that its result makes sense:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> normalize_rectangle(rect):
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> normalize_rectangle(rect):
     <span class="co">&#39; &#39;</span> <span class="st">&#39; Normalizes a rectangle so that it is at the origin and 1.0 units long on its longest axis. &#39;</span> <span class="st">&#39; &#39;</span>
-    <span class="kw">assert</span> <span class="dt">len</span>(rect) == <span class="dv">4</span>, <span class="st">&#39;Rectangles must contain 4 coordinates&#39;</span>
-    x0, y0, x1, y1 = rect
-    <span class="kw">assert</span> x0 &lt; x1, <span class="st">&#39;Invalid X coordinates&#39;</span>
-    <span class="kw">assert</span> y0 &lt; y1, <span class="st">&#39;Invalid Y coordinates&#39;</span>
+    <span class="cf">assert</span> <span class="bu">len</span>(rect) <span class="op">==</span> <span class="dv">4</span>, <span class="st">&#39;Rectangles must contain 4 coordinates&#39;</span>
+    x0, y0, x1, y1 <span class="op">=</span> rect
+    <span class="cf">assert</span> x0 <span class="op">&lt;</span> x1, <span class="st">&#39;Invalid X coordinates&#39;</span>
+    <span class="cf">assert</span> y0 <span class="op">&lt;</span> y1, <span class="st">&#39;Invalid Y coordinates&#39;</span>
 
-    dx = x1 - x0
-    dy = y1 - y0
-    <span class="kw">if</span> dx &gt; dy:
-        scaled = <span class="dt">float</span>(dx) / dy
-        upper_x, upper_y = <span class="fl">1.0</span>, scaled
-    <span class="kw">else</span>:
-        scaled = <span class="dt">float</span>(dx) / dy
-        upper_x, upper_y = scaled, <span class="fl">1.0</span>
+    dx <span class="op">=</span> x1 <span class="op">-</span> x0
+    dy <span class="op">=</span> y1 <span class="op">-</span> y0
+    <span class="cf">if</span> dx <span class="op">&gt;</span> dy:
+        scaled <span class="op">=</span> <span class="bu">float</span>(dx) <span class="op">/</span> dy
+        upper_x, upper_y <span class="op">=</span> <span class="fl">1.0</span>, scaled
+    <span class="cf">else</span>:
+        scaled <span class="op">=</span> <span class="bu">float</span>(dx) <span class="op">/</span> dy
+        upper_x, upper_y <span class="op">=</span> scaled, <span class="fl">1.0</span>
 
-    <span class="kw">assert</span> <span class="dv">0</span> &lt; upper_x &lt;= <span class="fl">1.0</span>, <span class="st">&#39;Calculated upper X coordinate invalid&#39;</span>
-    <span class="kw">assert</span> <span class="dv">0</span> &lt; upper_y &lt;= <span class="fl">1.0</span>, <span class="st">&#39;Calculated upper Y coordinate invalid&#39;</span>
+    <span class="cf">assert</span> <span class="dv">0</span> <span class="op">&lt;</span> upper_x <span class="op">&lt;=</span> <span class="fl">1.0</span>, <span class="st">&#39;Calculated upper X coordinate invalid&#39;</span>
+    <span class="cf">assert</span> <span class="dv">0</span> <span class="op">&lt;</span> upper_y <span class="op">&lt;=</span> <span class="fl">1.0</span>, <span class="st">&#39;Calculated upper Y coordinate invalid&#39;</span>
 
-    <span class="kw">return</span> (<span class="dv">0</span>, <span class="dv">0</span>, upper_x, upper_y)</code></pre>
+    <span class="cf">return</span> (<span class="dv">0</span>, <span class="dv">0</span>, upper_x, upper_y)</code></pre></div>
 <p>The preconditions on lines 2, 4, and 5 catch invalid inputs. Before you try the next bit, make sure you <code>cd</code> to the code subdirectory first!</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> rectangle1 <span class="ch">import</span> normalize_rectangle
-<span class="dt">print</span>(normalize_rectangle( (<span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">2.0</span>) )) <span class="co"># missing the fourth coordinate</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> rectangle1 <span class="im">import</span> normalize_rectangle
+<span class="bu">print</span>(normalize_rectangle( (<span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">2.0</span>) )) <span class="co"># missing the fourth coordinate</span></code></pre></div>
 <pre class="output"><code>Traceback (most recent call last):
   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
   File &quot;rectangle1.py&quot;, line 2, in normalize_rectangle
     assert len(rect) == 4, &#39;Rectangles must contain 4 coordinates&#39;
 AssertionError: Rectangles must contain 4 coordinates</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="dt">print</span>(normalize_rectangle( (<span class="fl">4.0</span>, <span class="fl">2.0</span>, <span class="fl">1.0</span>, <span class="fl">5.0</span>) )) <span class="co"># X axis inverted</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(normalize_rectangle( (<span class="fl">4.0</span>, <span class="fl">2.0</span>, <span class="fl">1.0</span>, <span class="fl">5.0</span>) )) <span class="co"># X axis inverted</span></code></pre></div>
 <pre class="output"><code>Traceback (most recent call last):
   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
   File &quot;rectangle1.py&quot;, line 4, in normalize_rectangle
     assert x0 &lt; x1, &#39;Invalid X coordinates&#39;
 AssertionError: Invalid X coordinates</code></pre>
 <p>The post-conditions help us catch bugs by telling us when our calculations cannot have been correct. For example, if we normalize a rectangle that is taller than it is wide everything seems OK:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="dt">print</span>(normalize_rectangle( (<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">5.0</span>) ))</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(normalize_rectangle( (<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">5.0</span>) ))</code></pre></div>
 <pre class="output"><code>(0, 0, 0.2, 1.0)</code></pre>
 <p>but if we normalize one that’s wider than it is tall, the assertion is triggered:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="dt">print</span>(normalize_rectangle( (<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">5.0</span>, <span class="fl">1.0</span>) ))</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(normalize_rectangle( (<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">5.0</span>, <span class="fl">1.0</span>) ))</code></pre></div>
 <pre class="output"><code>Traceback (most recent call last):
   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
   File &quot;rectangle1.py&quot;, line 17, in normalize_rectangle
@@ -124,7 +123,7 @@ AssertionError: Calculated upper Y coordinate invalid</code></pre>
 </ul>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Challenges</h2>
+<h2 id="challenges"><span class="glyphicon glyphicon-pencil"></span>Challenges</h2>
 </div>
 <div class="panel-body">
 <ol style="list-style-type: decimal">
@@ -146,7 +145,7 @@ AssertionError: Calculated upper Y coordinate invalid</code></pre>
       <div class="footer">
         This work is derived from prior works that are Copyright © <a href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
-        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2015-12-15-Southampton">Source</a>
+        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2016-08-31-Southampton">Source</a>
       </div>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->

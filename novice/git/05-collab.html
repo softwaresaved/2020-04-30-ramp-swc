@@ -32,7 +32,7 @@
 </ol></h2>
           <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -44,14 +44,16 @@
 </section>
 <p>So far, we’ve seen how Version control can help us <strong>track the changes</strong> we make to our files, and to <strong>revisit</strong> any point in their history.</p>
 <div class="figure">
-<img src="img/slides/version-control-with-git-slides%20-%2018.jpg" alt="Git Workflow - Local Repo" /><p class="caption">Git Workflow - Local Repo</p>
+<img src="img/slides/version-control-with-git-slides%20-%2018.jpg" alt="Git Workflow - Local Repo" />
+<p class="caption">Git Workflow - Local Repo</p>
 </div>
 <p>(there are a few extra commands we haven’t covered today for you to look at).</p>
 <p>But, version control really comes into its own when we begin to <strong>collaborate</strong> with other people.</p>
 <h3 id="the-missing-link">The missing link</h3>
 <p>We already have most of the machinery we need to do this; the only thing missing is to copy changes from one repository to another.</p>
 <div class="figure">
-<img src="img/slides/version-control-with-git-slides%20-%2019.jpg" alt="Collaboration" /><p class="caption">Collaboration</p>
+<img src="img/slides/version-control-with-git-slides%20-%2019.jpg" alt="Collaboration" />
+<p class="caption">Collaboration</p>
 </div>
 <p>Systems like Git allow us to <strong>synchronise</strong> work between any two repositories.</p>
 <p>In practice, though, it’s easiest to use one copy as a <strong>central hub</strong>, and to keep it on the web rather than on someone’s laptop.</p>
@@ -59,26 +61,30 @@
 <h3 id="exploring-the-collaborative-process">Exploring the collaborative process</h3>
 <p>But first let’s explore the collaborative process. Time to buddy up.</p>
 <div class="figure">
-<img src="img/slides/version-control-with-git-slides%20-%2020.jpg" alt="Collaboration" /><p class="caption">Collaboration</p>
+<img src="img/slides/version-control-with-git-slides%20-%2020.jpg" alt="Collaboration" />
+<p class="caption">Collaboration</p>
 </div>
 <p>So far we have been working in splendid isolation. We’re going to use <strong>GitHub</strong> to set up a remote repository and start <strong>“collaborating”</strong> with our partners.</p>
 <p><strong>Developer A</strong> is going to take the role of the project originator. <strong>Developer B</strong> is going to take now on the role of a colleague joining the project and collaborating in development.</p>
 <p>With the help of two terminals (opened in different directories on the same computer), <strong>I’ll be taking on both roles</strong>. In your pairs, <strong>decide</strong> who will be Developer A and Developer B while I get set up.</p>
 <h3 id="developer-a---to-github">Developer A - To GitHub!</h3>
 <div class="figure">
-<img src="img/slides/version-control-with-git-slides%20-%2021.jpg" alt="Remote Repositories #1" /><p class="caption">Remote Repositories #1</p>
+<img src="img/slides/version-control-with-git-slides%20-%2021.jpg" alt="Remote Repositories #1" />
+<p class="caption">Remote Repositories #1</p>
 </div>
 <p>Now, <strong>Bs just sit back</strong> for a moment and <strong>watch A</strong> until told otherwise</p>
 <p><strong>JUST A’s</strong>. Let’s start by sharing the changes we’ve made to our current project with the world. <strong>Log in to GitHub</strong>, then click on the icon in the top right corner to create a <strong>new repository</strong> called <code>climate-analysis</code>:</p>
 <div class="figure">
-<img src="img/github-create-repo-01.png" alt="Creating a Repository on GitHub (Step 1)" /><p class="caption">Creating a Repository on GitHub (Step 1)</p>
+<img src="img/github-create-repo-01.png" alt="Creating a Repository on GitHub (Step 1)" />
+<p class="caption">Creating a Repository on GitHub (Step 1)</p>
 </div>
 <p><strong>Name your repository</strong> “climate-analysis” You can optionally give it a friendly <strong>description</strong> and prove a <strong>README.md</strong> which is rendered on the front page of the web interface.</p>
 <p>GitHub will host <strong>Publicly</strong> accessible repositories <strong>free</strong> of charge, but makes a charge for Private ones. <strong>BitBucket</strong> offers free private repositories for teams of up to 5.</p>
 <p>You need to be sure that you really want to make your code publicly accessible, think about <strong>licensing</strong>, and that you’re not breaching the terms of any license of shared code by making it publicly available.</p>
 <p>and then click <strong>“Create Repository”</strong>:</p>
 <div class="figure">
-<img src="img/github-create-repo-02.png" alt="Creating a Repository on GitHub (Step 2)" /><p class="caption">Creating a Repository on GitHub (Step 2)</p>
+<img src="img/github-create-repo-02.png" alt="Creating a Repository on GitHub (Step 2)" />
+<p class="caption">Creating a Repository on GitHub (Step 2)</p>
 </div>
 <h3 id="connecting-the-remote-repository">Connecting the remote repository</h3>
 <p>Our <strong>local</strong> repository still contains our earlier work on <code>climate-analysis.py</code> and <code>temp_conversion.py</code>, but the <strong>remote</strong> repository on GitHub doesn’t contain any files yet:</p>
@@ -86,19 +92,20 @@
 <p>We do this by making the GitHub repository a <a href="reference.html#remote">remote</a> for the local repository. A <strong>remote</strong> is a repository conected to another in such way that both can be kept in sync exchanging commits.</p>
 <p>The home page of the repository on GitHub includes the string we need to identify it:</p>
 <div class="figure">
-<img src="img/github-find-repo-string.png" alt="Where to Find Repository URL on GitHub" /><p class="caption">Where to Find Repository URL on GitHub</p>
+<img src="img/github-find-repo-string.png" alt="Where to Find Repository URL on GitHub" />
+<p class="caption">Where to Find Repository URL on GitHub</p>
 </div>
 <p>Copy that URL from the browser, go back to your local repository, and run this command:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> remote add origin https://github.com/js-robinson/climate-analysis.git</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> remote add origin https://github.com/js-robinson/climate-analysis.git</code></pre></div>
 <p>The name <code>origin</code> is a <strong>local nickname</strong> for your <strong>remote repository</strong>: we <strong>could</strong> use something else if we wanted to, but <code>origin</code> is <strong>conventional</strong>, and will come in useful later.</p>
 <p>Make sure to use the URL for your repository rather than mine! The only difference should be your username instead of <code>js-robinson</code>.</p>
 <p>We can check that the command has worked by running <code>git remote -v</code>:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> remote -v</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> remote -v</code></pre></div>
 <pre class="output"><code>origin  https://github.com/js-robinson/climate-analysis.git (fetch)
 origin  https://github.com/js-robinson/climate-analysis.git (push)</code></pre>
 <h3 id="push-commits-from-local-to-remote">Push commits from local to remote</h3>
 <p>Once the remote is set up, we can <strong>push</strong> the changes from our local repository to the repository on GitHub:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> push origin master</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> push origin master</code></pre></div>
 <pre class="output"><code>Counting objects: 10, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (10/10), done.
@@ -113,7 +120,7 @@ To https://github.com/js-robinson/climate-analysis.git
 <p>So, for <strong>Developer A</strong>, our local and remote repositories are now <strong>in sync</strong>! You can check in your browser that the files have reached your GitHub repository.</p>
 <h3 id="testing-pull">Testing Pull</h3>
 <p><strong>Still as Dev. A</strong> We can <strong>pull</strong> changes from the remote repository to the local one as well:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> pull origin master</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> pull origin master</code></pre></div>
 <pre class="output"><code>From https://github.com/js-robinson/climate-analysis
  * branch            master     -&gt; FETCH_HEAD
 Already up-to-date.</code></pre>
@@ -121,12 +128,13 @@ Already up-to-date.</code></pre>
 <p><strong>Lastly</strong>, let’s <strong>add Developer B</strong> as a collaborator on our project. Return to the repos GitHub page, and click the <strong>Settings</strong> link on the <strong>right</strong>, followed by the <strong>collaborators</strong> link on the <strong>left</strong>. Add Developer B with there GitHub username.</p>
 <h3 id="developer-b---cloning-the-remote-repository">Developer B - Cloning the remote repository</h3>
 <div class="figure">
-<img src="img/slides/version-control-with-git-slides%20-%2022.jpg" alt="Remote Repositories #2" /><p class="caption">Remote Repositories #2</p>
+<img src="img/slides/version-control-with-git-slides%20-%2022.jpg" alt="Remote Repositories #2" />
+<p class="caption">Remote Repositories #2</p>
 </div>
 <p>Now <strong>Developer B gets a go</strong>! - <strong>Developer A</strong>, you can <strong>take a break</strong> and watch.</p>
 <p>First, we need to move away from our own copies of the filse, to avoif confusion. Remember, in this example, Developer B is playing the role of a fresh collaborator on the project</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> clone https://github.com/js-robinson/climate-analysis.git</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> clone https://github.com/js-robinson/climate-analysis.git</code></pre></div>
 <pre class="output"><code>Cloning into &#39;climate-analysis&#39;...
 remote: Counting objects: 10, done.
 remote: Compressing objects: 100% (8/8), done.
@@ -135,13 +143,13 @@ Unpacking objects: 100% (10/10), done.
 Checking connectivity... done.</code></pre>
 <p><code>git clone</code> creates a fresh local copy of a remote repository.</p>
 <p>Let check what we’ve got:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> climate-analysis
-$ <span class="kw">ls</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> climate-analysis
+$ <span class="kw">ls</span></code></pre></div>
 <pre class="output"><code>climate_analysis.py  temp_conversion.py</code></pre>
 <h3 id="developer-b---add-rainfall_conversion.py">Developer B - Add rainfall_conversion.py</h3>
 <p>Lets expand our library of climate analysis functions by adding a new module:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> rainfall_conversion.py
-$ <span class="kw">cat</span> rainfall_conversion.py</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> rainfall_conversion.py
+$ <span class="kw">cat</span> rainfall_conversion.py</code></pre></div>
 <pre class="output"><code>&quot;&quot;&quot;A library to perform rainfall unit conversions&quot;&quot;&quot;
 
 def inches_to_mm(inches):
@@ -152,13 +160,13 @@ def inches_to_mm(inches):
     &quot;&quot;&quot;
     mm = inches * 25.4
     return mm</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add rainfall_conversion.py
-$ <span class="kw">git</span> commit -m <span class="st">&quot;Add rainfall module&quot;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add rainfall_conversion.py
+$ <span class="kw">git</span> commit -m <span class="st">&quot;Add rainfall module&quot;</span></code></pre></div>
 <pre class="output"><code>[master bcbf9be] Add rainfall module
  1 file changed, 11 insertions(+)
  create mode 100644 rainfall_conversion.py</code></pre>
 <p>then push the change to GitHub:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> push origin master</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> push origin master</code></pre></div>
 <pre class="output"><code>Counting objects: 4, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
@@ -169,11 +177,12 @@ To https://github.com/js-robinson/climate-analysis.git
 <p>Note that we <strong>didn’t</strong> have to create a <strong>remote</strong> called <code>origin</code>: Git does this automatically, using that name, when we clone a repository. (This is why <code>origin</code> was a sensible choice earlier when we were setting up remotes by hand.)</p>
 <h3 id="developer-a---pull-in-the-changes">Developer A - Pull in the changes</h3>
 <div class="figure">
-<img src="img/slides/version-control-with-git-slides%20-%2023.jpg" alt="Remote Repositories #3" /><p class="caption">Remote Repositories #3</p>
+<img src="img/slides/version-control-with-git-slides%20-%2023.jpg" alt="Remote Repositories #3" />
+<p class="caption">Remote Repositories #3</p>
 </div>
 <p>Developer A can now update their repository with the changes made by B:</p>
 <p>[** Check Working Directory**]</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> pull origin master</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> pull origin master</code></pre></div>
 <pre class="output"><code>remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (3/3), done.
 remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
@@ -189,7 +198,7 @@ Fast-forward
 <p><strong>Hey look: We’re collaborating!</strong></p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Exercise: Two way collaboration</h2>
+<h2 id="exercise-two-way-collaboration"><span class="glyphicon glyphicon-pencil"></span>Exercise: Two way collaboration</h2>
 </div>
 <div class="panel-body">
 <p>Now lets work it the other way. Developer A can add a brief README.md stating the authors of the package we’re developing (You), and describing its purpose “Tools to parse and convert climate data from CSV” Add / commit them to their local repository and push them to github. Developer B can pull the updates</p>
@@ -202,7 +211,7 @@ Fast-forward
       <div class="footer">
         This work is derived from prior works that are Copyright © <a href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
-        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2015-12-15-Southampton">Source</a>
+        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2016-08-31-Southampton">Source</a>
       </div>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
