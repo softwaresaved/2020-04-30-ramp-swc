@@ -3,6 +3,8 @@ layout: page-md
 title: Software Prerequisites
 ---
 
+[[Home]](https://southampton-rsg.github.io/2016-08-31-southampton/)
+
 **Prior to the workshop, it is vital that you install some software on your laptop and create an account at Github by following the instructions below!**
 
 There is little time during the workshop to deal with installation problems, so it makes the day run much more smoothly if you arrive with your software already installed.
