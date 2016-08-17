@@ -24,7 +24,20 @@ One way to do this is to add *assertions* to our code so that it checks itself a
 -   If *true*, Python does nothing
 -   If *false*, Python halts the program immediately and prints the error message provided
 
-For example, this piece of code halts as soon as the loop encounters a value that isn't positive:
+Let's look at an example. As before, let's start the Python interpreter first (e.g.)...
+
+~~~ {.in}
+$ python
+~~~
+
+~~~ {.output}
+Python 3.4.3 |Anaconda 2.3.0 (x86_64)| (default, Mar  6 2015, 12:07:41) 
+[GCC 4.2.1 (Apple Inc. build 5577)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+~~~
+
+This piece of code halts as soon as the loop encounters a value that isn't positive:
 
 ~~~ {.python}
 numbers = [1.5, 2.3, 0.7, -0.001, 4.4]

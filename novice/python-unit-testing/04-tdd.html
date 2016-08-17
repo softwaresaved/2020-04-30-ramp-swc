@@ -43,9 +43,10 @@
 </section>
 <p>Libraries like <code>nose</code> can’t think of test cases for us. We still have to decide what to test and how many tests to run. Our best guide here is economics: we want the tests that are most likely to give us useful information that we don’t already have. For example, if <code>rectangle_area([0, 0, 1, 1])</code> works, there’s probably not much point testing <code>rectangle_area((0, 0, 2, 2))</code>, since it’s hard to think of a bug that would show up in one case but not in the other.</p>
 <p>We should therefore try to choose tests that are as different from each other as possible, so that we force the code we’re testing to execute in all the different ways it can - to ensure our tests have a high degree of <em>code coverage</em>. Another way of thinking about this is that we should try to find <em>boundary cases</em>. If a function works for zero, one, and a million values, it will probably work for eighteen values.</p>
-<p>Using boundary values as tests has another advantage: it can help us design our software. To see how, consider this test case for our rectangle area function, adding it to test_rectangle2.py and re-running <code>nosetests</code>:</p>
+<p>Using boundary values as tests has another advantage: it can help us design our software. To see how, consider this test case for our rectangle area function, adding it to <code>test_rectangle2.py</code> and re-running <code>nosetests</code>:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> test_inverted_rectangle():
     <span class="cf">assert</span> rectangle_area([<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">2</span>]) <span class="op">==</span> <span class="op">-</span><span class="fl">12.0</span></code></pre></div>
+<pre class="in"><code>$ nosetests test_rectangle2.py</code></pre>
 <pre class="output"><code>....
 ----------------------------------------------------------------------
 Ran 4 tests in 0.001s
@@ -91,7 +92,7 @@ OK</code></pre>
 </div>
 <div class="panel-body">
 <ol style="list-style-type: decimal">
-<li><p>Write a function called <code>addnumbers</code> that passes the following unit tests:</p>
+<li><p>Write a function called <code>addnumbers</code> that adds together all the numbers in a given list and returns the total. Make sure it passes the following unit tests:</p>
 <pre><code>from addnumbers import addnumbers
 
 def test_empty():

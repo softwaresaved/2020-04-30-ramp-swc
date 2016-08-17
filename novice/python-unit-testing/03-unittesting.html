@@ -68,7 +68,7 @@ Traceback (most recent call last):
   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
 AssertionError</code></pre>
 <p>Python halts at the first failed assertion, so the second and third tests aren’t run at all. It would be more helpful if we could get data from all of our tests every time they’re run, since the more information we have, the faster we’re likely to be able to track down bugs. It would also be helpful to have some kind of summary report: if our test suite includes thirty or forty tests (as it well might for a complex function or library that’s widely used), we’d like to know how many passed or failed.</p>
-<p>So - let’s look at the code to see what’s wrong.</p>
+<p>So - let’s look at the code in <code>rectangle2.py</code> to see what’s wrong.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> rectangle_area(coords):
     x0, y0, x1, y1 <span class="op">=</span> coords
     <span class="cf">return</span> (x1 <span class="op">-</span> x0) <span class="op">*</span> (x1 <span class="op">-</span> y0)</code></pre></div>
@@ -85,7 +85,7 @@ AssertionError</code></pre>
 <span class="kw">def</span> test_actual_rectangle():
     <span class="cf">assert</span> rectangle_area([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">7</span>]) <span class="op">==</span> <span class="fl">24.0</span></code></pre></div>
 <p>Next, we can use the <code>nose</code> package to run our tests for us:</p>
-<pre class="in"><code>$ nosetests</code></pre>
+<pre class="in"><code>$ nosetests test_rectangle2.py</code></pre>
 <pre class="output"><code>..F
 ======================================================================
 FAIL: test_rectangle2.test_actual_rectangle

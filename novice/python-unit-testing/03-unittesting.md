@@ -53,7 +53,7 @@ AssertionError
 
 Python halts at the first failed assertion, so the second and third tests aren't run at all. It would be more helpful if we could get data from all of our tests every time they're run, since the more information we have, the faster we're likely to be able to track down bugs. It would also be helpful to have some kind of summary report: if our test suite includes thirty or forty tests (as it well might for a complex function or library that's widely used), we'd like to know how many passed or failed.
 
-So - let's look at the code to see what's wrong.
+So - let's look at the code in `rectangle2.py` to see what's wrong.
 
 ~~~ {.python}
 def rectangle_area(coords):
@@ -81,7 +81,7 @@ def test_actual_rectangle():
 Next, we can use the `nose` package to run our tests for us:
 
 ~~~ {.in}
-$ nosetests
+$ nosetests test_rectangle2.py
 ~~~
 
 ~~~ {.output}

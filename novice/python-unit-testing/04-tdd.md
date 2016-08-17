@@ -14,11 +14,17 @@ Libraries like `nose` can't think of test cases for us. We still have to decide 
 
 We should therefore try to choose tests that are as different from each other as possible, so that we force the code we're testing to execute in all the different ways it can - to ensure our tests have a high degree of *code coverage*. Another way of thinking about this is that we should try to find *boundary cases*. If a function works for zero, one, and a million values, it will probably work for eighteen values.
 
-Using boundary values as tests has another advantage: it can help us design our software. To see how, consider this test case for our rectangle area function, adding it to test_rectangle2.py and re-running `nosetests`:
+Using boundary values as tests has another advantage: it can help us design our software. 
+To see how, consider this test case for our rectangle area function, adding it to 
+`test_rectangle2.py` and re-running `nosetests`:
 
 ~~~ {.python}
 def test_inverted_rectangle():
     assert rectangle_area([1, 5, 5, 2]) == -12.0
+~~~
+
+~~~ {.in}
+$ nosetests test_rectangle2.py
 ~~~
 
 ~~~ {.output}
@@ -79,7 +85,7 @@ trying it a few times helps you learn how to design functions and programs that 
 
 > ## Challenges {.challenge}
 > 
-> 1.  Write a function called `addnumbers` that passes the following unit tests:
+> 1.  Write a function called `addnumbers` that adds together all the numbers in a given list and returns the total. Make sure it passes the following unit tests:
 >     ```
 >     from addnumbers import addnumbers
 > 

@@ -53,7 +53,13 @@
 <li>If <em>true</em>, Python does nothing</li>
 <li>If <em>false</em>, Python halts the program immediately and prints the error message provided</li>
 </ul>
-<p>For example, this piece of code halts as soon as the loop encounters a value that isn’t positive:</p>
+<p>Let’s look at an example. As before, let’s start the Python interpreter first (e.g.)…</p>
+<pre class="in"><code>$ python</code></pre>
+<pre class="output"><code>Python 3.4.3 |Anaconda 2.3.0 (x86_64)| (default, Mar  6 2015, 12:07:41) 
+[GCC 4.2.1 (Apple Inc. build 5577)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; </code></pre>
+<p>This piece of code halts as soon as the loop encounters a value that isn’t positive:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">numbers <span class="op">=</span> [<span class="fl">1.5</span>, <span class="fl">2.3</span>, <span class="fl">0.7</span>, <span class="op">-</span><span class="fl">0.001</span>, <span class="fl">4.4</span>]
 total <span class="op">=</span> <span class="fl">0.0</span>
 <span class="cf">for</span> n <span class="op">in</span> numbers:
