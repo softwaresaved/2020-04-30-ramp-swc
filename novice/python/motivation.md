@@ -31,7 +31,7 @@ subtitle: Why Python?
 - Based on Southampton PhD students software usage survey conducted by SSI's Policy researchers:
      ![](img/wordle2.png)
 
-## We'll be teaching Python3
+## We'll be teaching Python 3
 
 - Python is currently transitioning from version 2 to 3
 - Teaching will be in 3.4
