@@ -28,7 +28,7 @@ subtitle: 0. Introduction
 
 Version control tools, also known as **revision control** or **source control** tools, track **changes** to files.  
 
-### 1. A More Efficient Backup ###
+### 1. A More Efficient Backup + Reproducibility ###
 
 ![Why Use Version Control? #1](img/slides/version-control-with-git-slides - 03.jpg)
 
