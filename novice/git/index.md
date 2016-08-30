@@ -14,6 +14,8 @@ subtitle: 0. Introduction
 6.  [Conflicts](06-conflict.html)
 7.  [Ignoring Things](07-ignore.html)
 
+[Slides to accompany this material](version-control-with-git-slides.pdf)
+
 > ## Learning Objectives {.objectives}
 >
 > *   Understand when version control is useful and how it works
