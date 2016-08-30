@@ -13,15 +13,9 @@ subtitle: Why Python?
 
 ## Why Python?
 
-- Part of the winning formula for productivity, software quality, and maintainability at many institutions and companies across the world
-- Largely being used across various application domains:
-     + Scientific (Bioinformatics, Biology, Computational chemistry, Data visualisation, Scientific programming etc..)
-     + Engineering
-     + Software development
-     + Arts, business, education and government sectors
-
-## Why Python?
-
+- Used at many institutions and companies across the world
+- Largely being used across various application:
+     + Bioinformatics, Biology, Data visualisation, Engineering, Software development, etc.
 - Used for development on the web and the client 
 - Increased productivity:
       + Debugging Python programs is easy: a bad input or bug will show a meaningful error message.
@@ -29,17 +23,13 @@ subtitle: Why Python?
 ## Python is up and coming!
 
 - Based on Southampton PhD students software usage survey conducted by SSI's Policy researchers:
-     ![](img/wordle2.png)
+     ![](img/wordle3.png)
 
 ## We'll be teaching Python 3
 
-- Python is currently transitioning from version 2 to 3
-- Teaching will be in 3.4
-- Lots of new features of Python3
-      + Advanced unpacking
-      + Matrix multiplication
-      + Chained exceptions
-      + Everything is an iterator ...
+- Python 3 is currently the standard version
+- We will be using version 3.4
+- Python 3 has lots more features than Python 2
      
 ## Learning objectives
  
@@ -54,8 +44,8 @@ subtitle: Why Python?
 ## Turning on Python Interpreter
 
 - The interpreter provides an interactive environment to play with the language
-- Open a terminal window and type **python3.4**     
-- If on windows open **Git Bash** (covered in Shell session)
+- Mac/Linux: Open a terminal window and type **python3.4**     
+- Windows: Open **Git Bash**  and type **python**
 - At the prompt type 'hello world!'
   ![](img/hello.png)
 
@@ -114,7 +104,19 @@ subtitle: Why Python?
       
 ## Indexing and Slicing a List Example
 
-![](img/index_slice_list.png)      
+![](img/index_list_odd.png)
+
+## Indexing and Slicing a List Example
+
+![](img/index_list_odd2.png)
+
+## Indexing and Slicing a List Example
+
+![](img/slice_list_odd.png)
+
+## Indexing and Slicing a List Example
+
+![](img/slice_list_string.png)    
               
    
 ## Using Python libraries

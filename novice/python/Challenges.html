@@ -52,7 +52,7 @@ age <span class="op">=</span> age <span class="op">+</span> <span class="dv">20<
 <p>What does the following program print out?</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">first, second <span class="op">=</span> <span class="st">&#39;Grace&#39;</span>, <span class="st">&#39;Hopper&#39;</span>
 third, fourth <span class="op">=</span> second, first
-<span class="bu">print</span> third, fourth</code></pre></div>
+<span class="bu">print</span>(third, fourth)</code></pre></div>
 </div>
 </section>
 <blockquote>
@@ -95,8 +95,8 @@ third, fourth <span class="op">=</span> second, first
 <div class="panel-body">
 <p>A section of an array is called a <a href="../../reference.html#slice">slice</a>. We can take slices of character strings as well:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">element <span class="op">=</span> <span class="st">&#39;oxygen&#39;</span>
-<span class="bu">print</span> <span class="st">&#39;first three characters:&#39;</span>, element[<span class="dv">0</span>:<span class="dv">3</span>]
-<span class="bu">print</span> <span class="st">&#39;last three characters:&#39;</span>, element[<span class="dv">3</span>:<span class="dv">6</span>]</code></pre></div>
+<span class="bu">print</span>(<span class="st">&#39;first three characters:&#39;</span>, element[<span class="dv">0</span>:<span class="dv">3</span>])
+<span class="bu">print</span>(<span class="st">&#39;last three characters:&#39;</span>, element[<span class="dv">3</span>:<span class="dv">6</span>])</code></pre></div>
 </div>
 </section>
 <blockquote>
@@ -152,11 +152,11 @@ third, fourth <span class="op">=</span> second, first
 <li>B and C</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> <span class="dv">4</span> <span class="op">&gt;</span> <span class="dv">5</span>:
-    <span class="bu">print</span> <span class="st">&#39;A&#39;</span>
+    <span class="bu">print</span>(<span class="st">&#39;A&#39;</span>)
 <span class="cf">elif</span> <span class="dv">4</span> <span class="op">&lt;=</span> <span class="dv">5</span>:
-    <span class="bu">print</span> <span class="st">&#39;B&#39;</span>
+    <span class="bu">print</span>(<span class="st">&#39;B&#39;</span>)
 <span class="cf">elif</span> <span class="dv">4</span> <span class="op">&lt;</span> <span class="dv">5</span>:
-    <span class="bu">print</span> <span class="st">&#39;C&#39;</span></code></pre></div>
+    <span class="bu">print</span>(<span class="st">&#39;C&#39;</span>)</code></pre></div>
 </div>
 </section>
 <section class="challenge panel panel-success">

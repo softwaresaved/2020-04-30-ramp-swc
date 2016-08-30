@@ -25,7 +25,7 @@ subtitle: Challenges
 > ~~~ {.python}
 > first, second = 'Grace', 'Hopper'
 > third, fourth = second, first
-> print third, fourth
+> print(third, fourth)
 > ~~~
 
 >## Loops
@@ -65,8 +65,8 @@ subtitle: Challenges
 >
 > ~~~ {.python}
 > element = 'oxygen'
-> print 'first three characters:', element[0:3]
-> print 'last three characters:', element[3:6]
+> print('first three characters:', element[0:3])
+> print('last three characters:', element[3:6])
 > ~~~
 
 > What is the value of `element[:4]`?
@@ -123,11 +123,11 @@ subtitle: Challenges
 > 
 > ~~~ {.python}
 > if 4 > 5:
->     print 'A'
+>     print('A')
 > elif 4 <= 5:
->     print 'B'
+>     print('B')
 > elif 4 < 5:
->     print 'C'
+>     print('C')
 > ~~~
 
 > #### What is truth? {.challenge}

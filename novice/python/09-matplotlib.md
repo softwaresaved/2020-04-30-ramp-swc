@@ -165,6 +165,7 @@ Let's test it by analyzing the first three files in the list:
 ~~~ {.python}
 import numpy
 import matplotlib.pyplot
+import glob
 
 filenames = glob.glob('data/*.csv')
 filenames = filenames[0:3]

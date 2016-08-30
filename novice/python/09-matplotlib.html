@@ -126,6 +126,7 @@ plt.show(fig)</code></pre></div>
 <p>As these examples show, <code>glob.glob</code>’s result is a list of strings, which means we can loop over it to do something with each filename in turn. In our case, the “something” we want to do is generate a set of plots for each file in our inflammation dataset. Let’s test it by analyzing the first three files in the list:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> numpy
 <span class="im">import</span> matplotlib.pyplot
+<span class="im">import</span> glob
 
 filenames <span class="op">=</span> glob.glob(<span class="st">&#39;data/*.csv&#39;</span>)
 filenames <span class="op">=</span> filenames[<span class="dv">0</span>:<span class="dv">3</span>]
