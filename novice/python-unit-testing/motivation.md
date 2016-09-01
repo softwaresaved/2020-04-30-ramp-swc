@@ -71,7 +71,6 @@ Letters – Retraction, Science 22 December 2006
 
 - “if it’s not tested, it’s broken”
     + bittermanandy, 10/09/2010
-- **NO** code duplication (--> bug duplication)     
 
 ## Examples of unit testing frameworks
 
