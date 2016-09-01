@@ -37,12 +37,45 @@
 <div class="panel-body">
 <ul>
 <li>How to choose which unit tests to write to test as much of the code as possible</li>
+<li>How to use code coverage to determine how much of our code is being tested</li>
 <li>Using tests to drive the development of the code, through Test-Driven Development (TDD)</li>
 </ul>
 </div>
 </section>
 <p>Libraries like <code>nose</code> can’t think of test cases for us. We still have to decide what to test and how many tests to run. Our best guide here is economics: we want the tests that are most likely to give us useful information that we don’t already have. For example, if <code>rectangle_area([0, 0, 1, 1])</code> works, there’s probably not much point testing <code>rectangle_area((0, 0, 2, 2))</code>, since it’s hard to think of a bug that would show up in one case but not in the other.</p>
 <p>We should therefore try to choose tests that are as different from each other as possible, so that we force the code we’re testing to execute in all the different ways it can - to ensure our tests have a high degree of <em>code coverage</em>. Another way of thinking about this is that we should try to find <em>boundary cases</em>. If a function works for zero, one, and a million values, it will probably work for eighteen values.</p>
+<p>A simple way to check the code coverage for a set of tests is to use <code>nose</code> to tell us how many statements in our code are being tested. By installing a Python package called <code>coverage</code>, that is used by <code>nose</code>, we can find this out.</p>
+<p>Python has this really handy package manager called <code>pip</code> that you can use to install other Python packages. So let’s see how we would install the coverage package using <code>pip</code>:</p>
+<pre class="in"><code>$ pip install coverage</code></pre>
+<p>And you’ll see something like…</p>
+<pre class="output"><code>Collecting coverage
+  Downloading coverage-4.2.tar.gz (359kB)
+    100% |████████████████████████████████| 360kB 873kB/s 
+Installing collected packages: coverage
+  Running setup.py install for coverage
+Successfully installed coverage-4.2</code></pre>
+<p>Then we can simply ask <code>nose</code> what our code coverage is for our <code>test_rectangle2.py</code> set of tests:</p>
+<pre class="in"><code>$ nosetests --with-coverage test_rectangle2.py</code></pre>
+<p>So we get something like:</p>
+<pre class="output"><code>...
+Name            Stmts   Miss  Cover
+-----------------------------------
+rectangle2.py       3      0   100%
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+OK</code></pre>
+<p>This tells us that three tests have passed, as before, but also tells us the three statements in <code>running.py</code> (the function declaration, the assignment, and returning the calculated value) are all being covered by our tests - 100%! A perfect score, but then we only have three statements! With a larger codebase of a greater number of more complex functions, we need to decide which tests to write to test as much of the code as possible given the amount of time we have to write the tests.</p>
+<p>And so for our <code>test_running.py</code> set of tests we might get:</p>
+<pre class="in"><code>$ nosetests --with-coverage test_running.py</code></pre>
+<pre class="output"><code>....
+Name         Stmts   Miss  Cover
+--------------------------------
+running.py       8      0   100%
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK</code></pre>
 <p>Using boundary values as tests has another advantage: it can help us design our software. To see how, consider this test case for our rectangle area function, adding it to <code>test_rectangle2.py</code>:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> test_inverted_rectangle():
     <span class="cf">assert</span> rectangle_area([<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">2</span>]) <span class="op">==</span> <span class="op">-</span><span class="fl">12.0</span></code></pre></div>
@@ -93,7 +126,7 @@ OK</code></pre>
 </div>
 <div class="panel-body">
 <ol style="list-style-type: decimal">
-<li><p>Write a function called <code>addnumbers</code> that adds together all the numbers in a given list and returns the total. Make sure it passes the following unit tests:</p>
+<li><p>Write a function called <code>addnumbers</code> in <code>addnumbers.py</code> that adds together all the numbers in a given list and returns the total. Make sure it passes the following unit tests:</p>
 <pre><code>from addnumbers import addnumbers
 
 def test_empty():
@@ -109,6 +142,7 @@ def test_three_values():
     assert addnumbers([1, 2, 3]) == 6
 </code></pre>
 <p>(You can find this set of tests in <code>test_addnumbers.py</code>).</p></li>
+<li><p>Use the <code>--with-coverage</code> argument to <code>nose</code> to check your code coverage.</p></li>
 </ol>
 </div>
 </section>

@@ -169,7 +169,13 @@ If someone else had pushed some changes to the repository on GitHub, this comman
 
 Now **Developer B gets a go**! -  **Developer A**, you can **take a break** and watch.
 
-First, we need to move away from our own copies of the filse, to avoif confusion.  Remember, in this example, Developer B is playing the role of a fresh collaborator on the project 
+First, we need to accept Developer A's invitation to collaborate on GitHub.  You will receive an email, but we can avoid the wait by logging into GitHub in our browsers, and visiting the invite link:
+
+~~~ {.bash}
+https://github.com/js-robinson/climate-analysis/invitations
+~~~
+
+Then, we need to move away from our own copies of the filse, to avoif confusion.  Remember, in this example, Developer B is playing the role of a fresh collaborator on the project 
 
 ~~~ {.bash}
 $ cd

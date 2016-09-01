@@ -8,11 +8,69 @@ minutes: 20
 > ## Learning Objectives {.objectives}
 >
 > * How to choose which unit tests to write to test as much of the code as possible
+> * How to use code coverage to determine how much of our code is being tested
 > * Using tests to drive the development of the code, through Test-Driven Development (TDD)
 
 Libraries like `nose` can't think of test cases for us. We still have to decide what to test and how many tests to run. Our best guide here is economics: we want the tests that are most likely to give us useful information that we don't already have. For example, if `rectangle_area([0, 0, 1, 1])` works, there's probably not much point testing `rectangle_area((0, 0, 2, 2))`, since it's hard to think of a bug that would show up in one case but not in the other.
 
 We should therefore try to choose tests that are as different from each other as possible, so that we force the code we're testing to execute in all the different ways it can - to ensure our tests have a high degree of *code coverage*. Another way of thinking about this is that we should try to find *boundary cases*. If a function works for zero, one, and a million values, it will probably work for eighteen values.
+
+A simple way to check the code coverage for a set of tests is to use `nose` to tell us how many statements in our code are being tested. By installing a Python package called `coverage`, that is used by `nose`, we can find this out.
+
+Python has this really handy package manager called `pip` that you can use to install other Python packages. So let's see how we would install the coverage package using `pip`:
+
+~~~ {.in}
+$ pip install coverage
+~~~
+
+And you'll see something like...
+
+~~~ {.output}
+Collecting coverage
+  Downloading coverage-4.2.tar.gz (359kB)
+    100% |████████████████████████████████| 360kB 873kB/s 
+Installing collected packages: coverage
+  Running setup.py install for coverage
+Successfully installed coverage-4.2
+~~~
+
+Then we can simply ask `nose` what our code coverage is for our `test_rectangle2.py` set of tests:
+
+~~~ {.in}
+$ nosetests --with-coverage test_rectangle2.py
+~~~
+
+So we get something like:
+
+~~~ {.output}
+...
+Name            Stmts   Miss  Cover
+-----------------------------------
+rectangle2.py       3      0   100%
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+OK
+~~~
+
+This tells us that three tests have passed, as before, but also tells us the three statements in `running.py` (the function declaration, the assignment, and returning the calculated value) are all being covered by our tests - 100%! A perfect score, but then we only have three statements! With a larger codebase of a greater number of more complex functions, we need to decide which tests to write to test as much of the code as possible given the amount of time we have to write the tests.
+
+And so for our `test_running.py` set of tests we might get:
+
+~~~ {.in}
+$ nosetests --with-coverage test_running.py
+~~~
+
+~~~ {.output}
+....
+Name         Stmts   Miss  Cover
+--------------------------------
+running.py       8      0   100%
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK
+~~~
 
 Using boundary values as tests has another advantage: it can help us design our software. 
 To see how, consider this test case for our rectangle area function, adding it to 
@@ -87,7 +145,7 @@ trying it a few times helps you learn how to design functions and programs that 
 
 > ## Challenges {.challenge}
 > 
-> 1.  Write a function called `addnumbers` that adds together all the numbers in a given list and returns the total. Make sure it passes the following unit tests:
+> 1.  Write a function called `addnumbers` in `addnumbers.py` that adds together all the numbers in a given list and returns the total. Make sure it passes the following unit tests:
 >     ```
 >     from addnumbers import addnumbers
 > 
@@ -105,3 +163,5 @@ trying it a few times helps you learn how to design functions and programs that 
 > 
 >     ```
 >     (You can find this set of tests in `test_addnumbers.py`).
+>
+> 2. Use the `--with-coverage` argument to `nose` to check your code coverage.
