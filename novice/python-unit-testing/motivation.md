@@ -91,9 +91,9 @@ Letters – Retraction, Science 22 December 2006
 
 ## Test Driven Development
 
-1. First write a test
+1. First write a test for a function that doesn't exist yet
 
-2. Write code to pass the test
+2. Write the function to pass the test
 
 3. Clean up the code
 
