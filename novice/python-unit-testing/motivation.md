@@ -122,7 +122,7 @@ Write a function called **addnumbers** in **addnumbers.py** that passes the unit
 
 All **addnumbers** should do is add together all the numbers in a list and return the result.
 
-Use **--with-coverage--** argument with **nose** to check the code coverage of your tests.
+Use **- -with-coverage** argument with **nose** to check the code coverage of your tests.
 
 ## OK, What's the big deal?
 
