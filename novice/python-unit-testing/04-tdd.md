@@ -13,8 +13,6 @@ minutes: 20
 
 Libraries like `nose` can't think of test cases for us. We still have to decide what to test and how many tests to run. Our best guide here is economics: we want the tests that are most likely to give us useful information that we don't already have. For example, if `rectangle_area([0, 0, 1, 1])` works, there's probably not much point testing `rectangle_area((0, 0, 2, 2))`, since it's hard to think of a bug that would show up in one case but not in the other.
 
-We should therefore try to choose tests that are as different from each other as possible, so that we force the code we're testing to execute in all the different ways it can - to ensure our tests have a high degree of *code coverage*. Another way of thinking about this is that we should try to find *boundary cases*. If a function works for zero, one, and a million values, it will probably work for eighteen values.
-
 A simple way to check the code coverage for a set of tests is to use `nose` to tell us how many statements in our code are being tested. By installing a Python package called `coverage`, that is used by `nose`, we can find this out.
 
 Python has this really handy package manager called `pip` that you can use to install other Python packages. So let's see how we would install the coverage package using `pip`:
@@ -71,6 +69,8 @@ Ran 4 tests in 0.001s
 
 OK
 ~~~
+
+Now, we should try to choose tests that are as different from each other as possible, so that we force the code we're testing to execute in all the different ways it can - to ensure our tests have a high degree of *code coverage*. Another way of thinking about this is that we should try to find *boundary cases*. If a function works for zero, one, and a million values, it will probably work for eighteen values.
 
 Using boundary values as tests has another advantage: it can help us design our software. 
 To see how, consider this test case for our rectangle area function, adding it to 
