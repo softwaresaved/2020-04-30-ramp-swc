@@ -8,6 +8,7 @@ minutes: 20
 > ## Learning Objectives {.objectives}
 >
 > * How to choose which unit tests to write to test as much of the code as possible
+> * How to use code coverage to determine how much of our code is being tested
 > * Using tests to drive the development of the code, through Test-Driven Development (TDD)
 
 Libraries like `nose` can't think of test cases for us. We still have to decide what to test and how many tests to run. Our best guide here is economics: we want the tests that are most likely to give us useful information that we don't already have. For example, if `rectangle_area([0, 0, 1, 1])` works, there's probably not much point testing `rectangle_area((0, 0, 2, 2))`, since it's hard to think of a bug that would show up in one case but not in the other.
@@ -144,7 +145,7 @@ trying it a few times helps you learn how to design functions and programs that 
 
 > ## Challenges {.challenge}
 > 
-> 1.  Write a function called `addnumbers` that adds together all the numbers in a given list and returns the total. Make sure it passes the following unit tests:
+> 1.  Write a function called `addnumbers` in `addnumbers.py` that adds together all the numbers in a given list and returns the total. Make sure it passes the following unit tests:
 >     ```
 >     from addnumbers import addnumbers
 > 
