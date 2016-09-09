@@ -43,6 +43,7 @@
 </div>
 </section>
 <p>Libraries like <code>nose</code> can’t think of test cases for us. We still have to decide what to test and how many tests to run. Our best guide here is economics: we want the tests that are most likely to give us useful information that we don’t already have. For example, if <code>rectangle_area([0, 0, 1, 1])</code> works, there’s probably not much point testing <code>rectangle_area((0, 0, 2, 2))</code>, since it’s hard to think of a bug that would show up in one case but not in the other.</p>
+<p>Now, we should try to choose tests that are as different from each other as possible, so that we force the code we’re testing to execute in all the different ways it can - to ensure our tests have a high degree of <em>code coverage</em>.</p>
 <p>A simple way to check the code coverage for a set of tests is to use <code>nose</code> to tell us how many statements in our code are being tested. By installing a Python package called <code>coverage</code>, that is used by <code>nose</code>, we can find this out.</p>
 <p>Python has this really handy package manager called <code>pip</code> that you can use to install other Python packages. So let’s see how we would install the coverage package using <code>pip</code>:</p>
 <pre class="in"><code>$ pip install coverage</code></pre>
@@ -53,8 +54,9 @@
 Installing collected packages: coverage
   Running setup.py install for coverage
 Successfully installed coverage-4.2</code></pre>
-<p>Then we can simply ask <code>nose</code> what our code coverage is for our <code>test_rectangle2.py</code> set of tests:</p>
-<pre class="in"><code>$ nosetests --with-coverage test_rectangle2.py</code></pre>
+<p>Then we can simply ask <code>nose</code> what our code coverage is for our <code>test_rectangle2.py</code> set of tests with the <code>--with-coverage</code> option:</p>
+<pre class="in"><code>$ nosetests --with-coverage --cover-erase test_rectangle2.py</code></pre>
+<p>We also use <code>--cover-erase</code> to make sure we delete any previously collected coverage information from previous coverage analysis.</p>
 <p>So we get something like:</p>
 <pre class="output"><code>...
 Name            Stmts   Miss  Cover
@@ -64,9 +66,9 @@ rectangle2.py       3      0   100%
 Ran 3 tests in 0.002s
 
 OK</code></pre>
-<p>This tells us that three tests have passed, as before, but also tells us the three statements in <code>running.py</code> (the function declaration, the assignment, and returning the calculated value) are all being covered by our tests - 100%! A perfect score, but then we only have three statements! With a larger codebase of a greater number of more complex functions, we need to decide which tests to write to test as much of the code as possible given the amount of time we have to write the tests.</p>
+<p>This tells us that three tests have passed, as before, but also tells us the three statements in <code>rectangle2.py</code> (the function declaration, the assignment, and returning the calculated value) are all being covered by our tests - 100%! A perfect score, but then we only have three statements! With a larger codebase of a greater number of more complex functions, we need to decide which tests to write to test as much of the code as possible given the amount of time we have to write the tests.</p>
 <p>And so for our <code>test_running.py</code> set of tests we might get:</p>
-<pre class="in"><code>$ nosetests --with-coverage test_running.py</code></pre>
+<pre class="in"><code>$ nosetests --with-coverage --cover-erase test_running.py</code></pre>
 <pre class="output"><code>....
 Name         Stmts   Miss  Cover
 --------------------------------
@@ -75,10 +77,10 @@ running.py       8      0   100%
 Ran 4 tests in 0.001s
 
 OK</code></pre>
-<p>Now, we should try to choose tests that are as different from each other as possible, so that we force the code we’re testing to execute in all the different ways it can - to ensure our tests have a high degree of <em>code coverage</em>. Another way of thinking about this is that we should try to find <em>boundary cases</em>. If a function works for zero, one, and a million values, it will probably work for eighteen values.</p>
+<p>One way of thinking about handling code coverage is that we should try to find <em>boundary cases</em>. If a function works for zero, one, and a million values, it will probably work for eighteen values.</p>
 <p>Using boundary values as tests has another advantage: it can help us design our software. To see how, consider this test case for our rectangle area function, adding it to <code>test_rectangle2.py</code>:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> test_inverted_rectangle():
-    <span class="kw">assert</span> rectangle_area([<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">2</span>]) == -<span class="fl">12.0</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> test_inverted_rectangle():
+    <span class="cf">assert</span> rectangle_area([<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">2</span>]) <span class="op">==</span> <span class="op">-</span><span class="fl">12.0</span></code></pre></div>
 <p>Then re-running <code>nosetests</code> gives us…</p>
 <pre class="in"><code>$ nosetests test_rectangle2.py</code></pre>
 <pre class="output"><code>....
@@ -87,18 +89,18 @@ Ran 4 tests in 0.001s
 
 OK</code></pre>
 <p>It passes the test, but is that test correct? i.e., are rectangles with <code>x1&lt;x0</code> or <code>y1&lt;y0</code> legal, and do they have negative area? Or should the test be:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> test_inverted_rectangle():
-    <span class="kw">try</span>:
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> test_inverted_rectangle():
+    <span class="cf">try</span>:
         rectangle_area([<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">2</span>])
-        <span class="kw">assert</span> <span class="ot">False</span>, <span class="st">&#39;Function did not raise exception for invalid rectangle&#39;</span>
-    <span class="kw">except</span> <span class="ot">ValueError</span>:
-        <span class="kw">pass</span> <span class="co"># rectangle_area failed with the expected kind of exception</span>
-    <span class="kw">except</span> <span class="ot">Exception</span>:
-        <span class="kw">assert</span> <span class="ot">False</span>, <span class="st">&#39;Function did not raise correct kind of exception for invalid rectangle&#39;</span></code></pre>
+        <span class="cf">assert</span> <span class="va">False</span>, <span class="st">&#39;Function did not raise exception for invalid rectangle&#39;</span>
+    <span class="cf">except</span> <span class="pp">ValueError</span>:
+        <span class="cf">pass</span> <span class="co"># rectangle_area failed with the expected kind of exception</span>
+    <span class="cf">except</span> <span class="pp">Exception</span>:
+        <span class="cf">assert</span> <span class="va">False</span>, <span class="st">&#39;Function did not raise correct kind of exception for invalid rectangle&#39;</span></code></pre></div>
 <p>The logic in this second version may take a moment to work out, but the idea is straightforward: we want to check that <code>rectangle_area</code> raises a <code>ValueError</code> exception if it’s given a rectangle whose upper edge is below or to the left of its lower edge.</p>
 <p>Here’s another test case that can help us design our software:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> test_zero_width():
-    <span class="kw">assert</span> rectangle_area([<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">8</span>]) == <span class="dv">0</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> test_zero_width():
+    <span class="cf">assert</span> rectangle_area([<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">8</span>]) <span class="op">==</span> <span class="dv">0</span></code></pre></div>
 <p>We might decide that rectangles with negative areas aren’t allowed, but what about rectangles with zero area, i.e., rectangles that are actually lines? Any actual implementation of <code>rectangle_area</code> will do <em>something</em> with one of these; writing unit tests for boundary cases is a good way to specify exactly what that something is.</p>
 <p>Unit tests are actually such a good way to define how functions ought to behave that many programmers use a practice called <em>test-driven development</em> (TDD). Instead of writing code, then figuring out how to test it, these programmers:</p>
 <ol style="list-style-type: decimal">
