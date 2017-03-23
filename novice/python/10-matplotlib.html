@@ -41,59 +41,59 @@
 </div>
 </section>
 <p>The mathematician Richard Hamming once said, “The purpose of computing is insight, not numbers,” and the best way to develop insight is often to visualize data. Visualization deserves an entire lecture (or course) of its own, but we can explore a few features of Python’s <code>matplotlib</code> here. While there is no “official” plotting library, this package is the de facto standard. First, we will import the <code>pyplot</code> module from <code>matplotlib</code> and use two of its functions to create and display a heat map of our data from the previous topic:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> matplotlib <span class="im">import</span> pyplot
-image  <span class="op">=</span> pyplot.imshow(data)
-pyplot.show(image)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> matplotlib <span class="ch">import</span> pyplot
+image  = pyplot.imshow(data)
+pyplot.show(image)</code></pre>
 <div class="figure">
 <img src="01-numpy_files/novice/python/01-numpy_74_0.png" alt="Heatmap of the Data" />
 <p class="caption">Heatmap of the Data</p>
 </div>
 <p>Blue regions in this heat map are low values, while red shows high values. As we can see, inflammation rises and falls over a 40-day period. Let’s take a look at the average inflammation over time:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ave_inflammation <span class="op">=</span> data.mean(axis<span class="op">=</span><span class="dv">0</span>)
-ave_plot <span class="op">=</span> pyplot.plot(ave_inflammation)
-pyplot.show(ave_plot)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">ave_inflammation = data.mean(axis=<span class="dv">0</span>)
+ave_plot = pyplot.plot(ave_inflammation)
+pyplot.show(ave_plot)</code></pre>
 <div class="figure">
 <img src="01-numpy_files/novice/python/01-numpy_76_0.png" alt="Average Inflammation Over Time" />
 <p class="caption">Average Inflammation Over Time</p>
 </div>
 <p>Here, we have put the average per day across all patients in the variable <code>ave_inflammation</code>, then asked <code>pyplot</code> to create and display a line graph of those values. The result is roughly a linear rise and fall, which is suspicious: based on other studies, we expect a sharper rise and slower fall. Let’s have a look at two other statistics:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">max_plot <span class="op">=</span> pyplot.plot(data.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">0</span>))
-pyplot.show(max_plot)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">max_plot = pyplot.plot(data.<span class="dt">max</span>(axis=<span class="dv">0</span>))
+pyplot.show(max_plot)</code></pre>
 <div class="figure">
 <img src="01-numpy_files/novice/python/01-numpy_78_1.png" alt="Maximum Value Along The First Axis" />
 <p class="caption">Maximum Value Along The First Axis</p>
 </div>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">min_plot <span class="op">=</span> pyplot.plot(data.<span class="bu">min</span>(axis<span class="op">=</span><span class="dv">0</span>))
-pyplot.show(min_plot)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">min_plot = pyplot.plot(data.<span class="dt">min</span>(axis=<span class="dv">0</span>))
+pyplot.show(min_plot)</code></pre>
 <div class="figure">
 <img src="01-numpy_files/novice/python/01-numpy_78_3.png" alt="Minimum Value Along The First Axis" />
 <p class="caption">Minimum Value Along The First Axis</p>
 </div>
 <p>The maximum value rises and falls perfectly smoothly, while the minimum seems to be a step function. Neither result seems particularly likely, so either there’s a mistake in our calculations or something is wrong with our data.</p>
 <p>It’s very common to create an <a href="../../reference.html#alias">alias</a> for a library when importing it in order to reduce the amount of typing we have to do. Here are our three plots side by side using aliases for <code>numpy</code> and <code>pyplot</code>:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> numpy <span class="im">as</span> np
-<span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> numpy <span class="ch">as</span> np
+<span class="ch">from</span> matplotlib <span class="ch">import</span> pyplot <span class="ch">as</span> plt
 
-data <span class="op">=</span> np.loadtxt(fname<span class="op">=</span><span class="st">&#39;../data/inflammation-01.csv&#39;</span>, delimiter<span class="op">=</span><span class="st">&#39;,&#39;</span>)
+data = np.loadtxt(fname=<span class="st">&#39;../data/inflammation-01.csv&#39;</span>, delimiter=<span class="st">&#39;,&#39;</span>)
 
-fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">3.0</span>))
+fig = plt.figure(figsize=(<span class="fl">10.0</span>, <span class="fl">3.0</span>))
 
-axes1 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>)
-axes2 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)
-axes3 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>)
+axes1 = fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>)
+axes2 = fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)
+axes3 = fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>)
 
 axes1.set_ylabel(<span class="st">&#39;average&#39;</span>)
-axes1.plot(data.mean(axis<span class="op">=</span><span class="dv">0</span>))
+axes1.plot(data.mean(axis=<span class="dv">0</span>))
 
 axes2.set_ylabel(<span class="st">&#39;max&#39;</span>)
-axes2.plot(data.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">0</span>))
+axes2.plot(data.<span class="dt">max</span>(axis=<span class="dv">0</span>))
 
 axes3.set_ylabel(<span class="st">&#39;min&#39;</span>)
-axes3.plot(data.<span class="bu">min</span>(axis<span class="op">=</span><span class="dv">0</span>))
+axes3.plot(data.<span class="dt">min</span>(axis=<span class="dv">0</span>))
 
 fig.tight_layout()
 
-plt.show(fig)</code></pre></div>
+plt.show(fig)</code></pre>
 <p>Running the above code (present under <code>code</code> directory in the file <code>three-plots.py</code>) may throw the warning as below. If you see the warning, please ignore it.</p>
 <p><code>/Users/user/anaconda/lib/python3.4/site-packages/matplotlib/tight_layout.py:225: UserWarning: tight_layout : falling back to Agg renderer   warnings.warn(&quot;tight_layout : falling back to Agg renderer&quot;)</code></p>
 <p><code>tight_layout</code> still works by falling back to the Agg renderer.</p>
@@ -119,48 +119,45 @@ plt.show(fig)</code></pre></div>
 </div>
 </section>
 <p>We now have almost everything we need to process all our data files. The only thing that’s missing is a library with a rather unpleasant name:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> glob</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> glob</code></pre>
 <p>The <code>glob</code> library contains a single function, also called <code>glob</code>, that finds files whose names match a pattern. We provide those patterns as strings: the character <code>*</code> matches zero or more characters, while <code>?</code> matches any one character. We can use this to get the names of all the HTML files in the current directory:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(glob.glob(<span class="st">&#39;*.html&#39;</span>))</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="dt">print</span>(glob.glob(<span class="st">&#39;*.html&#39;</span>))</code></pre>
 <pre class="output"><code>[&#39;01-numpy.html&#39;, &#39;02-loop.html&#39;, &#39;03-lists.html&#39;, &#39;04-files.html&#39;, &#39;05-cond.html&#39;, &#39;06-func.html&#39;, &#39;07-errors.html&#39;, &#39;08-defensive.html&#39;, &#39;09-debugging.html&#39;, &#39;10-cmdline.html&#39;, &#39;index.html&#39;, &#39;LICENSE.html&#39;, &#39;instructors.html&#39;, &#39;README.html&#39;, &#39;discussion.html&#39;, &#39;reference.html&#39;]</code></pre>
 <p>As these examples show, <code>glob.glob</code>’s result is a list of strings, which means we can loop over it to do something with each filename in turn. In our case, the “something” we want to do is generate a set of plots for each file in our inflammation dataset. Let’s test it by analyzing the first three files in the list:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> numpy
-<span class="im">import</span> matplotlib.pyplot
-<span class="im">import</span> glob
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> numpy
+<span class="ch">import</span> matplotlib.pyplot
+<span class="ch">import</span> glob
 
-filenames <span class="op">=</span> glob.glob(<span class="st">&#39;data/*.csv&#39;</span>)
-filenames <span class="op">=</span> filenames[<span class="dv">0</span>:<span class="dv">3</span>]
-<span class="cf">for</span> f <span class="op">in</span> filenames:
-    <span class="bu">print</span>(f)
+filenames = glob.glob(<span class="st">&#39;data/*.csv&#39;</span>)
+filenames = filenames[<span class="dv">0</span>:<span class="dv">3</span>]
+<span class="kw">for</span> f in filenames:
+    <span class="dt">print</span>(f)
 
-    data <span class="op">=</span> numpy.loadtxt(fname<span class="op">=</span>f, delimiter<span class="op">=</span><span class="st">&#39;,&#39;</span>)
+    data = numpy.loadtxt(fname=f, delimiter=<span class="st">&#39;,&#39;</span>)
 
-    fig <span class="op">=</span> matplotlib.pyplot.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">3.0</span>))
+    fig = matplotlib.pyplot.figure(figsize=(<span class="fl">10.0</span>, <span class="fl">3.0</span>))
 
-    axes1 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>)
-    axes2 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)
-    axes3 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>)
+    axes1 = fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>)
+    axes2 = fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)
+    axes3 = fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>)
 
     axes1.set_ylabel(<span class="st">&#39;average&#39;</span>)
-    axes1.plot(data.mean(axis<span class="op">=</span><span class="dv">0</span>))
+    axes1.plot(data.mean(axis=<span class="dv">0</span>))
 
     axes2.set_ylabel(<span class="st">&#39;max&#39;</span>)
-    axes2.plot(data.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">0</span>))
+    axes2.plot(data.<span class="dt">max</span>(axis=<span class="dv">0</span>))
 
     axes3.set_ylabel(<span class="st">&#39;min&#39;</span>)
-    axes3.plot(data.<span class="bu">min</span>(axis<span class="op">=</span><span class="dv">0</span>))
+    axes3.plot(data.<span class="dt">min</span>(axis=<span class="dv">0</span>))
 
     fig.tight_layout()
-    plt.show(fig)</code></pre></div>
+    plt.show(fig)</code></pre>
 <pre class="output"><code>inflammation-01.csv</code></pre>
-<p><img src="img/03-loop_49_1.png" alt="Analysis of inflammation-01.csv" /><br />
-</p>
+<p><img src="img/03-loop_49_1.png" alt="Analysis of inflammation-01.csv" /><br /></p>
 <pre class="output"><code>inflammation-02.csv</code></pre>
-<p><img src="img/03-loop_49_3.png" alt="Analysis of inflammation-02.csv" /><br />
-</p>
+<p><img src="img/03-loop_49_3.png" alt="Analysis of inflammation-02.csv" /><br /></p>
 <pre class="output"><code>inflammation-03.csv</code></pre>
-<p><img src="img/03-loop_49_5.png" alt="Analysis of inflammation-03.csv" /><br />
-Sure enough, the maxima of the first two data sets show exactly the same ramp as the first, and their minima show the same staircase structure; a different situation has been revealed in the third dataset, where the maxima are a bit less regular, but the minima are consistently zero.</p>
+<p><img src="img/03-loop_49_5.png" alt="Analysis of inflammation-03.csv" /><br /> Sure enough, the maxima of the first two data sets show exactly the same ramp as the first, and their minima show the same staircase structure; a different situation has been revealed in the third dataset, where the maxima are a bit less regular, but the minima are consistently zero.</p>
         </div>
       </div>
       </article>

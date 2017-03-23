@@ -309,7 +309,11 @@ so we should always use it when we can.
 > ## From 1 to N {.challenge}
 >
 > Python has a built-in function called `range` that creates a list of numbers:
-> `range(3)` produces `[0, 1, 2]`, `range(2, 5)` produces `[2, 3, 4]`.
+> `range(3)` produces `[0, 1, 2]` (thus starting at `0` if only one parameter
+> is supplied), whilst `range(2, 5)` produces `[2, 3, 4]`. By default, `range`
+> increments the number by one each time.
+> If we specify three parameters, e.g. `range(3, 10, 3)`, the third parameter
+> indicates how much to increase the number by each time, so we get `[3, 6, 9]`.
 > Using `range`,
 > write a loop to print the first 3 natural numbers:
 >
@@ -318,6 +322,13 @@ so we should always use it when we can.
 > 2
 > 3
 > ~~~
+>
+> > ## Solution {.solution}
+> > ~~~
+> > for i in range(1, 4):
+> >    print(i)
+> > ~~~
+
 
 > ## Computing powers with loops {.challenge}
 >

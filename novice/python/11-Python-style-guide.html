@@ -49,79 +49,74 @@
 <li>Put comments on lines of their own, rather than to the right of code</li>
 </ul>
 <p>Here are some basic python style rules listed in a table below:</p>
-<table style="width:58%;">
-<colgroup>
-<col width="20%" />
-<col width="19%" />
-<col width="18%" />
-</colgroup>
+<table>
 <thead>
 <tr class="header">
-<th><strong>Rule</strong></th>
-<th><strong>Good</strong></th>
-<th><strong>Bad</strong></th>
+<th align="left"><strong>Rule</strong></th>
+<th align="left"><strong>Good</strong></th>
+<th align="left"><strong>Bad</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>No whitespace immediately inside parentheses or before the parenthesis starting indexing or slicing</td>
-<td><code>max(candidates[sublist])</code></td>
-<td><code>max( candidates[ sublist ] )</code> , <code>max (candidates [sublist] )</code></td>
+<td align="left">No whitespace immediately inside parentheses or before the parenthesis starting indexing or slicing</td>
+<td align="left"><code>max(candidates[sublist])</code></td>
+<td align="left"><code>max( candidates[ sublist ] )</code> , <code>max (candidates [sublist] )</code></td>
 </tr>
 <tr class="even">
-<td>No whitespace immediately before comma or colon</td>
-<td><code>if limit &gt; 0: print minimum, limit</code></td>
-<td><code>if limit &gt; 0 : print minimum , limit</code></td>
+<td align="left">No whitespace immediately before comma or colon</td>
+<td align="left"><code>if limit &gt; 0: print minimum, limit</code></td>
+<td align="left"><code>if limit &gt; 0 : print minimum , limit</code></td>
 </tr>
 <tr class="odd">
-<td>Use space around arithmetic and in-place operators</td>
-<td><code>x += 3 * 5</code></td>
-<td><code>x+=3*5</code></td>
+<td align="left">Use space around arithmetic and in-place operators</td>
+<td align="left"><code>x += 3 * 5</code></td>
+<td align="left"><code>x+=3*5</code></td>
 </tr>
 <tr class="even">
-<td>No spaces when specifying default parameter values</td>
-<td><code>def integrate(func, start=0.0, interval=1.0)</code></td>
-<td><code>def integrate(func, start = 0.0, interval = 1.0)</code></td>
+<td align="left">No spaces when specifying default parameter values</td>
+<td align="left"><code>def integrate(func, start=0.0, interval=1.0)</code></td>
+<td align="left"><code>def integrate(func, start = 0.0, interval = 1.0)</code></td>
 </tr>
 <tr class="odd">
-<td>Never use names that are distinguished only by <code>&quot;l&quot;</code>, <code>&quot;1&quot;</code>, <code>&quot;0&quot;</code>, or <code>&quot;O&quot;</code></td>
-<td><code>tempo_long</code> and <code>tempo_init</code></td>
-<td><code>tempo_l</code> and <code>tempo_1</code></td>
+<td align="left">Never use names that are distinguished only by <code>&quot;l&quot;</code>, <code>&quot;1&quot;</code>, <code>&quot;0&quot;</code>, or <code>&quot;O&quot;</code></td>
+<td align="left"><code>tempo_long</code> and <code>tempo_init</code></td>
+<td align="left"><code>tempo_l</code> and <code>tempo_1</code></td>
 </tr>
 <tr class="even">
-<td>Short lower-case names for modules (i.e., files)</td>
-<td><code>geology</code></td>
-<td><code>Geology</code> or <code>geology_package</code></td>
+<td align="left">Short lower-case names for modules (i.e., files)</td>
+<td align="left"><code>geology</code></td>
+<td align="left"><code>Geology</code> or <code>geology_package</code></td>
 </tr>
 <tr class="odd">
-<td>Upper case with underscores for constants</td>
-<td><code>TOLERANCE</code> or <code>MAX_AREA</code></td>
-<td><code>Tolerance</code> or <code>MaxArea</code></td>
+<td align="left">Upper case with underscores for constants</td>
+<td align="left"><code>TOLERANCE</code> or <code>MAX_AREA</code></td>
+<td align="left"><code>Tolerance</code> or <code>MaxArea</code></td>
 </tr>
 <tr class="even">
-<td>Camel case for class names</td>
-<td><code>SingleVariableIntegrator</code></td>
-<td><code>single_variable_integrator</code></td>
+<td align="left">Camel case for class names</td>
+<td align="left"><code>SingleVariableIntegrator</code></td>
+<td align="left"><code>single_variable_integrator</code></td>
 </tr>
 <tr class="odd">
-<td>Lowercase with underscores for function and method names</td>
-<td><code>divide_region</code></td>
-<td><code>divRegion</code></td>
+<td align="left">Lowercase with underscores for function and method names</td>
+<td align="left"><code>divide_region</code></td>
+<td align="left"><code>divRegion</code></td>
 </tr>
 <tr class="even">
-<td>and member variables</td>
-<td><code>max_so_far</code></td>
-<td><code>maxSoFar</code></td>
+<td align="left">and member variables</td>
+<td align="left"><code>max_so_far</code></td>
+<td align="left"><code>maxSoFar</code></td>
 </tr>
 <tr class="odd">
-<td>Use <code>is</code> and <code>is not</code> when comparing to special values</td>
-<td><code>if current is not None:</code></td>
-<td><code>if current != None:</code></td>
+<td align="left">Use <code>is</code> and <code>is not</code> when comparing to special values</td>
+<td align="left"><code>if current is not None:</code></td>
+<td align="left"><code>if current != None:</code></td>
 </tr>
 <tr class="even">
-<td>Use <code>isinstance</code> when checking types</td>
-<td><code>if isinstance(current, Rock):</code></td>
-<td><code>if type(current) == Rock:</code></td>
+<td align="left">Use <code>isinstance</code> when checking types</td>
+<td align="left"><code>if isinstance(current, Rock):</code></td>
+<td align="left"><code>if type(current) == Rock:</code></td>
 </tr>
 </tbody>
 </table>

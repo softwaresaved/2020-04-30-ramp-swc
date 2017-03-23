@@ -130,8 +130,9 @@ print('last three characters:', element[3:6])
 first three characters: oxy
 last three characters: gen
 ~~~
+
 >
-> ##Slicing strings challenge{.challenge}
+> ## Slicing strings {.challenge}
 >
 > What is the value of `element[:4]`?
 > What about `element[4:]`?
@@ -315,3 +316,94 @@ myList.append(1)
 ~~~
 
 This works but it only works if we need to build up the list in this particular order - which most of the time you want to do anyway.
+
+> ## Turn a String Into a List {.challenge}
+>
+> Use a for-loop to convert the string "hello" into a list of letters:
+>
+> ~~~ {.python}
+> ["h", "e", "l", "l", "o"]
+> ~~~
+>
+> Hint: You can create an empty list like this:
+>
+> ~~~ {.python}
+> my_list = []
+> ~~~
+>
+> > ## Solution {.solution}
+> > ~~~
+> > my_list = []
+> > for char in "hello":
+> >     my_list.append(char)
+> > print(my_list)
+> > ~~~
+
+> ## Slicing From the End {.challenge}
+>
+> Use slicing to access only the last four characters of a string or entries of a list.
+>
+> ~~~ {.python}
+> string_for_slicing = "Observation date: 02-Feb-2013"
+> list_for_slicing = [["fluorine", "F"], ["chlorine", "Cl"], ["bromine", "Br"], ["iodine", "I"], ["astatine", "At"]]
+> ~~~
+>
+> ~~~ {.output}
+> "2013"
+> [["chlorine", "Cl"], ["bromine", "Br"], ["iodine", "I"], ["astatine", "At"]]
+> ~~~
+>
+> Would your solution work regardless of whether you knew beforehand
+> the length of the string or list
+> (e.g. if you wanted to apply the solution to a set of lists of different 
+> lengths)?
+> If not, try to change your approach to make it more robust.
+>
+> > ## Solution {.solution}
+> > Use negative indices to count elements from the end of a container
+> > (such as list or string):
+> >
+> > ~~~ {.python}
+> > string_for_slicing[-4:]
+> > list_for_slicing[-4:]
+> > ~~~
+
+> ## Overloading {.challenge}
+>
+> `+` usually means addition, but when used on strings or lists, it means
+> "concatenate".
+> Given that, what do you think the multiplication operator `*` does on lists?
+> In particular, what will be the output of the following code?
+>
+> ~~~ {.python}
+> counts = [2, 4, 6, 8, 10]
+> repeats = counts * 2
+> print(repeats)
+> ~~~
+>
+> 1.  `[2, 4, 6, 8, 10, 2, 4, 6, 8, 10]`
+> 2.  `[4, 8, 12, 16, 20]`
+> 3.  `[[2, 4, 6, 8, 10],[2, 4, 6, 8, 10]]`
+> 4.  `[2, 4, 6, 8, 10, 4, 8, 12, 16, 20]`
+>
+> The technical term for this is *operator overloading*:
+> a single operator, like `+` or `*`,
+> can do different things depending on what it's applied to.
+>
+> > ## Solution {.solution}
+> >
+> > The multiplication operator `*` used on a list replicates elements of the 
+> > list and concatenates them together:
+> >
+> > ~~~ {.output}
+> > [2, 4, 6, 8, 10, 2, 4, 6, 8, 10]
+> > ~~~
+> >
+> > It's equivalent to:
+> >
+> > ~~~ {.python}
+> > counts + counts
+> > ~~~
+> >
+> > So using `*` on lists works in a similar way as it does on strings.
+> > Where Python employs overloading, it tries to be consistent!

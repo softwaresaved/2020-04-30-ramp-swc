@@ -46,14 +46,14 @@
 <!-- ** Mention CSV specific library -->
 <h3 id="printing-out-the-contents-of-a-data-file">Printing out the contents of a data file</h3>
 <p>We first need to be able to read in our data from the <code>sc_climate_data_10.csv</code> file, and using a loop, print out each line. Let’s write another script called <code>climate_analysis.py</code>, and enter the following:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">climate_data <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
+<pre class="sourceCode python"><code class="sourceCode python">climate_data = <span class="dt">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
 
-<span class="cf">for</span> line <span class="op">in</span> climate_data:
-    <span class="bu">print</span>(line)</code></pre></div>
+<span class="kw">for</span> line in climate_data:
+    <span class="dt">print</span>(line)</code></pre>
 <p>Using <code>open</code>, we first specify the file we wish to open, and then include how we want to use that file. If we wanted to open a file to write to, we would use ‘w’, but in this case, we specify <code>r</code> for reading.</p>
 <p>In general, we know that a loop will iterate over a collection and set a loop variable to be each item in that collection. When Python deals with files, it does something quite helpful in a loop. By specifying <code>climate_data</code> as our collection, it reads in a single line at a time from our data file, assigning it to our <code>line</code> loop control variable.</p>
 <p>We can run our code with:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">python</span> climate_analysis.py</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">python</span> climate_analysis.py</code></pre>
 <p>And we get the following output:</p>
 <pre><code># POINT_X,POINT_Y,Min_temp_Jul_F,Max_temp_jul_F,Rainfall_jul_inch
 
@@ -78,7 +78,7 @@
 299196.8188,972890.0521,48.07,61.41,0.78
 </code></pre>
 <p>Hmmm… but that’s not really perfect, since it’s also printing out additional newlines which exist at the end of each line in our data file. We can remove them by stripping them out, using <code>rstrip</code>, a function that works on strings. We can use it like:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">    <span class="bu">print</span>(line.rstrip())</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">    <span class="dt">print</span>(line.rstrip())</code></pre>
 <p>So what’s happening here?</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
@@ -93,10 +93,10 @@
 </div>
 </aside>
 <p>So, let’s try that out:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">climate_data <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
+<pre class="sourceCode python"><code class="sourceCode python">climate_data = <span class="dt">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
 
-<span class="cf">for</span> line <span class="op">in</span> climate_data:
-    <span class="bu">print</span>(line.rstrip())</code></pre></div>
+<span class="kw">for</span> line in climate_data:
+    <span class="dt">print</span>(line.rstrip())</code></pre>
 <p>And now we get:</p>
 <pre><code># POINT_X,POINT_Y,Min_temp_Jul_F,Max_temp_jul_F,Rainfall_jul_inch
 461196.8188,1198890.052,47.77,58.53,0.76
@@ -114,16 +114,16 @@
 <p>But we’re not being very discriminating with our data, we’re just blindly printing out everything. Since we need to process the individual column that represents the maximum temperature for July, the 4th one, how do we extract it from the line of data?</p>
 <p>As luck (or more likely, good design) would have it, there’s a handy string method called <code>split()</code> which can separate all the columns into a list.</p>
 <p>We’ve seen how we can trim trailing newlines from strings with <code>rstrip()</code> acting on a string object. Well, we use <code>split()</code> in exactly the same way:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">    data <span class="op">=</span> line.split(<span class="st">&#39;,&#39;</span>)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">    data = line.split(<span class="st">&#39;,&#39;</span>)</code></pre>
 <p>Although in this case, we’re capturing the returned list from <code>split()</code> into a variable called <code>data</code>. We can access elements in that list as before.</p>
 <p>So, let’s change our code accordingly:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">climate_data <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
+<pre class="sourceCode python"><code class="sourceCode python">climate_data = <span class="dt">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
 
-<span class="cf">for</span> line <span class="op">in</span> climate_data:
-    data <span class="op">=</span> line.split(<span class="st">&#39;,&#39;</span>)
+<span class="kw">for</span> line in climate_data:
+    data = line.split(<span class="st">&#39;,&#39;</span>)
 
     <span class="co"># print 4th column (max temperature)</span>
-    <span class="bu">print</span>(<span class="st">&#39;Max temperature&#39;</span>, data[<span class="dv">3</span>])</code></pre></div>
+    <span class="dt">print</span>(<span class="st">&#39;Max temperature&#39;</span>, data[<span class="dv">3</span>])</code></pre>
 <p>Now, it’s important to remember that the column we want, the maximum temperature, is the 4th column. But in Python list indexes start at 0, so in fact we need to obtain the value from <code>data[3]</code> and <strong>not</strong> <code>data[4]</code>. So, we have made a note to that effect in a <em>comment</em>.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">

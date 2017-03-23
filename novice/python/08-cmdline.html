@@ -46,31 +46,31 @@
 <p>Fortunately, Python can handle <strong>command line arguments</strong>, which are passed to our script in the list <code>sys.argv[]</code> we we can use. This feature is provided by the Python standard <code>sys</code> library, so similarly to how we imported our temperature conversion functions, we need to import the <code>sys</code> library.</p>
 <p>The first argument (<code>sys.argv[0]</code>) always contains the name of the script, with the arguments passed in as <code>sys.argv[1]</code>, <code>sys.argv[2]</code>, etc.</p>
 <p>So we can change our script to handle a filename argument:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
-<span class="im">import</span> temp_conversion
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sys
+<span class="ch">import</span> temp_conversion
 
-filename <span class="op">=</span> sys.argv[<span class="dv">1</span>]
+filename = sys.argv[<span class="dv">1</span>]
 
-climate_data <span class="op">=</span> <span class="bu">open</span>(filename, <span class="st">&#39;r&#39;</span>)
+climate_data = <span class="dt">open</span>(filename, <span class="st">&#39;r&#39;</span>)
 
-<span class="cf">for</span> line <span class="op">in</span> climate_data:
-    data <span class="op">=</span> line.split(<span class="st">&#39;,&#39;</span>)
+<span class="kw">for</span> line in climate_data:
+    data = line.split(<span class="st">&#39;,&#39;</span>)
 
-    <span class="cf">if</span> data[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">==</span> <span class="st">&#39;#&#39;</span>:
+    <span class="kw">if</span> data[<span class="dv">0</span>][<span class="dv">0</span>] == <span class="st">&#39;#&#39;</span>:
         <span class="co"># don&#39;t want to process comment lines, which start with &#39;#&#39;</span>
-        <span class="cf">pass</span>
-    <span class="cf">else</span>:
+        <span class="kw">pass</span>
+    <span class="kw">else</span>:
         <span class="co"># extract our max temperature in Fahrenheit - 4th column</span>
-        fahr <span class="op">=</span> <span class="bu">float</span>(data[<span class="dv">3</span>])
+        fahr = <span class="dt">float</span>(data[<span class="dv">3</span>])
 
         <span class="co"># don&#39;t process invalid temperature readings of -9999</span>
-        <span class="cf">if</span> fahr <span class="op">!=</span> <span class="op">-</span><span class="dv">9999</span>:
-            celsius <span class="op">=</span> temp_conversion.fahr_to_celsius(fahr)
-            kelvin <span class="op">=</span> temp_conversion.fahr_to_kelvin(fahr)
+        <span class="kw">if</span> fahr != -<span class="dv">9999</span>:
+            celsius = temp_conversion.fahr_to_celsius(fahr)
+            kelvin = temp_conversion.fahr_to_kelvin(fahr)
 
-            <span class="bu">print</span>(<span class="st">&#39;Max temperature in Celsius&#39;</span>, celsius, <span class="st">&#39;Kelvin&#39;</span>, kelvin)</code></pre></div>
+            <span class="dt">print</span>(<span class="st">&#39;Max temperature in Celsius&#39;</span>, celsius, <span class="st">&#39;Kelvin&#39;</span>, kelvin)</code></pre>
 <p>And if we run that from the shell, with</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">python</span> climate_analysis.py ../data/sc_climate_data_10.csv</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">python</span> climate_analysis.py ../data/sc_climate_data_10.csv</code></pre>
 <p>So we pass in the filename as argument that gets picked up and used. Handy! When we run it, we get the following (same as before):</p>
 <pre><code>Max temperature in Celsius 14.73888888888889 Kelvin 287.88888888888886
 Max temperature in Celsius 14.777777777777779 Kelvin 287.92777777777775
@@ -84,7 +84,7 @@ Max temperature in Celsius 16.261111111111113 Kelvin 289.4111111111111
 Max temperature in Celsius 16.33888888888889 Kelvin 289.4888888888889</code></pre>
 <h2 id="running-our-script-on-other-data-files">Running our script on other data files</h2>
 <p>But now we can run it on any file, for example:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">python</span> climate_analysis.py ../data/sc_climate_data_1000.csv</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">python</span> climate_analysis.py ../data/sc_climate_data_1000.csv</code></pre>
 <p>But wait!</p>
 <pre><code>Max temperature in Celsius 14.73888888888889 Kelvin 287.88888888888886
 Max temperature in Celsius 14.777777777777779 Kelvin 287.92777777777775
@@ -102,12 +102,12 @@ Max temperature in Celsius 16.077777777777776 Kelvin 289.22777777777776
 <p>What’s this <code>-5572.777777777778</code>? If we look at our <code>sc_climate_data_1000.csv</code> file, we can see there are some maximum temperature values of -9999. As it turns out, this value represents an invalid temperature reading!</p>
 <p>This is a consequence of dealing with real data, and sometimes we need to be able to deal with anomalies such as this. In particular, we should make sure we fully understand the data we are using, and what it means. Otherwise, we run the risk of making assumptions and processing the data incorrectly.</p>
 <p>In this case, we can fix our code by adding in a condition:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">        <span class="co"># don&#39;t process invalid temperature readings of -9999</span>
-        <span class="cf">if</span> fahr <span class="op">!=</span> <span class="op">-</span><span class="dv">9999</span>:
-            celsius <span class="op">=</span> temp_conversion.fahr_to_celsius(fahr)
-            kelvin <span class="op">=</span> temp_conversion.fahr_to_kelvin(fahr)
+<pre class="sourceCode python"><code class="sourceCode python">        <span class="co"># don&#39;t process invalid temperature readings of -9999</span>
+        <span class="kw">if</span> fahr != -<span class="dv">9999</span>:
+            celsius = temp_conversion.fahr_to_celsius(fahr)
+            kelvin = temp_conversion.fahr_to_kelvin(fahr)
 
-            <span class="bu">print</span>(<span class="st">&#39;Max temperature in Celsius&#39;</span>, celsius, <span class="st">&#39;Kelvin&#39;</span>, kelvin)</code></pre></div>
+            <span class="dt">print</span>(<span class="st">&#39;Max temperature in Celsius&#39;</span>, celsius, <span class="st">&#39;Kelvin&#39;</span>, kelvin)</code></pre>
 <p>So in this special case, we ensure that we aren’t processing these invalid values. In practice, we’d also need to make sure that any conclusions we may reach from processing the data in this way are also still valid.</p>
 <h2 id="adding-in-a-checks-for-the-right-number-of-arguments">Adding in a checks for the right number of arguments</h2>
 <p>But if we (or someone else) runs our script accidentally with no filename, we get:</p>
@@ -117,8 +117,8 @@ Max temperature in Celsius 16.077777777777776 Kelvin 289.22777777777776
 IndexError: list index out of range</code></pre>
 <p>Since our filename is reading from an element in <code>sys.argv</code> that isn’t present. This is not very helpful! To make it easier to diagnose such problems, we can implement a simple check to ensure the right number of arguments are given to our script.</p>
 <p>Insert the following before the <code>filename</code> assignment:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">script <span class="op">=</span> sys.argv[<span class="dv">0</span>]
-<span class="cf">assert</span> <span class="bu">len</span>(sys.argv) <span class="op">==</span> <span class="dv">2</span>, script <span class="op">+</span> <span class="st">&quot;: requires filename&quot;</span></code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">script = sys.argv[<span class="dv">0</span>]
+<span class="kw">assert</span> <span class="dt">len</span>(sys.argv) == <span class="dv">2</span>, script + <span class="st">&quot;: requires filename&quot;</span></code></pre>
 <p>Here, we use the Python <code>assert</code> statement, which accepts a condition and a string to output if the condition is false, to <strong>assert</strong> that we have only 2 arguments. If not, an error message is displayed.</p>
 <p>Now when we run it with no arguments, we get:</p>
 <pre><code>Traceback (most recent call last):
@@ -129,10 +129,10 @@ AssertionError: climate_analysis.py: requires filename</code></pre>
 <h2 id="using-our-script-in-a-pipeline">Using our script in a pipeline</h2>
 <p>Currently, our script outputs some friendly text to show what the data means. But when it comes to using it within a pipeline, where we might process the output data in some way, the additional text may make this more difficult.</p>
 <p>Assuming we’ve documented our code properly and the nature of the output is clearly understood, we can simplify the output by changing the <code>print()</code> statement:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">            <span class="bu">print</span>(<span class="bu">str</span>(celsius)<span class="op">+</span><span class="st">&quot;, &quot;</span><span class="op">+</span><span class="bu">str</span>(kelvin))</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">            <span class="dt">print</span>(<span class="dt">str</span>(celsius)+<span class="st">&quot;, &quot;</span>+<span class="dt">str</span>(kelvin))</code></pre>
 <p>Here, we are using Python’s <code>+</code> operator to <strong>concatenate</strong> strings together, so we can get output such as <code>20.561111111111114, 293.7111111111111</code>.</p>
 <p>We could run the script now in a pipeline, for example, to get the first 10 rows of output:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">python</span> climate_analysis-12.py ../data/sc_climate_data_1000.csv <span class="kw">|</span> <span class="kw">head</span> -10</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">python</span> climate_analysis-12.py ../data/sc_climate_data_1000.csv <span class="kw">|</span> <span class="kw">head</span> -10</code></pre>
 <p>But now we get a really odd error:</p>
 <pre><code>...
 Traceback (most recent call last):
@@ -143,10 +143,10 @@ Exception ignored in: &lt;_io.TextIOWrapper name=&#39;&lt;stdout&gt;&#39; mode=&
 BrokenPipeError: [Errno 32] Broken pipe</code></pre>
 <p>This is an odd consequence of using Python in a command line pipeline — it doesn’t cope with piping output to other commands very well.</p>
 <p>We can fix this by including the following at the top, after our <code>temp_conversion</code> import:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> signal
-signal.signal(signal.SIGPIPE, signal.SIG_DFL)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> signal
+signal.signal(signal.SIGPIPE, signal.SIG_DFL)</code></pre>
 <p>We’re telling our Python script to ignore any pipe errors — not ideal, but solves our problem. We can now do things like:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">python</span> climate_analysis-12.py ../data/sc_climate_data_1000.csv <span class="kw">|</span> <span class="kw">wc</span> -l</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">python</span> climate_analysis-12.py ../data/sc_climate_data_1000.csv <span class="kw">|</span> <span class="kw">wc</span> -l</code></pre>
 <p>Which tells us the number of lines it processed, taking into account the -9999 values it ignored:</p>
 <pre><code>     923</code></pre>
 <aside class="callout panel panel-info">
