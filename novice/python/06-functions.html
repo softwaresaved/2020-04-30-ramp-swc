@@ -79,8 +79,10 @@ Max temperature in Celsius 16.33888888888889
 Max temperature in Celsius 16.261111111111113
 Max temperature in Celsius 16.33888888888889</code></pre>
 <h3 id="modularising-conversion-code-into-a-function">Modularising conversion code into a function</h3>
-<p>Whilst this is a simple calculation, there are many things we may want to do that are more complex. What is essentially a single task may require a number of lines of code to accomplish it, and with many of these our code could become quite messy.</p>
-<p>We’d also like a way to package our code so that it is easier to reuse, and Python provides for this by letting us define things called ‘functions’ - a shorthand way of re-executing longer pieces of code.</p>
+<p>Whilst this is a simple calculation, there are many things we may want to do that are more complex. What is essentially a single task may require a number of lines of code to accomplish it, and with many of these our code could become quite messy. And if we’d like to reuse that code elsewhere, we’d have to copy it.</p>
+<p>Duplicating portions of code can lead to a host of problems with modifying our code in the future, aside from making the code more lengthy and unreadable. We’d have to update all our copies if we wanted to update how we accomplished that task, which can introduce errors. And if errors already exist in our original code, we would have to correct all copies, which would become a code maintenance nightmare.</p>
+<p>We’d ideally like a way to package our code succinctly, so we only need to change it in one place, and so that it is easier to reuse. Python provides for this by letting us define things called ‘functions’ - a shorthand way of re-executing pieces of code.</p>
+<p>So going back to our climate code, we can modularise our temperature conversion code into a function:</p>
 <pre class="sourceCode python"><code class="sourceCode python">climate_data = <span class="dt">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
 
 <span class="kw">def</span> fahr_to_celsius(fahr):
@@ -103,6 +105,21 @@ Max temperature in Celsius 16.33888888888889</code></pre>
         <span class="dt">print</span>(<span class="st">&#39;Max temperature in Celsius&#39;</span>, celsius)</code></pre>
 <p>The definition opens with the word <code>def</code>, which is followed by the name of the function and a parenthesized list of parameter names. The <a href="../../reference.html#function-body">body</a> of the function — the statements that are executed when it runs — is indented below the definition line, typically by four spaces.</p>
 <p>When we call the function, the values we pass to it are assigned to those variables so that we can use them inside the function. Inside the function, we use a <a href="../../reference.html#return-statement">return statement</a> to send a result back to whoever asked for it.</p>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="combining-strings"><span class="glyphicon glyphicon-pencil"></span>Combining Strings</h2>
+</div>
+<div class="panel-body">
+<p>“Adding” two strings produces their concatenation: <code>'a' + 'b'</code> is <code>'ab'</code>. Write a short function called <code>fence</code> that takes two parameters called <code>original</code> and <code>wrapper</code> and returns a new string that has the wrapper character at the beginning and end of the original. A call to your function should look like this:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="dt">print</span>(fence(<span class="st">&#39;name&#39;</span>, <span class="st">&#39;*&#39;</span>))</code></pre>
+<pre class="output"><code>*name*</code></pre>
+<blockquote>
+<h2 id="solution" class="solution">Solution</h2>
+<pre><code>def fence(original, wrapper):
+    return wrapper + original + wrapper</code></pre>
+</blockquote>
+</div>
+</section>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
 <h2 id="how-large-should-functions-be"><span class="glyphicon glyphicon-pushpin"></span>How large should functions be?</h2>
@@ -147,7 +164,7 @@ multiply_by_10(<span class="dv">8</span>)
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="combining-strings"><span class="glyphicon glyphicon-pencil"></span>Combining strings</h2>
+<h2 id="combining-strings-1"><span class="glyphicon glyphicon-pencil"></span>Combining strings</h2>
 </div>
 <div class="panel-body">
 <p>“Adding” two strings produces their concatenation: <code>'a' + 'b'</code> is <code>'ab'</code>. Write a function called <code>fence</code> that takes two parameters called <code>original</code> and <code>wrapper</code> and returns a new string that has the wrapper character at the beginning and end of the original. A call to your function should look like this:</p>
@@ -300,6 +317,14 @@ climate_data = <span class="dt">open</span>(<span class="st">&#39;../data/sc_cli
         <span class="dt">print</span>(<span class="st">&#39;Max temperature in Celsius&#39;</span>, celsius, <span class="st">&#39;Kelvin&#39;</span>, kelvin)</code></pre>
 <p>Like when we used the interpreter to ask for help on the <code>fahr_to_celsius()</code> function, we need to prefix the function with its <code>temp_conversion</code> module name.</p>
 <p>Again, the results should be the same as before.</p>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="readable-code"><span class="glyphicon glyphicon-pencil"></span>Readable Code</h2>
+</div>
+<div class="panel-body">
+<p>Revise a function you wrote for one of the previous exercises to try to make the code more readable. Then, collaborate with one of your neighbors to critique each other’s functions and discuss how your function implementations could be further improved to make them more readable.</p>
+</div>
+</section>
         </div>
       </div>
       </article>
