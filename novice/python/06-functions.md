@@ -76,11 +76,26 @@ Max temperature in Celsius 16.33888888888889
 
 ### Modularising conversion code into a function
 
-Whilst this is a simple calculation, there are many things we may want to do that are more complex. What is essentially a single task may require a number of lines of code to accomplish it, and with many of these our code could become quite messy.
+Whilst this is a simple calculation, there are many things we may want to do 
+that are more complex. What is essentially a single task may require a number of 
+lines of code to accomplish it, and with many of these our code could become 
+quite messy. And if we'd like to reuse that code elsewhere, we'd have to copy
+it.
 
-We'd also like a way to package our code so that it is easier to reuse,
-and Python provides for this by letting us define things called 'functions' -
-a shorthand way of re-executing longer pieces of code.
+Duplicating portions of code can lead to a host of problems with
+modifying our code in the future, aside from making the code more
+lengthy and unreadable. We'd have to update all our copies if we
+wanted to update how we accomplished that task, which can introduce errors.
+And if errors already exist in our original code, we would have to correct all
+copies, which would become a code maintenance nightmare.
+
+We'd ideally like a way to package our code succinctly, so we only need to 
+change it in one place, and so that it is easier to reuse.
+Python provides for this by letting us define things called 'functions' -
+a shorthand way of re-executing pieces of code.
+
+So going back to our climate code, we can modularise our temperature
+conversion code into a function:
 
 ~~~ {.python}
 climate_data = open('../data/sc_climate_data_10.csv', 'r')
@@ -117,6 +132,29 @@ the values we pass to it are assigned to those variables
 so that we can use them inside the function.
 Inside the function,
 we use a [return statement](../../reference.html#return-statement) to send a result back to whoever asked for it.
+
+> ## Combining Strings {.challenge}
+>
+> "Adding" two strings produces their concatenation:
+> `'a' + 'b'` is `'ab'`.
+> Write a short function called `fence` that takes two parameters called 
+> `original` and `wrapper` and returns a new string that has the wrapper
+> character at the beginning and end of the original.
+> A call to your function should look like this:
+>
+> ~~~ {.python}
+> print(fence('name', '*'))
+> ~~~
+>
+> ~~~ {.output}
+> *name*
+> ~~~
+>
+> > ## Solution {.solution}
+> > ~~~
+> > def fence(original, wrapper):
+> >     return wrapper + original + wrapper
+> > ~~~
 
 > ## How large should functions be? {.callout}
 > 
@@ -427,3 +465,10 @@ function, we need to prefix the function with its `temp_conversion` module name.
 
 Again, the results should be the same as before.
 
+> ## Readable Code {.challenge}
+>
+> Revise a function you wrote for one of the previous exercises to try to make
+> the code more readable. Then, collaborate with one of your neighbors
+> to critique each other's functions and discuss how your function 
+> implementations
+> could be further improved to make them more readable.

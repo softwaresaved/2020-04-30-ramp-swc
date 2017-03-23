@@ -126,6 +126,10 @@ In this case,
 > elif 4 < 5:
 >     print('C')
 > ~~~
+>
+> > ## Solution {.solution}
+> > C gets printed because the first two conditions, `4 > 5` and `4 == 5`, are not true,
+> > but `4 < 5` is true.
 
 > ## What Is Truth? {.challenge}
 >
