@@ -317,28 +317,6 @@ myList.append(1)
 
 This works but it only works if we need to build up the list in this particular order - which most of the time you want to do anyway.
 
-> ## Turn a String Into a List {.challenge}
->
-> Use a for-loop to convert the string "hello" into a list of letters:
->
-> ~~~ {.python}
-> ["h", "e", "l", "l", "o"]
-> ~~~
->
-> Hint: You can create an empty list like this:
->
-> ~~~ {.python}
-> my_list = []
-> ~~~
->
-> > ## Solution {.solution}
-> > ~~~
-> > my_list = []
-> > for char in "hello":
-> >     my_list.append(char)
-> > print(my_list)
-> > ~~~
-
 > ## Slicing From the End {.challenge}
 >
 > Use slicing to access only the last four characters of a string or entries of a list.

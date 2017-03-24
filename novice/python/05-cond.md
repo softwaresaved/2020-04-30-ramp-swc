@@ -156,6 +156,42 @@ In this case,
 > ~~~
 >
 
+## Another type of loop
+
+We've seen how to write loops where perhaps we know how many times we want the loop to 
+execute beforehand, e.g. printing out each character in a string. So we can use
+for loops to execute a fixed operation over a known number of steps.
+
+But what if we want our loop to continue to execute until some other condition is true?
+Perhaps our code runs a simulation that generates a set of results each time through
+the loop, but we're not sure when the results will be what we want, i.e. we don't
+know how many times the loop needs to execute. For these types of cases, we can use a 
+`while` loop, which is similar to a `for` loop but exits the loop when some condition is 
+true.
+
+Consider the following example:
+
+~~~ {.python}
+from random import randint
+number = 0
+while number != 5:
+    number = randint(1, 10)
+    print(number)
+~~~
+
+We use Python's ability to generate a random number here for clarity, but this could 
+instead be calling a function that runs another step in our simulation and returns a
+result.
+
+So in this case, our loop will continue to generate and print out random numbers between 
+and 10 while the generated number is not equal to 5. When the random number generated is 
+5, the loop will exit.
+
+`while` loops are a more general case of loops which are often useful (you can even
+simulate a `for` loop using a `while` loop). But you should preferably use `for` loops 
+as opposed to `while` loops where you can, since they are more specific and it's more
+readable - it's easier to figure out how many times the loop will execute.
+
 
 ## Climate Analysis: adding a condition to avoid printing comments
 

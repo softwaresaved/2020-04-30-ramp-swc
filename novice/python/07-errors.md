@@ -540,7 +540,7 @@ often reveals common reasons why you might get that error.
 Not all problems with our code will be revealed through explicit errors.
 Some defects can cause output to be incorrect, and display no error message.
 
-Consider the following code:
+Consider the following code (which you can find in `normalize.py` in the code directory):
 
 ~~~ {.python}
 def normalize_rectangle(rect):
@@ -562,6 +562,7 @@ def normalize_rectangle(rect):
 So if we normalize a rectangle that is taller than it is wide...:
 
 ~~~ {.python}
+from normalize import normalize_rectangle
 print(normalize_rectangle( (0.0, 0.0, 1.0, 5.0) ))
 ~~~
 

@@ -329,6 +329,27 @@ so we should always use it when we can.
 > >    print(i)
 > > ~~~
 
+> ## Turn a String Into a List {.challenge}
+>
+> Use a for-loop to convert the string "hello" into a list of letters:
+>
+> ~~~ {.python}
+> ["h", "e", "l", "l", "o"]
+> ~~~
+>
+> Hint: You can create an empty list like this:
+>
+> ~~~ {.python}
+> my_list = []
+> ~~~
+>
+> > ## Solution {.solution}
+> > ~~~
+> > my_list = []
+> > for char in "hello":
+> >     my_list.append(char)
+> > print(my_list)
+> > ~~~
 
 > ## Computing powers with loops {.challenge}
 >
