@@ -28,7 +28,64 @@ subtitle: Challenges
 > print(third, fourth)
 > ~~~
 
->## Loops
+
+>## Arrays, Lists, etc.
+
+> #### Slicing strings {.challenge}
+>
+> What is the value of `element[:4]`?
+> What about `element[4:]`?
+> Or `element[:]`?
+>
+> What is `element[-1]`?
+> What is `element[-2]`?
+> Given those answers,
+> explain what `element[1:-1]` does.
+
+> #### Slicing From the End {.challenge}
+>
+> Use slicing to access only the last four characters of a string or entries of a list.
+>
+> ~~~ {.python}
+> string_for_slicing = "Observation date: 02-Feb-2013"
+> list_for_slicing = [["fluorine", "F"], ["chlorine", "Cl"], ["bromine", "Br"], ["iodine", "I"], ["astatine", "At"]]
+> ~~~
+>
+> ~~~ {.output}
+> "2013"
+> [["chlorine", "Cl"], ["bromine", "Br"], ["iodine", "I"], ["astatine", "At"]]
+> ~~~
+>
+> Would your solution work regardless of whether you knew beforehand
+> the length of the string or list
+> (e.g. if you wanted to apply the solution to a set of lists of different 
+> lengths)?
+> If not, try to change your approach to make it more robust.
+
+> #### Overloading {.challenge}
+>
+> `+` usually means addition, but when used on strings or lists, it means
+> "concatenate".
+> Given that, what do you think the multiplication operator `*` does on lists?
+> In particular, what will be the output of the following code?
+>
+> ~~~ {.python}
+> counts = [2, 4, 6, 8, 10]
+> repeats = counts * 2
+> print(repeats)
+> ~~~
+>
+> 1.  `[2, 4, 6, 8, 10, 2, 4, 6, 8, 10]`
+> 2.  `[4, 8, 12, 16, 20]`
+> 3.  `[[2, 4, 6, 8, 10],[2, 4, 6, 8, 10]]`
+> 4.  `[2, 4, 6, 8, 10, 4, 8, 12, 16, 20]`
+>
+> The technical term for this is *operator overloading*:
+> a single operator, like `+` or `*`,
+> can do different things depending on what it's applied to.
+
+
+>## Repeating actions using loops
 
 > #### From 1 to N {.challenge}
 >
@@ -43,7 +100,21 @@ subtitle: Challenges
 > 3
 > ~~~
 
-> ## Computing powers with loops {.challenge}
+> #### Turn a String Into a List {.challenge}
+>
+> Use a for-loop to convert the string "hello" into a list of letters:
+>
+> ~~~ {.python}
+> ["h", "e", "l", "l", "o"]
+> ~~~
+>
+> Hint: You can create an empty list like this:
+>
+> ~~~ {.python}
+> my_list = []
+> ~~~
+
+> #### Computing powers with loops {.challenge}
 >
 > Exponentiation is built into Python:
 >
@@ -54,61 +125,10 @@ subtitle: Challenges
 >
 >Write a loop that calculates the same result as `5 ** 3` using multiplication (and without exponentiation).
 
->## Reverse a string {.challenge}
+> #### Reverse a string {.challenge}
 >
 > Write a loop that takes a string, and produces a new string with the characters in reverse order, so `Newton` becomes `notweN`.
 
-> #### Slicing strings {.challenge}
->
-> A section of an array is called a [slice](../../reference.html#slice).
-> We can take slices of character strings as well:
->
-> ~~~ {.python}
-> element = 'oxygen'
-> print('first three characters:', element[0:3])
-> print('last three characters:', element[3:6])
-> ~~~
-
-> What is the value of `element[:4]`?
-> What about `element[4:]`?
-> Or `element[:]`?
->
-> What is `element[-1]`?
-> What is `element[-2]`?
-> Given those answers,
-> explain what `element[1:-1]` does.
-
-
->##Turn a string into a list {.challenge}
->
->Use a for-loop to convert the string "hello" into a list of letters:
->
->~~~ {.python}
->["h", "e", "l", "l", "o"]
->~~~
->Hint: You can create an empty list like this:
->
->~~~ {.python}
->my_list = []
->~~~
-
-
->## Using libraries
-
-> #### Thin slices {.challenge}
->
-> From our previous topic challenges, the expression `element[3:3]` produces an [empty string](../../reference.html#empty-string),
-> i.e., a string that contains no characters.
-> If `data` holds our array of patient data,
-> what does `data[3:3, 4:4]` produce?
-> What about `data[3:3, :]`?
-
->## Visualising data using libraries
-
-> #### Make your own plot {.challenge}
->
-> Create a plot showing the standard deviation of the inflammation data for each day across all patients.
-> Hint: `data.std(axis=0)` gives you standard deviation.
 
 >## Making choices
 
@@ -130,21 +150,298 @@ subtitle: Challenges
 >     print('C')
 > ~~~
 
-> #### What is truth? {.challenge}
+> ## What Is Truth? {.challenge}
 >
-> `True` and `False` aren't the only values in Python that are true and false.
+> `True` and `False` are special words in Python called `booleans`
+> which represent true and false statements.
+> However, they aren't the only values in Python that are true and false.
 > In fact, *any* value can be used in an `if` or `elif`.
 > After reading and running the code below,
 > explain what the rule is for which values are considered true and which are considered false.
-> (Note that if the body of a conditional is a single statement, we can write it on the same line as the `if`.)
 >
 > ~~~ {.python}
-> if '': print 'empty string is true'
-> if 'word': print 'word is true'
-> if []: print 'empty list is true'
-> if [1, 2, 3]: print 'non-empty list is true'
-> if 0: print 'zero is true'
-> if 1: print 'one is true'
+> if '':
+>     print('empty string is true')
+> if 'word':
+>     print('word is true')
+> if []:
+>     print('empty list is true')
+> if [1, 2, 3]:
+>     print('non-empty list is true')
+> if 0:
+>     print('zero is true')
+> if 1:
+>     print('one is true')
 > ~~~
 
+
+>## Modularising your code using functions
+
+> #### Combining Strings {.challenge}
+>
+> "Adding" two strings produces their concatenation:
+> `'a' + 'b'` is `'ab'`.
+> Write a short function called `fence` that takes two parameters called 
+> `original` and `wrapper` and returns a new string that has the wrapper
+> character at the beginning and end of the original.
+> A call to your function should look like this:
+>
+> ~~~ {.python}
+> print(fence('name', '*'))
+> ~~~
+>
+> ~~~ {.output}
+> *name*
+> ~~~
+
+> #### How do function parameters work? {.challenge}
+> 
+> We actually used the same variable name `fahr` in our main code and
+> and the function. But it's important to note that even though they
+> share the same name, they don't refer to the same thing. This is
+> because of variable **scoping**.
+> 
+> Within a function, any variables that are created (such as parameters 
+> or other variables), only exist within the **scope** of the function.
+> 
+> For example, what would be the output from the following:
+> 
+> ~~~ {.python}
+> f = 0
+> k = 0
+>
+> def multiply_by_10(f):
+>   k = f * 10
+>   return k
+>
+> multiply_by_10(2)
+> multiply_by_10(8)
+>
+> print(k)
+> ~~~
+>
+> 1. 20
+> 2. 80
+> 3. 0
+> 
+> This is really useful, since it means we don't have to worry about
+> conflicts with variable names that are defined outside of our function
+> that may cause it to behave incorrectly.
+
+> #### Combining strings {.challenge}
+>
+> "Adding" two strings produces their concatenation:
+> `'a' + 'b'` is `'ab'`.
+> Write a function called `fence` that takes two parameters called `original` and `wrapper`
+> and returns a new string that has the wrapper character at the beginning and end of the original.
+> A call to your function should look like this:
+>
+> ~~~ {.python}
+> print(fence('name', '*'))
+> *name*
+> ~~~
+
+> #### Palindrome String check {.challenge}
+>
+> A "Palindrome" is a word, phrase, number, or other sequence of characters which reads the same backward or forward.
+>Write a function (any name of your choice) that takes `input_string` as a parameter
+>and returns either `True` or `False` based on whether the input string is a palindrome or not respectively. 
+>Try to make it case insensitive.  
+>Following the function definition, a call to your function should look like this:
+>
+> ~~~{.python}
+> is_palindrome("hello")
+> False
+> is_palindrome("Deed")
+> True
+> ~~~
+
+> ## Readable Code {.challenge}
+>
+> Revise a function you wrote for one of the previous exercises to try to make
+> the code more readable. Then, collaborate with one of your neighbors
+> to critique each other's functions and discuss how your function 
+> implementations
+> could be further improved to make them more readable.
+
+
+>## How to deal with problems in your code
+
+> #### Reading Error Messages {.challenge}
+>
+> Read the python code and the resulting traceback below, and answer the following questions:
+>
+> 1.  How many levels does the traceback have?
+> 2.  What is the function name where the error occurred?
+> 3.  On which line number in this function did the error occurr?
+> 4.  What is the type of error?
+> 5.  What is the error message?
+>
+> ~~~ {.python}
+> # This code has an intentional error. Do not type it directly;
+> # use it for reference to understand the error message below.
+> def print_message(day):
+>     messages = {
+>         "monday": "Hello, world!",
+>         "tuesday": "Today is tuesday!",
+>         "wednesday": "It is the middle of the week.",
+>         "thursday": "Today is Donnerstag in German!",
+>         "friday": "Last day of the week!",
+>         "saturday": "Hooray for the weekend!",
+>         "sunday": "Aw, the weekend is almost over."
+>     }
+>     print(messages[day])
+>
+> def print_friday_message():
+>     print_message("Friday")
+>
+> print_friday_message()
+> ~~~
+>
+> ~~~
+> ---------------------------------------------------------------------------
+> KeyError                                  Traceback (most recent call last)
+> <ipython-input-1-4be1945adbe2> in <module>()
+>      14     print_message("Friday")
+>      15
+> ---> 16 print_friday_message()
+>
+> <ipython-input-1-4be1945adbe2> in print_friday_message()
+>      12
+>      13 def print_friday_message():
+> ---> 14     print_message("Friday")
+>      15
+>      16 print_friday_message()
+>
+> <ipython-input-1-4be1945adbe2> in print_message(day)
+>       9         "sunday": "Aw, the weekend is almost over."
+>      10     }
+> ---> 11     print(messages[day])
+>      12
+>      13 def print_friday_message():
+>
+> KeyError: 'Friday'
+> ~~~
+
+> #### Identifying Syntax Errors {.challenge}
+>
+> 1. Read the code below, and (without running it) try to identify what the errors are.
+> 2. Run the code, and read the error message. Is it a `SyntaxError` or an `IndentationError`?
+> 3. Fix the error.
+> 4. Repeat steps 2 and 3, until you have fixed all the errors.
+>
+> ~~~ {.python}
+> def another_function
+>   print("Syntax errors are annoying.")
+>    print("But at least python tells us about them!")
+>   print("So they are usually not too hard to fix.")
+> ~~~
+
+> #### Identifying Variable Name Errors {.challenge}
+>
+> 1. Read the code below, and (without running it) try to identify what the errors are.
+> 2. Run the code, and read the error message.
+>    What type of `NameError` do you think this is?
+>    In other words, is it a string with no quotes,
+>    a misspelled variable,
+>    or a variable that should have been defined but was not?
+> 3. Fix the error.
+> 4. Repeat steps 2 and 3, until you have fixed all the errors.
+>
+> ~~~ {.python}
+> for number in range(10):
+>     # use a if the number is a multiple of 3, otherwise use b
+>     if (Number % 3) == 0:
+>         message = message + a
+>     else:
+>         message = message + "b"
+> print(message)
+> ~~~
+
+> #### Identifying Index Errors {.challenge}
+>
+> 1. Read the code below, and (without running it) try to identify what the errors are.
+> 2. Run the code, and read the error message. What type of error is it?
+> 3. Fix the error.
+>
+> ~~~ {.python}
+> seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+> print('My favorite season is ', seasons[4])
+> ~~~
+
+> #### Debug with a Neighbour {.challenge}
+>
+> Take a function that you have written today, and introduce a tricky bug.
+> Your function should still run, but will give the wrong output.
+> Switch seats with your neighbor and attempt to identify - or debug - the problem
+> that they introduced into their function.
+
+> #### Not Supposed to be the Same {.challenge}
+>
+> You are assisting a researcher with Python code that computes the
+> Body Mass Index (BMI) of patients.  The researcher is concerned because
+> all patients seemingly have identical BMIs, despite having different
+> physiques.  BMI is calculated as **weight in kilograms**
+> divided by the the square of **height in metres**.
+>
+> ~~~ {.python}
+> patients = [[70, 1.8], [80, 1.9], [150, 1.7]]
+>
+> def calculate_bmi(weight, height):
+>     return weight / (height ** 2)
+>
+> for patient in patients:
+>     height, weight = patients[0]
+>     bmi = calculate_bmi(height, weight)
+>     print("Patient's BMI is: %f" % bmi)
+> ~~~
+>
+> ~~~ {.output}
+> Patient's BMI is: 21.604938
+> Patient's BMI is: 21.604938
+> Patient's BMI is: 21.604938
+> ~~~
+
+
+>## Reading and analysing Patient data using libraries
+
+> #### Thin slices {.challenge}
+>
+> From our previous topic challenges, the expression `element[3:3]` produces an [empty string](../../reference.html#empty-string),
+> i.e., a string that contains no characters.
+> If `data` holds our array of patient data,
+> what does `data[3:3, 4:4]` produce?
+> What about `data[3:3, :]`?
+
+
+>## Data Visualisation
+
+> #### Make your own plot {.challenge}
+>
+> Create a plot showing the standard deviation of the inflammation data for each day across all patients.
+> Hint: `data.std(axis=0)` gives you standard deviation.
+
+> #### Moving plots around {.challenge}
+>
+> Modify the program to display the three plots on top of one another instead of side by side.
+
+>## Making choices
+
+> #### How many paths? {.challenge}
+> 
+> Which of the following would be printed if you were to run this code? Why did you pick this answer?
+>
+> * A
+> * B
+> * C
+> * B and C
+> 
+> ~~~ {.python}
+> if 4 > 5:
+>     print('A')
+> elif 4 <= 5:
+>     print('B')
+> elif 4 < 5:
+>     print('C')
+> ~~~
 
