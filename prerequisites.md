@@ -3,7 +3,7 @@ layout: page-md
 title: Software Prerequisites
 ---
 
-[[Home]](https://southampton-rsg.github.io/2016-08-31-southampton/)
+[[Home]](https://southampton-rsg.github.io/2017-04-20-southampton/)
 
 **Prior to the workshop, it is vital that you install some software on your laptop and create an account at Github by following the instructions below!**
 
@@ -13,8 +13,9 @@ There is little time during the workshop to deal with installation problems, so 
 
 We maintain a list of common problems that can occur during installation and ways of solving them. Take a look at the [Configuration Problems and Solutions wiki page](https://github.com/swcarpentry/workshop-template/wiki/Configuration-Problems-and-Solutions) for help.
 
+<!-- 
 If you still have trouble, we will run a **Software Installation surgery from 13.00 PM until 16.00 PM** on ***Tuesday, August 30, 2016***. This will take place in room 3013 (Simon Hettrick's office), Building 32, Highfield campus. If you would like to come along to the surgery, [email us to arrange a time](mailto:rsg-info@soton.ac.uk). 
-
+-->
 
 ## Bash
 
@@ -164,4 +165,4 @@ If anything fails, please [contact us](mailto:rsg-info@soton.ac.uk) before the w
 
 ## During the workshop
 
-We will make use of the [Etherpad](https://public.etherpad-mozilla.org/p/SWC-Soton-Aug2016) collaboration tool during the workshop (Etherpad allows a group to edit documents online collaboratively in real-time). Please use this to keep collaborative notes and ask (and answer!) each others questions.
+We will make use of the [Etherpad](https://public.etherpad-mozilla.org/p/SWC-Soton-April2017) collaboration tool during the workshop (Etherpad allows a group to edit documents online collaboratively in real-time). Please use this to keep collaborative notes and ask (and answer!) each others questions.
