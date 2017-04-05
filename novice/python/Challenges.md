@@ -58,7 +58,7 @@ subtitle: Challenges
 >
 > Would your solution work regardless of whether you knew beforehand
 > the length of the string or list
-> (e.g. if you wanted to apply the solution to a set of lists of different 
+> (e.g. if you wanted to apply the solution to a set of lists of different
 > lengths)?
 > If not, try to change your approach to make it more robust.
 
@@ -193,19 +193,25 @@ subtitle: Challenges
 > ~~~ {.output}
 > *name*
 > ~~~
+>
+> > ## Solution {.solution}
+> > ~~~
+> > def fence(original, wrapper):
+> >     return wrapper + original + wrapper
+> > ~~~
 
 > #### How do function parameters work? {.challenge}
-> 
+>
 > We actually used the same variable name `fahr` in our main code and
 > and the function. But it's important to note that even though they
 > share the same name, they don't refer to the same thing. This is
 > because of variable **scoping**.
-> 
+>
 > Within a function, any variables that are created (such as parameters 
 > or other variables), only exist within the **scope** of the function.
-> 
+>
 > For example, what would be the output from the following:
-> 
+>
 > ~~~ {.python}
 > f = 0
 > k = 0
@@ -223,30 +229,18 @@ subtitle: Challenges
 > 1. 20
 > 2. 80
 > 3. 0
-> 
+>
 > This is really useful, since it means we don't have to worry about
 > conflicts with variable names that are defined outside of our function
 > that may cause it to behave incorrectly.
-
-> #### Combining strings {.challenge}
->
-> "Adding" two strings produces their concatenation:
-> `'a' + 'b'` is `'ab'`.
-> Write a function called `fence` that takes two parameters called `original` and `wrapper`
-> and returns a new string that has the wrapper character at the beginning and end of the original.
-> A call to your function should look like this:
->
-> ~~~ {.python}
-> print(fence('name', '*'))
-> *name*
-> ~~~
 
 > #### Palindrome String check {.challenge}
 >
 > A "Palindrome" is a word, phrase, number, or other sequence of characters which reads the same backward or forward.
 >Write a function (any name of your choice) that takes `input_string` as a parameter
 >and returns either `True` or `False` based on whether the input string is a palindrome or not respectively. 
->Try to make it case insensitive.  
+>If you have time, you could make it case insensitive - if you have a string in a variable called 'word', you can use
+>`word.lower()` to return it as lowercase, or `word.upper()` to return it as uppercase.
 >Following the function definition, a call to your function should look like this:
 >
 > ~~~{.python}
@@ -299,27 +293,10 @@ subtitle: Challenges
 > ~~~
 >
 > ~~~
-> ---------------------------------------------------------------------------
-> KeyError                                  Traceback (most recent call last)
-> <ipython-input-1-4be1945adbe2> in <module>()
->      14     print_message("Friday")
->      15
-> ---> 16 print_friday_message()
->
-> <ipython-input-1-4be1945adbe2> in print_friday_message()
->      12
->      13 def print_friday_message():
-> ---> 14     print_message("Friday")
->      15
->      16 print_friday_message()
->
-> <ipython-input-1-4be1945adbe2> in print_message(day)
->       9         "sunday": "Aw, the weekend is almost over."
->      10     }
-> ---> 11     print(messages[day])
->      12
->      13 def print_friday_message():
->
+> Traceback (most recent call last):
+>   File "<stdin>", line 1, in <module>
+>   File "<stdin>", line 2, in print_friday_message
+>   File "<stdin>", line 11, in print_message
 > KeyError: 'Friday'
 > ~~~
 

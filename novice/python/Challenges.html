@@ -196,6 +196,11 @@ repeats <span class="op">=</span> counts <span class="op">*</span> <span class="
 <p>“Adding” two strings produces their concatenation: <code>'a' + 'b'</code> is <code>'ab'</code>. Write a short function called <code>fence</code> that takes two parameters called <code>original</code> and <code>wrapper</code> and returns a new string that has the wrapper character at the beginning and end of the original. A call to your function should look like this:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(fence(<span class="st">&#39;name&#39;</span>, <span class="st">&#39;*&#39;</span>))</code></pre></div>
 <pre class="output"><code>*name*</code></pre>
+<blockquote>
+<h2 id="solution" class="solution">Solution</h2>
+<pre><code>def fence(original, wrapper):
+    return wrapper + original + wrapper</code></pre>
+</blockquote>
 </div>
 </section>
 <section class="challenge panel panel-success">
@@ -227,21 +232,10 @@ multiply_by_10(<span class="dv">8</span>)
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h4 id="combining-strings-1"><span class="glyphicon glyphicon-pencil"></span>Combining strings</h4>
-</div>
-<div class="panel-body">
-<p>“Adding” two strings produces their concatenation: <code>'a' + 'b'</code> is <code>'ab'</code>. Write a function called <code>fence</code> that takes two parameters called <code>original</code> and <code>wrapper</code> and returns a new string that has the wrapper character at the beginning and end of the original. A call to your function should look like this:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(fence(<span class="st">&#39;name&#39;</span>, <span class="st">&#39;*&#39;</span>))
-<span class="op">*</span>name<span class="op">*</span></code></pre></div>
-</div>
-</section>
-<section class="challenge panel panel-success">
-<div class="panel-heading">
 <h4 id="palindrome-string-check"><span class="glyphicon glyphicon-pencil"></span>Palindrome String check</h4>
 </div>
 <div class="panel-body">
-<p>A “Palindrome” is a word, phrase, number, or other sequence of characters which reads the same backward or forward. Write a function (any name of your choice) that takes <code>input_string</code> as a parameter and returns either <code>True</code> or <code>False</code> based on whether the input string is a palindrome or not respectively. Try to make it case insensitive.<br />
-Following the function definition, a call to your function should look like this:</p>
+<p>A “Palindrome” is a word, phrase, number, or other sequence of characters which reads the same backward or forward. Write a function (any name of your choice) that takes <code>input_string</code> as a parameter and returns either <code>True</code> or <code>False</code> based on whether the input string is a palindrome or not respectively. If you have time, you could make it case insensitive - if you have a string in a variable called ‘word’, you can use <code>word.lower()</code> to return it as lowercase, or <code>word.upper()</code> to return it as uppercase. Following the function definition, a call to your function should look like this:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">is_palindrome(<span class="st">&quot;hello&quot;</span>)
 <span class="va">False</span>
 is_palindrome(<span class="st">&quot;Deed&quot;</span>)
@@ -290,27 +284,10 @@ is_palindrome(<span class="st">&quot;Deed&quot;</span>)
     print_message(<span class="st">&quot;Friday&quot;</span>)
 
 print_friday_message()</code></pre></div>
-<pre><code>---------------------------------------------------------------------------
-KeyError                                  Traceback (most recent call last)
-&lt;ipython-input-1-4be1945adbe2&gt; in &lt;module&gt;()
-     14     print_message(&quot;Friday&quot;)
-     15
----&gt; 16 print_friday_message()
-
-&lt;ipython-input-1-4be1945adbe2&gt; in print_friday_message()
-     12
-     13 def print_friday_message():
----&gt; 14     print_message(&quot;Friday&quot;)
-     15
-     16 print_friday_message()
-
-&lt;ipython-input-1-4be1945adbe2&gt; in print_message(day)
-      9         &quot;sunday&quot;: &quot;Aw, the weekend is almost over.&quot;
-     10     }
----&gt; 11     print(messages[day])
-     12
-     13 def print_friday_message():
-
+<pre><code>Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;&lt;stdin&gt;&quot;, line 2, in print_friday_message
+  File &quot;&lt;stdin&gt;&quot;, line 11, in print_message
 KeyError: &#39;Friday&#39;</code></pre>
 </div>
 </section>

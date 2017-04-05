@@ -217,19 +217,6 @@ And when we run it again --- which we most definitely should, to make sure it's 
 > conflicts with variable names that are defined outside of our function
 > that may cause it to behave incorrectly.
 
-> ## Combining strings {.challenge}
->
-> "Adding" two strings produces their concatenation:
-> `'a' + 'b'` is `'ab'`.
-> Write a function called `fence` that takes two parameters called `original` and `wrapper`
-> and returns a new string that has the wrapper character at the beginning and end of the original.
-> A call to your function should look like this:
->
-> ~~~ {.python}
-> print(fence('name', '*'))
-> *name*
-> ~~~
-
 > ## Palindrome String check {.challenge}
 >
 > A "Palindrome" is a word, phrase, number, or other sequence of characters which reads the same backward or forward.
