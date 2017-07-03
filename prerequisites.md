@@ -39,7 +39,7 @@ A text editor is the piece of software you use to view and write code. If you ha
 
 #### Windows
 
-[Notepad++](https://notepad-plus-plus.org/download/v6.9.2.html). Just download the installer and run it.
+[Notepad++](https://notepad-plus-plus.org/download/). Just download the installer and run it.
 
 #### Mac OS X and Linux
 
@@ -94,7 +94,7 @@ Download and install [Git for Windows](http://git-scm.com/download/win). **Pleas
 
 #### Mac OS X
 
-On Mac OS X 10.11 El Capitan, 10.10 Yosemite and 10.9 Mavericks, Git will be installed automatically the first time you try to run it.  Open a terminal and enter:
+On Mac OS X 10.12 Sierra, 10.11 El Capitan, 10.10 Yosemite and 10.9 Mavericks, Git will be installed automatically the first time you try to run it.  Open a terminal and enter:
 
 ~~~ {.code}
 git
@@ -110,13 +110,13 @@ If you intend to use an earlier version of Mac OS X, please contact us before th
 
 Install via a terminal like this:
 
-Ubuntu 14.04LTS and derivatives:
+Ubuntu and derivatives:
 
 ~~~ {.code}
 sudo apt-get install git
 ~~~
 
-Fedora 22:
+Fedora:
 
 ~~~ {.code}
 su -
