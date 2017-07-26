@@ -168,7 +168,7 @@ import matplotlib
 from matplotlib import pyplot as plt
 import glob
 
-filenames = glob.glob('data/*.csv')
+filenames = glob.glob('../data/*.csv')
 filenames = filenames[0:3]
 for f in filenames:
     print(f)
