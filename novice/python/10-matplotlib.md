@@ -164,7 +164,8 @@ Let's test it by analyzing the first three files in the list:
 
 ~~~ {.python}
 import numpy
-import matplotlib.pyplot
+import matplotlib
+from matplotlib import pyplot as plt
 import glob
 
 filenames = glob.glob('data/*.csv')
