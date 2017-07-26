@@ -53,20 +53,9 @@
     <span class="bu">print</span>(ice_creams[<span class="dv">3</span>])
 
 favorite_ice_cream()</code></pre></div>
-<pre><code>---------------------------------------------------------------------------
-IndexError                                Traceback (most recent call last)
-&lt;ipython-input-1-70bd89baa4df&gt; in &lt;module&gt;()
-      6     print(ice_creams[3])
-      7 
-----&gt; 8 favorite_ice_cream()
-
-&lt;ipython-input-1-70bd89baa4df&gt; in favorite_ice_cream()
-      4         &quot;vanilla&quot;,                                                                    &quot;strawberry&quot;
-      5     ]
-----&gt; 6     print(ice_creams[3])
-      7 
-      8 favorite_ice_cream()
-
+<pre><code>Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;&lt;stdin&gt;&quot;, line 9, in favorite_ice_cream
 IndexError: list index out of range</code></pre>
 <p>This particular traceback has two levels. You can determine the number of levels by looking for the number of arrows on the left hand side. In this case:</p>
 <ol style="list-style-type: decimal">
@@ -92,9 +81,9 @@ IndexError: list index out of range</code></pre>
     msg <span class="op">=</span> <span class="st">&quot;hello, world!&quot;</span>
     <span class="bu">print</span>(msg)
      <span class="cf">return</span> msg</code></pre></div>
-<pre><code>  File &quot;&lt;ipython-input-3-6bb841ea1423&gt;&quot;, line 1
+<pre><code>  File &quot;&lt;stdin&gt;&quot;, line 1
     def some_function()
-                       ^
+
 SyntaxError: invalid syntax</code></pre>
 <p>Here, Python tells us that there is a <code>SyntaxError</code> on line 1, and even puts a little arrow in the place where there is an issue. In this case the problem is that the function definition is missing a colon at the end.</p>
 <p>Actually, the function above has <em>two</em> issues with syntax. If we fix the problem with the colon, we see that there is <em>also</em> an <code>IndentationError</code>, which means that the lines in the function definition do not all have the same indentation:</p>
@@ -102,7 +91,7 @@ SyntaxError: invalid syntax</code></pre>
     msg <span class="op">=</span> <span class="st">&quot;hello, world!&quot;</span>
     <span class="bu">print</span>(msg)
      <span class="cf">return</span> msg</code></pre></div>
-<pre><code>  File &quot;&lt;ipython-input-4-ae290e7659cb&gt;&quot;, line 4
+<pre><code>  File &quot;&lt;stdin&gt;&quot;, line 4
     return msg
     ^
 IndentationError: unexpected indent</code></pre>
@@ -112,61 +101,44 @@ IndentationError: unexpected indent</code></pre>
 <h2 id="tabs-and-spaces"><span class="glyphicon glyphicon-pushpin"></span>Tabs and Spaces</h2>
 </div>
 <div class="panel-body">
-<p>A quick note on indentation errors: they can sometimes be insidious, especially if you are mixing spaces and tabs. Because they are both <a href="%7B%7B%20page.root%20%7D%7D/reference/#whitespace">whitespace</a>, it is difficult to visually tell the difference. In the following example, the first two lines are using a tab for indentation, while the third line uses four spaces:</p>
+<p>A quick note on indentation errors: they can sometimes be insidious, especially if you are mixing spaces and tabs. Because they are both <a href="%7B%7B%20page.root%20%7D%7D/reference/#whitespace">whitespace</a>, it is difficult to visually tell the difference. In the following example, where we have a file called <code>hello_world.py</code>, the first two lines are using a tab for indentation, while the third line uses four spaces:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> some_function():
     msg <span class="op">=</span> <span class="st">&quot;hello, world!&quot;</span>
     <span class="bu">print</span>(msg)
     <span class="cf">return</span> msg</code></pre></div>
-<pre><code>  File &quot;&lt;ipython-input-5-653b36fbcd41&gt;&quot;, line 4
-    return msg
-              ^
-IndentationError: unindent does not match any outer indentation level</code></pre>
+<pre><code> File &quot;hello_world.py&quot;, line 4
+   return msg
+            ^
+TabError: inconsistent use of tabs and spaces in indentation</code></pre>
 <p>By default, one tab is equivalent to eight spaces, so the only way to mix tabs and spaces is to make it look like this. In general, it is better to just never use tabs and always use spaces, because it can make things very confusing.</p>
 </div>
 </aside>
 <h2 id="variable-name-errors">Variable Name Errors</h2>
 <p>Another very common type of error is called a <code>NameError</code>, and occurs when you try to use a variable that does not exist. For example:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(a)</code></pre></div>
-<pre><code>---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-7-9d7b17ad5387&gt; in &lt;module&gt;()
-----&gt; 1 print(a)
-
+<pre><code>Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
 NameError: name &#39;a&#39; is not defined</code></pre>
 <p>Variable name errors come with some of the most informative error messages, which are usually of the form “name ‘the_variable_name’ is not defined”.</p>
 <p>Why does this error message occur? That’s harder question to answer, because it depends on what your code is supposed to do. However, there are a few very common reasons why you might have an undefined variable. The first is that you meant to use a <a href="%7B%7B%20page.root%20%7D%7D/reference/#string">string</a>, but forgot to put quotes around it:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(hello)</code></pre></div>
-<pre><code>---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-8-9553ee03b645&gt; in &lt;module&gt;()
-----&gt; 1 print(hello)
-
-NameError: name &#39;hello&#39; is not defined</code></pre>
+<pre><code>Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+NameError: name &#39;a&#39; is not defined</code></pre>
 <p>The second is that you just forgot to create the variable before using it. In the following example, <code>count</code> should have been defined (e.g., with <code>count = 0</code>) before the for loop:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> number <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>):
     count <span class="op">=</span> count <span class="op">+</span> number
 <span class="bu">print</span>(<span class="st">&quot;The count is:&quot;</span>, count)</code></pre></div>
-<pre><code>---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-9-dd6a12d7ca5c&gt; in &lt;module&gt;()
-      1 for number in range(10):
-----&gt; 2     count = count + number
-      3 print(&quot;The count is:&quot;, count)
-
+<pre><code>Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 2, in &lt;module&gt;
 NameError: name &#39;count&#39; is not defined</code></pre>
 <p>Finally, the third possibility is that you made a typo when you were writing your code. Let’s say we fixed the error above by adding the line <code>Count = 0</code> before the for loop. Frustratingly, this actually does not fix the error. Remember that variables are <a href="%7B%7B%20page.root%20%7D%7D/reference/#case-sensitive">case-sensitive</a>, so the variable <code>count</code> is different from <code>Count</code>. We still get the same error, because we still have not defined <code>count</code>:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">Count <span class="op">=</span> <span class="dv">0</span>
 <span class="cf">for</span> number <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>):
     count <span class="op">=</span> count <span class="op">+</span> number
 <span class="bu">print</span>(<span class="st">&quot;The count is:&quot;</span>, count)</code></pre></div>
-<pre><code>---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-10-d77d40059aea&gt; in &lt;module&gt;()
-      1 Count = 0
-      2 for number in range(10):
-----&gt; 3     count = count + number
-      4 print(&quot;The count is:&quot;, count)
-
+<pre><code>Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 2, in &lt;module&gt;
 NameError: name &#39;count&#39; is not defined</code></pre>
 <h2 id="index-errors">Index Errors</h2>
 <p>Next up are errors having to do with containers (like lists and strings) and the items within them. If you try to access an item in a list or a string that does not exist, then you will get an error. This makes sense: if you asked someone what day they would like to get coffee, and they answered “caturday”, you might be a bit annoyed. Python gets similarly annoyed if you try to ask it for an item that doesn’t exist:</p>
@@ -178,35 +150,23 @@ NameError: name &#39;count&#39; is not defined</code></pre>
 <pre class="output"><code>Letter #1 is a
 Letter #2 is b
 Letter #3 is c</code></pre>
-<pre><code>---------------------------------------------------------------------------
-IndexError                                Traceback (most recent call last)
-&lt;ipython-input-11-d817f55b7d6c&gt; in &lt;module&gt;()
-      3 print(&quot;Letter #2 is&quot;, letters[1])
-      4 print(&quot;Letter #3 is&quot;, letters[2])
-----&gt; 5 print(&quot;Letter #4 is&quot;, letters[3])
-
+<pre><code>Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
 IndexError: list index out of range</code></pre>
 <p>Here, Python is telling us that there is an <code>IndexError</code> in our code, meaning we tried to access a list index that did not exist.</p>
 <h2 id="file-errors">File Errors</h2>
 <p>The last type of error we’ll cover today are those associated with reading and writing files: <code>FileNotFoundError</code>. If you try to read a file that does not exist, you will receive a <code>FileNotFoundError</code> telling you so. If you attempt to write to a file that was opened read-only, Python 3 returns an <code>UnsupportedOperationError</code>. More generally, problems with input and output manifest as <code>IOError</code>s or <code>OSError</code>s, depending on the version of Python you use.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">file_handle <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;myfile.txt&#39;</span>, <span class="st">&#39;r&#39;</span>)</code></pre></div>
-<pre><code>---------------------------------------------------------------------------
-FileNotFoundError                         Traceback (most recent call last)
-&lt;ipython-input-14-f6e1ac4aee96&gt; in &lt;module&gt;()
-----&gt; 1 file_handle = open(&#39;myfile.txt&#39;, &#39;r&#39;)
-
+<pre><code>Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
 FileNotFoundError: [Errno 2] No such file or directory: &#39;myfile.txt&#39;</code></pre>
 <p>One reason for receiving this error is that you specified an incorrect path to the file. For example, if I am currently in a folder called <code>myproject</code>, and I have a file in <code>myproject/writing/myfile.txt</code>, but I try to just open <code>myfile.txt</code>, this will fail. The correct path would be <code>writing/myfile.txt</code>. It is also possible (like with <code>NameError</code>) that you just made a typo.</p>
 <p>A related issue can occur if you use the “read” flag instead of the “write” flag. Python will not give you an error if you try to open a file for writing when the file does not exist. However, if you meant to open a file for reading, but accidentally opened it for writing, and then try to read from it, you will get an <code>UnsupportedOperation</code> error telling you that the file was not opened for reading:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">file_handle <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;myfile.txt&#39;</span>, <span class="st">&#39;w&#39;</span>)
 file_handle.read()</code></pre></div>
-<pre><code>---------------------------------------------------------------------------
-UnsupportedOperation                      Traceback (most recent call last)
-&lt;ipython-input-15-b846479bc61f&gt; in &lt;module&gt;()
-      1 file_handle = open(&#39;myfile.txt&#39;, &#39;w&#39;)
-----&gt; 2 file_handle.read()
-
-UnsupportedOperation: not readable</code></pre>
+<pre><code>Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+io.UnsupportedOperation: not readable</code></pre>
 <p>These are the most common errors with files, though many others exist. If you get an error that you’ve never seen before, searching the Internet for that error type often reveals common reasons why you might get that error.</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
@@ -239,27 +199,13 @@ UnsupportedOperation: not readable</code></pre>
     print_message(<span class="st">&quot;Friday&quot;</span>)
 
 print_friday_message()</code></pre></div>
-<pre><code>---------------------------------------------------------------------------
-KeyError                                  Traceback (most recent call last)
-&lt;ipython-input-1-4be1945adbe2&gt; in &lt;module&gt;()
-     14     print_message(&quot;Friday&quot;)
-     15
----&gt; 16 print_friday_message()
-
-&lt;ipython-input-1-4be1945adbe2&gt; in print_friday_message()
-     12
-     13 def print_friday_message():
----&gt; 14     print_message(&quot;Friday&quot;)
-     15
-     16 print_friday_message()
-
-&lt;ipython-input-1-4be1945adbe2&gt; in print_message(day)
-      9         &quot;sunday&quot;: &quot;Aw, the weekend is almost over.&quot;
-     10     }
----&gt; 11     print(messages[day])
-     12
-     13 def print_friday_message():
-
+<pre><code>Traceback (most recent call last):
+  File &quot;test.py&quot;, line 18, in &lt;module&gt;
+    print_friday_message()
+  File &quot;test.py&quot;, line 16, in print_friday_message
+    print_message(&quot;Friday&quot;)
+  File &quot;test.py&quot;, line 13, in print_message
+    print(messages[day])
 KeyError: &#39;Friday&#39;</code></pre>
 <blockquote>
 <h2 id="solution" class="solution">Solution</h2>

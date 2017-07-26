@@ -41,20 +41,9 @@ favorite_ice_cream()
 ~~~
 
 ~~~
----------------------------------------------------------------------------
-IndexError                                Traceback (most recent call last)
-<ipython-input-1-70bd89baa4df> in <module>()
-      6     print(ice_creams[3])
-      7 
-----> 8 favorite_ice_cream()
-
-<ipython-input-1-70bd89baa4df> in favorite_ice_cream()
-      4         "vanilla",                                                                    "strawberry"
-      5     ]
-----> 6     print(ice_creams[3])
-      7 
-      8 favorite_ice_cream()
-
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 9, in favorite_ice_cream
 IndexError: list index out of range
 ~~~
 
@@ -134,9 +123,9 @@ def some_function()
 ~~~
 
 ~~~
-  File "<ipython-input-3-6bb841ea1423>", line 1
+  File "<stdin>", line 1
     def some_function()
-                       ^
+
 SyntaxError: invalid syntax
 ~~~
 
@@ -157,7 +146,7 @@ def some_function():
 ~~~
 
 ~~~
-  File "<ipython-input-4-ae290e7659cb>", line 4
+  File "<stdin>", line 4
     return msg
     ^
 IndentationError: unexpected indent
@@ -174,7 +163,7 @@ it *always* means that there is a problem with how your code is indented.
 > especially if you are mixing spaces and tabs.
 > Because they are both [whitespace]({{ page.root }}/reference/#whitespace),
 > it is difficult to visually tell the difference.
-> In the following example,
+> In the following example, where we have a file called `hello_world.py`,
 > the first two lines are using a tab for indentation,
 > while the third line uses four spaces:
 >
@@ -186,10 +175,10 @@ it *always* means that there is a problem with how your code is indented.
 > ~~~
 >
 > ~~~
->   File "<ipython-input-5-653b36fbcd41>", line 4
->     return msg
->               ^
-> IndentationError: unindent does not match any outer indentation level
+>  File "hello_world.py", line 4
+>    return msg
+>             ^
+> TabError: inconsistent use of tabs and spaces in indentation
 > ~~~
 >
 > By default, one tab is equivalent to eight spaces,
@@ -208,11 +197,8 @@ print(a)
 ~~~
 
 ~~~
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-<ipython-input-7-9d7b17ad5387> in <module>()
-----> 1 print(a)
-
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
 NameError: name 'a' is not defined
 ~~~
 
@@ -231,12 +217,9 @@ print(hello)
 ~~~
 
 ~~~
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-<ipython-input-8-9553ee03b645> in <module>()
-----> 1 print(hello)
-
-NameError: name 'hello' is not defined
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'a' is not defined
 ~~~
 
 The second is that you just forgot to create the variable before using it.
@@ -250,13 +233,8 @@ print("The count is:", count)
 ~~~
 
 ~~~
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-<ipython-input-9-dd6a12d7ca5c> in <module>()
-      1 for number in range(10):
-----> 2     count = count + number
-      3 print("The count is:", count)
-
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
 NameError: name 'count' is not defined
 ~~~
 
@@ -274,14 +252,8 @@ print("The count is:", count)
 ~~~
 
 ~~~
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-<ipython-input-10-d77d40059aea> in <module>()
-      1 Count = 0
-      2 for number in range(10):
-----> 3     count = count + number
-      4 print("The count is:", count)
-
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
 NameError: name 'count' is not defined
 ~~~
 
@@ -311,13 +283,8 @@ Letter #3 is c
 ~~~
 
 ~~~
----------------------------------------------------------------------------
-IndexError                                Traceback (most recent call last)
-<ipython-input-11-d817f55b7d6c> in <module>()
-      3 print("Letter #2 is", letters[1])
-      4 print("Letter #3 is", letters[2])
-----> 5 print("Letter #4 is", letters[3])
-
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
 IndexError: list index out of range
 ~~~
 
@@ -341,11 +308,8 @@ file_handle = open('myfile.txt', 'r')
 ~~~
 
 ~~~
----------------------------------------------------------------------------
-FileNotFoundError                         Traceback (most recent call last)
-<ipython-input-14-f6e1ac4aee96> in <module>()
-----> 1 file_handle = open('myfile.txt', 'r')
-
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
 FileNotFoundError: [Errno 2] No such file or directory: 'myfile.txt'
 ~~~
 
@@ -373,13 +337,9 @@ file_handle.read()
 ~~~
 
 ~~~
----------------------------------------------------------------------------
-UnsupportedOperation                      Traceback (most recent call last)
-<ipython-input-15-b846479bc61f> in <module>()
-      1 file_handle = open('myfile.txt', 'w')
-----> 2 file_handle.read()
-
-UnsupportedOperation: not readable
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+io.UnsupportedOperation: not readable
 ~~~
 
 These are the most common errors with files,
@@ -420,27 +380,13 @@ often reveals common reasons why you might get that error.
 > ~~~
 >
 > ~~~
-> ---------------------------------------------------------------------------
-> KeyError                                  Traceback (most recent call last)
-> <ipython-input-1-4be1945adbe2> in <module>()
->      14     print_message("Friday")
->      15
-> ---> 16 print_friday_message()
->
-> <ipython-input-1-4be1945adbe2> in print_friday_message()
->      12
->      13 def print_friday_message():
-> ---> 14     print_message("Friday")
->      15
->      16 print_friday_message()
->
-> <ipython-input-1-4be1945adbe2> in print_message(day)
->       9         "sunday": "Aw, the weekend is almost over."
->      10     }
-> ---> 11     print(messages[day])
->      12
->      13 def print_friday_message():
->
+> Traceback (most recent call last):
+>   File "test.py", line 18, in <module>
+>     print_friday_message()
+>   File "test.py", line 16, in print_friday_message
+>     print_message("Friday")
+>   File "test.py", line 13, in print_message
+>     print(messages[day])
 > KeyError: 'Friday'
 > ~~~
 >
