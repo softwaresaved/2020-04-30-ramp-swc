@@ -263,7 +263,7 @@ subtitle: Challenges
 
 > #### Identifying Variable Name Errors {.challenge}
 >
-> 1. Read the code below, and (without running it) try to identify what the errors are.
+> 1. Read the code below (or open the file error_name_ch.py in code folder), and (without running it) try to identify what the errors are.
 > 2. Run the code, and read the error message.
 >    What type of `NameError` do you think this is?
 >    In other words, is it a string with no quotes,
@@ -284,7 +284,7 @@ subtitle: Challenges
 
 > #### Identifying Syntax Errors {.challenge}
 >
-> 1. Read the code below, and (without running it) try to identify what the errors are.
+> 1. Read the code below (or open the file error_syntax_ch.py in code folder), and (without running it) try to identify what the errors are.
 > 2. Run the code, and read the error message. Is it a `SyntaxError` or an `IndentationError`?
 > 3. Fix the error.
 > 4. Repeat steps 2 and 3, until you have fixed all the errors.
@@ -309,7 +309,7 @@ subtitle: Challenges
 
 > #### Reading Error Messages {.challenge}
 >
-> Read the python code and the resulting traceback below, and answer the following questions:
+> Read the python code (or open the file error_index_ch.py in code folder) and the resulting traceback below, and answer the following questions:
 >
 > 1.  How many levels does the traceback have?
 > 2.  What is the function name where the error occurred?
@@ -356,7 +356,7 @@ subtitle: Challenges
 > #### Not Supposed to be the Same {.challenge}
 >
 > You are assisting a researcher with Python code that computes the
-> Body Mass Index (BMI) of patients.  The researcher is concerned because
+> Body Mass Index (BMI) of patients (open the file error_silent_ch.py in code folder).  The researcher is concerned because
 > all patients seemingly have identical BMIs, despite having different
 > physiques.  BMI is calculated as **weight in kilograms**
 > divided by the the square of **height in metres**.
