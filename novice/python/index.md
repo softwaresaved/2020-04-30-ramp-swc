@@ -22,7 +22,7 @@ But the two most important things are to use whatever language your colleagues a
 *  [Processing data files](04-files.html)
 *  [Making choices](05-cond.html)
 *  [Creating functions](06-functions.html)
-*  [Errors and Exceptions](07-errors.html)
+*  [handling Errors](07-errors.html)
 *  [Command-Line Programs](08-cmdline.html)
 *  [Reading and analysing Patient data using libraries](09-numpy.html)
 *  [Visualising data using libraries](10-matplotlib.html)
