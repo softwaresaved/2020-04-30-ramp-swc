@@ -23,77 +23,114 @@ Once you know *why* you get certain types of errors,
 they become much easier to fix.
 
 Errors in Python have a very specific form,
-called a [traceback]({{ page.root }}/reference/#traceback).
+called a [traceback](reference.html#traceback).
 Let's examine one:
 
 ~~~ {.python}
-# This code has an intentional error. You can type it directly or
-# use it for reference to understand the error message below.
-def favorite_ice_cream():
-    ice_creams = [
-        "chocolate",
-        "vanilla",
-        "strawberry"
-    ]
-    print(ice_creams[3])
-
-favorite_ice_cream()
+print(a)
 ~~~
 
 ~~~
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-  File "<stdin>", line 9, in favorite_ice_cream
-IndexError: list index out of range
+NameError: name 'a' is not defined
 ~~~
 
-This particular traceback has two levels.
-You can determine the number of levels by looking for the number of arrows on the left hand side.
-In this case:
+Take a look at the traceback. It shows 1 level of error, here, NameError. The traceback shows shows the line number where the error occured and the type of error.
 
-1.  The first shows code from the cell above,
-    with an arrow pointing to Line 8 (which is `favorite_ice_cream()`).
+Variable name errors come with some of the most informative error messages, which are usually of the form “name ‘the_variable_name’ is not defined”.
 
-2.  The second shows some code in the function `favorite_ice_cream`,
-    with an arrow pointing to Line 6 (which is `print(ice_creams[3])`).
 
-The last level is the actual place where the error occurred.
-The other level(s) show what function the program executed to get to the next level down.
-So, in this case, the program first performed a [function call]({{ page.root }}/reference/#function-call) to the function `favorite_ice_cream`.
-Inside this function,
-the program encountered an error on Line 6, when it tried to run the code `print(ice_creams[3])`.
+## Variable Name Errors
 
-> ## Long Tracebacks {.callout}
->
-> Sometimes, you might see a traceback that is very long -- sometimes they might even be 20 levels deep!
-> This can make it seem like something horrible happened,
-> but really it just means that your program called many functions before it ran into the error.
-> Most of the time,
-> you can just pay attention to the bottom-most level,
-> which is the actual place where the error occurred.
-
-So what error did the program actually encounter?
-In the last line of the traceback,
-Python helpfully tells us the category or type of error (in this case, it is an `IndexError`)
-and a more detailed error message (in this case, it says "list index out of range").
-
-If you encounter an error and don't know what it means,
-it is still important to read the traceback closely.
-That way,
-if you fix the error,
-but encounter a new one,
-you can tell that the error changed.
-Additionally,
-sometimes just knowing *where* the error occurred is enough to fix it,
-even if you don't entirely understand the message.
-
-If you do encounter an error you don't recognize,
-try looking at the [official documentation on errors](http://docs.python.org/3/library/exceptions.html).
+In the above example, let's look at why does this error message occur?
+That's harder question to answer,
+because it depends on what your code is supposed to do.
 However,
-note that you may not always be able to find the error there,
-as it is possible to create custom errors.
-In that case,
-hopefully the custom error message is informative enough to help you figure out what went wrong.
+there are a few very common reasons why you might have an undefined variable.
+The first is that you meant to use a [string]({{ page.root }}/reference/#string), but forgot to put quotes around it:
+
+~~~ {.python}
+print(hello)
+~~~
+
+~~~
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'hello' is not defined
+~~~
+
+The second is that you just forgot to create the variable before using it.
+In the following example,
+`count` should have been defined (e.g., with `count = 0`) before the for loop:
+
+~~~ {.python}
+for number in range(10):
+    count = count + number
+print("The count is:", count)
+~~~
+
+~~~
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+NameError: name 'count' is not defined
+~~~
+
+Finally, the third possibility is that you made a typo when you were writing your code.
+Let's say we fixed the error above by adding the line `Count = 0` before the for loop.
+Frustratingly, this actually does not fix the error.
+Remember that variables are [case-sensitive]({{ page.root }}/reference/#case-sensitive),
+so the variable `count` is different from `Count`. We still get the same error, because we still have not defined `count`:
+
+~~~ {.python}
+Count = 0
+for number in range(10):
+    count = count + number
+print("The count is:", count)
+~~~
+
+~~~
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+NameError: name 'count' is not defined
+~~~
+
+> ## Identifying Variable Name Errors {.challenge}
+>
+> 1. Read the code below, and (without running it) try to identify what the errors are.
+> 2. Run the code, and read the error message.
+>    What type of `NameError` do you think this is?
+>    In other words, is it a string with no quotes,
+>    a misspelled variable,
+>    or a variable that should have been defined but was not?
+> 3. Fix the error.
+> 4. Repeat steps 2 and 3, until you have fixed all the errors.
+>
+> ~~~ {.python}
+> for number in range(10):
+>     # use a if the number is a multiple of 3, otherwise use b
+>     if (Number % 3) == 0:
+>         message = message + a
+>     else:
+>         message = message + "b"
+> print(message)
+> ~~~
+>
+> > ## Solution {.solution}
+> > 3 `NameError`s for `number` being misspelled, for `message` not defined, and for `a` not being in quotes.
+> >
+> > Fixed version:
+> >
+> > ~~~
+> > message = ""
+> > for number in range(10):
+> >     # use a if the number is a multiple of 3, otherwise use b
+> >     if (number % 3) == 0:
+> >         message = message + "a"
+> >     else:
+> >         message = message + "b"
+> > print(message)
+> > ~~~
 
 ## Syntax Errors
 
@@ -186,76 +223,31 @@ it *always* means that there is a problem with how your code is indented.
 > In general, it is better to just never use tabs and always use spaces,
 > because it can make things very confusing.
 
-## Variable Name Errors
-
-Another very common type of error is called a `NameError`,
-and occurs when you try to use a variable that does not exist.
-For example:
-
-~~~ {.python}
-print(a)
-~~~
-
-~~~
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'a' is not defined
-~~~
-
-Variable name errors come with some of the most informative error messages,
-which are usually of the form "name 'the_variable_name' is not defined".
-
-Why does this error message occur?
-That's harder question to answer,
-because it depends on what your code is supposed to do.
-However,
-there are a few very common reasons why you might have an undefined variable.
-The first is that you meant to use a [string]({{ page.root }}/reference/#string), but forgot to put quotes around it:
-
-~~~ {.python}
-print(hello)
-~~~
-
-~~~
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'a' is not defined
-~~~
-
-The second is that you just forgot to create the variable before using it.
-In the following example,
-`count` should have been defined (e.g., with `count = 0`) before the for loop:
-
-~~~ {.python}
-for number in range(10):
-    count = count + number
-print("The count is:", count)
-~~~
-
-~~~
-Traceback (most recent call last):
-  File "<stdin>", line 2, in <module>
-NameError: name 'count' is not defined
-~~~
-
-Finally, the third possibility is that you made a typo when you were writing your code.
-Let's say we fixed the error above by adding the line `Count = 0` before the for loop.
-Frustratingly, this actually does not fix the error.
-Remember that variables are [case-sensitive]({{ page.root }}/reference/#case-sensitive),
-so the variable `count` is different from `Count`. We still get the same error, because we still have not defined `count`:
-
-~~~ {.python}
-Count = 0
-for number in range(10):
-    count = count + number
-print("The count is:", count)
-~~~
-
-~~~
-Traceback (most recent call last):
-  File "<stdin>", line 2, in <module>
-NameError: name 'count' is not defined
-~~~
+> ## Identifying Syntax Errors {.challenge}
+>
+> 1. Read the code below, and (without running it) try to identify what the errors are.
+> 2. Run the code, and read the error message. Is it a `SyntaxError` or an `IndentationError`?
+> 3. Fix the error.
+> 4. Repeat steps 2 and 3, until you have fixed all the errors.
+>
+> ~~~ {.python}
+> def another_function
+>   print("Syntax errors are annoying.")
+>    print("But at least python tells us about them!")
+>   print("So they are usually not too hard to fix.")
+> ~~~
+>
+> > ## Solution {.solution}
+> > `SyntaxError` for missing `():` at end of first line,
+> `IndentationError` for mismatch between second and third lines.
+> > A fixed version is:
+> >
+> > ~~~ {.python}
+> > def another_function():
+> >     print("Syntax errors are annoying.")
+> >     print("But at least python tells us about them!")
+> >     print("So they are usually not too hard to fix.")
+> > ~~~
 
 ## Index Errors
 
@@ -292,61 +284,97 @@ Here,
 Python is telling us that there is an `IndexError` in our code,
 meaning we tried to access a list index that did not exist.
 
-## File Errors
+> ## Identifying Index Errors {.challenge}
+>
+> 1. Read the code below, and (without running it) try to identify what the errors are.
+> 2. Run the code, and read the error message. What type of error is it?
+> 3. Fix the error.
+>
+> ~~~ {.python}
+> seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+> print('My favorite season is ', seasons[4])
+> ~~~
+>
+> > ## Solution {.solution}
+> > `IndexError`; the last entry is `seasons[3]`, so `seasons[4]` doesn't make sense.
+> > A fixed version is:
+> >
+> > ~~~ {.python}
+> > seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+> > print('My favorite season is ', seasons[-1])
+> > ~~~
+>
 
-The last type of error we'll cover today
-are those associated with reading and writing files: `FileNotFoundError`.
-If you try to read a file that does not exist,
-you will receive a `FileNotFoundError` telling you so.
-If you attempt to write to a file that was opened read-only, Python 3
-returns an `UnsupportedOperationError`.
-More generally, problems with input and output manifest as
-`IOError`s or `OSError`s, depending on the version of Python you use.
+Here's another example of Index Error.
 
 ~~~ {.python}
-file_handle = open('myfile.txt', 'r')
+# This code has an intentional error. You can type it directly or
+# use it for reference to understand the error message below.
+def favorite_ice_cream():
+    ice_creams = [
+        "chocolate",
+        "vanilla",
+        "strawberry"
+    ]
+    print(ice_creams[3])
+
+favorite_ice_cream()
 ~~~
 
 ~~~
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-FileNotFoundError: [Errno 2] No such file or directory: 'myfile.txt'
+  File "<stdin>", line 9, in favorite_ice_cream
+IndexError: list index out of range
 ~~~
 
-One reason for receiving this error is that you specified an incorrect path to the file.
-For example,
-if I am currently in a folder called `myproject`,
-and I have a file in `myproject/writing/myfile.txt`,
-but I try to just open `myfile.txt`,
-this will fail.
-The correct path would be `writing/myfile.txt`.
-It is also possible (like with `NameError`) that you just made a typo.
+This particular traceback has two levels.
+You can determine the number of levels by looking for the number of arrows on the left hand side.
+In this case:
 
-A related issue can occur if you use the "read" flag instead of the "write" flag.
-Python will not give you an error if you try to open a file for writing when the file does not exist.
+1.  The first shows code from the cell above,
+    with an arrow pointing to Line 8 (which is `favorite_ice_cream()`).
+
+2.  The second shows some code in the function `favorite_ice_cream`,
+    with an arrow pointing to Line 6 (which is `print(ice_creams[3])`).
+
+The last level is the actual place where the error occurred.
+The other level(s) show what function the program executed to get to the next level down.
+So, in this case, the program first performed a [function call]({{ page.root }}/reference/#function-call) to the function `favorite_ice_cream`.
+Inside this function,
+the program encountered an error on Line 6, when it tried to run the code `print(ice_creams[3])`.
+
+> ## Long Tracebacks {.callout}
+>
+> Sometimes, you might see a traceback that is very long -- sometimes they might even be 20 levels deep!
+> This can make it seem like something horrible happened,
+> but really it just means that your program called many functions before it ran into the error.
+> Most of the time,
+> you can just pay attention to the bottom-most level,
+> which is the actual place where the error occurred.
+
+So what error did the program actually encounter?
+In the last line of the traceback,
+Python helpfully tells us the category or type of error (in this case, it is an `IndexError`)
+and a more detailed error message (in this case, it says "list index out of range").
+
+If you encounter an error and don't know what it means,
+it is still important to read the traceback closely.
+That way,
+if you fix the error,
+but encounter a new one,
+you can tell that the error changed.
+Additionally,
+sometimes just knowing *where* the error occurred is enough to fix it,
+even if you don't entirely understand the message.
+
+If you do encounter an error you don't recognize,
+try looking at the [official documentation on errors](http://docs.python.org/3/library/exceptions.html).
 However,
-if you meant to open a file for reading,
-but accidentally opened it for writing,
-and then try to read from it,
-you will get an `UnsupportedOperation` error
-telling you that the file was not opened for reading:
-
-~~~ {.python}
-file_handle = open('myfile.txt', 'w')
-file_handle.read()
-~~~
-
-~~~
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-io.UnsupportedOperation: not readable
-~~~
-
-These are the most common errors with files,
-though many others exist.
-If you get an error that you've never seen before,
-searching the Internet for that error type
-often reveals common reasons why you might get that error.
+note that you may not always be able to find the error there,
+as it is possible to create custom errors.
+In that case,
+hopefully the custom error message is informative enough to help you figure out what went wrong.
 
 > ## Reading Error Messages {.challenge}
 >
@@ -397,89 +425,6 @@ often reveals common reasons why you might get that error.
 > > 4. `KeyError`
 > > 5. There isn't really a message; you're supposed to infer that `Friday` is not a key in `messages`.
 
-> ## Identifying Syntax Errors {.challenge}
->
-> 1. Read the code below, and (without running it) try to identify what the errors are.
-> 2. Run the code, and read the error message. Is it a `SyntaxError` or an `IndentationError`?
-> 3. Fix the error.
-> 4. Repeat steps 2 and 3, until you have fixed all the errors.
->
-> ~~~ {.python}
-> def another_function
->   print("Syntax errors are annoying.")
->    print("But at least python tells us about them!")
->   print("So they are usually not too hard to fix.")
-> ~~~
->
-> > ## Solution {.solution}
-> > `SyntaxError` for missing `():` at end of first line,
-> `IndentationError` for mismatch between second and third lines.
-> > A fixed version is:
-> >
-> > ~~~ {.python}
-> > def another_function():
-> >     print("Syntax errors are annoying.")
-> >     print("But at least python tells us about them!")
-> >     print("So they are usually not too hard to fix.")
-> > ~~~
-
-> ## Identifying Variable Name Errors {.challenge}
->
-> 1. Read the code below, and (without running it) try to identify what the errors are.
-> 2. Run the code, and read the error message.
->    What type of `NameError` do you think this is?
->    In other words, is it a string with no quotes,
->    a misspelled variable,
->    or a variable that should have been defined but was not?
-> 3. Fix the error.
-> 4. Repeat steps 2 and 3, until you have fixed all the errors.
->
-> ~~~ {.python}
-> for number in range(10):
->     # use a if the number is a multiple of 3, otherwise use b
->     if (Number % 3) == 0:
->         message = message + a
->     else:
->         message = message + "b"
-> print(message)
-> ~~~
->
-> > ## Solution {.solution}
-> > 3 `NameError`s for `number` being misspelled, for `message` not defined, and for `a` not being in quotes.
-> >
-> > Fixed version:
-> >
-> > ~~~
-> > message = ""
-> > for number in range(10):
-> >     # use a if the number is a multiple of 3, otherwise use b
-> >     if (number % 3) == 0:
-> >         message = message + "a"
-> >     else:
-> >         message = message + "b"
-> > print(message)
-> > ~~~
-
-> ## Identifying Index Errors {.challenge}
->
-> 1. Read the code below, and (without running it) try to identify what the errors are.
-> 2. Run the code, and read the error message. What type of error is it?
-> 3. Fix the error.
->
-> ~~~ {.python}
-> seasons = ['Spring', 'Summer', 'Fall', 'Winter']
-> print('My favorite season is ', seasons[4])
-> ~~~
->
-> > ## Solution {.solution}
-> > `IndexError`; the last entry is `seasons[3]`, so `seasons[4]` doesn't make sense.
-> > A fixed version is:
-> >
-> > ~~~ {.python}
-> > seasons = ['Spring', 'Summer', 'Fall', 'Winter']
-> > print('My favorite season is ', seasons[-1])
-> > ~~~
->
 
 ## Silent Errors
 
@@ -592,3 +537,60 @@ in general, and for Python,
 you can look at [Nose](http://nose.readthedocs.io/en/latest/) and 
 [PyTest](http://doc.pytest.org/en/latest/)
 which are examples of tools used to write tests in an easy to use way.
+
+
+## File Errors
+
+The last type of error we'll cover today
+are those associated with reading and writing files: `FileNotFoundError`.
+If you try to read a file that does not exist,
+you will receive a `FileNotFoundError` telling you so.
+If you attempt to write to a file that was opened read-only, Python 3
+returns an `UnsupportedOperationError`.
+More generally, problems with input and output manifest as
+`IOError`s or `OSError`s, depending on the version of Python you use.
+
+~~~ {.python}
+file_handle = open('myfile.txt', 'r')
+~~~
+
+~~~
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: 'myfile.txt'
+~~~
+
+One reason for receiving this error is that you specified an incorrect path to the file.
+For example,
+if I am currently in a folder called `myproject`,
+and I have a file in `myproject/writing/myfile.txt`,
+but I try to just open `myfile.txt`,
+this will fail.
+The correct path would be `writing/myfile.txt`.
+It is also possible (like with `NameError`) that you just made a typo.
+
+A related issue can occur if you use the "read" flag instead of the "write" flag.
+Python will not give you an error if you try to open a file for writing when the file does not exist.
+However,
+if you meant to open a file for reading,
+but accidentally opened it for writing,
+and then try to read from it,
+you will get an `UnsupportedOperation` error
+telling you that the file was not opened for reading:
+
+~~~ {.python}
+file_handle = open('myfile.txt', 'w')
+file_handle.read()
+~~~
+
+~~~
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+io.UnsupportedOperation: not readable
+~~~
+
+These are the most common errors with files,
+though many others exist.
+If you get an error that you've never seen before,
+searching the Internet for that error type
+often reveals common reasons why you might get that error.
