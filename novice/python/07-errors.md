@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Errors and Exceptions
+title: Handling Errors
 subtitle: How to deal with problems in your code
 minutes: 30
 ---
@@ -36,7 +36,7 @@ Traceback (most recent call last):
 NameError: name 'a' is not defined
 ~~~
 
-Take a look at the traceback. It shows 1 level of error, here, NameError. The traceback shows shows the line number where the error occured and the type of error.
+Take a look at the traceback. It shows 1 level of error, here, Name Error. The traceback shows shows the line number where the error occured and the type of error.
 
 Variable name errors come with some of the most informative error messages, which are usually of the form “name ‘the_variable_name’ is not defined”.
 
@@ -48,7 +48,7 @@ That's harder question to answer,
 because it depends on what your code is supposed to do.
 However,
 there are a few very common reasons why you might have an undefined variable.
-The first is that you meant to use a [string]({{ page.root }}/reference/#string), but forgot to put quotes around it:
+The first is that you meant to use a [string](reference.html/#string), but forgot to put quotes around it:
 
 ~~~ {.python}
 print(hello)
@@ -79,7 +79,7 @@ NameError: name 'count' is not defined
 Finally, the third possibility is that you made a typo when you were writing your code.
 Let's say we fixed the error above by adding the line `Count = 0` before the for loop.
 Frustratingly, this actually does not fix the error.
-Remember that variables are [case-sensitive]({{ page.root }}/reference/#case-sensitive),
+Remember that variables are [case-sensitive](reference.html/#case-sensitive),
 so the variable `count` is different from `Count`. We still get the same error, because we still have not defined `count`:
 
 ~~~ {.python}
@@ -137,7 +137,7 @@ NameError: name 'count' is not defined
 When you forget a colon at the end of a line,
 accidentally add one space too many when indenting under an `if` statement,
 or forget a parenthesis,
-you will encounter a [syntax error]({{ page.root }}/reference/#syntax-error).
+you will encounter a [syntax error](reference.html/#syntax-error).
 This means that Python couldn't figure out how to read your program.
 This is similar to forgetting punctuation in English:
 for example,
@@ -198,7 +198,7 @@ it *always* means that there is a problem with how your code is indented.
 > A quick note on indentation errors:
 > they can sometimes be insidious,
 > especially if you are mixing spaces and tabs.
-> Because they are both [whitespace]({{ page.root }}/reference/#whitespace),
+> Because they are both [whitespace](reference.html/#whitespace),
 > it is difficult to visually tell the difference.
 > In the following example, where we have a file called `hello_world.py`,
 > the first two lines are using a tab for indentation,
@@ -340,7 +340,7 @@ In this case:
 
 The last level is the actual place where the error occurred.
 The other level(s) show what function the program executed to get to the next level down.
-So, in this case, the program first performed a [function call]({{ page.root }}/reference/#function-call) to the function `favorite_ice_cream`.
+So, in this case, the program first performed a [function call](reference.html/#function-call) to the function `favorite_ice_cream`.
 Inside this function,
 the program encountered an error on Line 6, when it tried to run the code `print(ice_creams[3])`.
 
