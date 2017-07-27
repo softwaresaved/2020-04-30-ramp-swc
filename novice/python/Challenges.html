@@ -255,6 +255,57 @@ is_palindrome(<span class="st">&quot;Deed&quot;</span>)
 </blockquote>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
+<h4 id="identifying-variable-name-errors"><span class="glyphicon glyphicon-pencil"></span>Identifying Variable Name Errors</h4>
+</div>
+<div class="panel-body">
+<ol style="list-style-type: decimal">
+<li>Read the code below, and (without running it) try to identify what the errors are.</li>
+<li>Run the code, and read the error message. What type of <code>NameError</code> do you think this is? In other words, is it a string with no quotes, a misspelled variable, or a variable that should have been defined but was not?</li>
+<li>Fix the error.</li>
+<li>Repeat steps 2 and 3, until you have fixed all the errors.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> number <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>):
+    <span class="co"># use a if the number is a multiple of 3, otherwise use b</span>
+    <span class="cf">if</span> (Number <span class="op">%</span> <span class="dv">3</span>) <span class="op">==</span> <span class="dv">0</span>:
+        message <span class="op">=</span> message <span class="op">+</span> a
+    <span class="cf">else</span>:
+        message <span class="op">=</span> message <span class="op">+</span> <span class="st">&quot;b&quot;</span>
+<span class="bu">print</span>(message)</code></pre></div>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h4 id="identifying-syntax-errors"><span class="glyphicon glyphicon-pencil"></span>Identifying Syntax Errors</h4>
+</div>
+<div class="panel-body">
+<ol style="list-style-type: decimal">
+<li>Read the code below, and (without running it) try to identify what the errors are.</li>
+<li>Run the code, and read the error message. Is it a <code>SyntaxError</code> or an <code>IndentationError</code>?</li>
+<li>Fix the error.</li>
+<li>Repeat steps 2 and 3, until you have fixed all the errors.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> another_function
+  <span class="bu">print</span>(<span class="st">&quot;Syntax errors are annoying.&quot;</span>)
+   <span class="bu">print</span>(<span class="st">&quot;But at least python tells us about them!&quot;</span>)
+  <span class="bu">print</span>(<span class="st">&quot;So they are usually not too hard to fix.&quot;</span>)</code></pre></div>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h4 id="identifying-index-errors"><span class="glyphicon glyphicon-pencil"></span>Identifying Index Errors</h4>
+</div>
+<div class="panel-body">
+<ol style="list-style-type: decimal">
+<li>Read the code below, and (without running it) try to identify what the errors are.</li>
+<li>Run the code, and read the error message. What type of error is it?</li>
+<li>Fix the error.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">seasons <span class="op">=</span> [<span class="st">&#39;Spring&#39;</span>, <span class="st">&#39;Summer&#39;</span>, <span class="st">&#39;Fall&#39;</span>, <span class="st">&#39;Winter&#39;</span>]
+<span class="bu">print</span>(<span class="st">&#39;My favorite season is &#39;</span>, seasons[<span class="dv">4</span>])</code></pre></div>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
 <h4 id="reading-error-messages"><span class="glyphicon glyphicon-pencil"></span>Reading Error Messages</h4>
 </div>
 <div class="panel-body">
@@ -289,57 +340,6 @@ print_friday_message()</code></pre></div>
   File &quot;&lt;stdin&gt;&quot;, line 2, in print_friday_message
   File &quot;&lt;stdin&gt;&quot;, line 11, in print_message
 KeyError: &#39;Friday&#39;</code></pre>
-</div>
-</section>
-<section class="challenge panel panel-success">
-<div class="panel-heading">
-<h4 id="identifying-syntax-errors"><span class="glyphicon glyphicon-pencil"></span>Identifying Syntax Errors</h4>
-</div>
-<div class="panel-body">
-<ol style="list-style-type: decimal">
-<li>Read the code below, and (without running it) try to identify what the errors are.</li>
-<li>Run the code, and read the error message. Is it a <code>SyntaxError</code> or an <code>IndentationError</code>?</li>
-<li>Fix the error.</li>
-<li>Repeat steps 2 and 3, until you have fixed all the errors.</li>
-</ol>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> another_function
-  <span class="bu">print</span>(<span class="st">&quot;Syntax errors are annoying.&quot;</span>)
-   <span class="bu">print</span>(<span class="st">&quot;But at least python tells us about them!&quot;</span>)
-  <span class="bu">print</span>(<span class="st">&quot;So they are usually not too hard to fix.&quot;</span>)</code></pre></div>
-</div>
-</section>
-<section class="challenge panel panel-success">
-<div class="panel-heading">
-<h4 id="identifying-variable-name-errors"><span class="glyphicon glyphicon-pencil"></span>Identifying Variable Name Errors</h4>
-</div>
-<div class="panel-body">
-<ol style="list-style-type: decimal">
-<li>Read the code below, and (without running it) try to identify what the errors are.</li>
-<li>Run the code, and read the error message. What type of <code>NameError</code> do you think this is? In other words, is it a string with no quotes, a misspelled variable, or a variable that should have been defined but was not?</li>
-<li>Fix the error.</li>
-<li>Repeat steps 2 and 3, until you have fixed all the errors.</li>
-</ol>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> number <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>):
-    <span class="co"># use a if the number is a multiple of 3, otherwise use b</span>
-    <span class="cf">if</span> (Number <span class="op">%</span> <span class="dv">3</span>) <span class="op">==</span> <span class="dv">0</span>:
-        message <span class="op">=</span> message <span class="op">+</span> a
-    <span class="cf">else</span>:
-        message <span class="op">=</span> message <span class="op">+</span> <span class="st">&quot;b&quot;</span>
-<span class="bu">print</span>(message)</code></pre></div>
-</div>
-</section>
-<section class="challenge panel panel-success">
-<div class="panel-heading">
-<h4 id="identifying-index-errors"><span class="glyphicon glyphicon-pencil"></span>Identifying Index Errors</h4>
-</div>
-<div class="panel-body">
-<ol style="list-style-type: decimal">
-<li>Read the code below, and (without running it) try to identify what the errors are.</li>
-<li>Run the code, and read the error message. What type of error is it?</li>
-<li>Fix the error.</li>
-</ol>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">seasons <span class="op">=</span> [<span class="st">&#39;Spring&#39;</span>, <span class="st">&#39;Summer&#39;</span>, <span class="st">&#39;Fall&#39;</span>, <span class="st">&#39;Winter&#39;</span>]
-<span class="bu">print</span>(<span class="st">&#39;My favorite season is &#39;</span>, seasons[<span class="dv">4</span>])</code></pre></div>
 </div>
 </section>
 <section class="challenge panel panel-success">

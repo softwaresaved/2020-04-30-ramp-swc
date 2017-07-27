@@ -261,6 +261,52 @@ subtitle: Challenges
 
 >## How to deal with problems in your code
 
+> #### Identifying Variable Name Errors {.challenge}
+>
+> 1. Read the code below, and (without running it) try to identify what the errors are.
+> 2. Run the code, and read the error message.
+>    What type of `NameError` do you think this is?
+>    In other words, is it a string with no quotes,
+>    a misspelled variable,
+>    or a variable that should have been defined but was not?
+> 3. Fix the error.
+> 4. Repeat steps 2 and 3, until you have fixed all the errors.
+>
+> ~~~ {.python}
+> for number in range(10):
+>     # use a if the number is a multiple of 3, otherwise use b
+>     if (Number % 3) == 0:
+>         message = message + a
+>     else:
+>         message = message + "b"
+> print(message)
+> ~~~
+
+> #### Identifying Syntax Errors {.challenge}
+>
+> 1. Read the code below, and (without running it) try to identify what the errors are.
+> 2. Run the code, and read the error message. Is it a `SyntaxError` or an `IndentationError`?
+> 3. Fix the error.
+> 4. Repeat steps 2 and 3, until you have fixed all the errors.
+>
+> ~~~ {.python}
+> def another_function
+>   print("Syntax errors are annoying.")
+>    print("But at least python tells us about them!")
+>   print("So they are usually not too hard to fix.")
+> ~~~
+
+> #### Identifying Index Errors {.challenge}
+>
+> 1. Read the code below, and (without running it) try to identify what the errors are.
+> 2. Run the code, and read the error message. What type of error is it?
+> 3. Fix the error.
+>
+> ~~~ {.python}
+> seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+> print('My favorite season is ', seasons[4])
+> ~~~
+
 > #### Reading Error Messages {.challenge}
 >
 > Read the python code and the resulting traceback below, and answer the following questions:
@@ -298,52 +344,6 @@ subtitle: Challenges
 >   File "<stdin>", line 2, in print_friday_message
 >   File "<stdin>", line 11, in print_message
 > KeyError: 'Friday'
-> ~~~
-
-> #### Identifying Syntax Errors {.challenge}
->
-> 1. Read the code below, and (without running it) try to identify what the errors are.
-> 2. Run the code, and read the error message. Is it a `SyntaxError` or an `IndentationError`?
-> 3. Fix the error.
-> 4. Repeat steps 2 and 3, until you have fixed all the errors.
->
-> ~~~ {.python}
-> def another_function
->   print("Syntax errors are annoying.")
->    print("But at least python tells us about them!")
->   print("So they are usually not too hard to fix.")
-> ~~~
-
-> #### Identifying Variable Name Errors {.challenge}
->
-> 1. Read the code below, and (without running it) try to identify what the errors are.
-> 2. Run the code, and read the error message.
->    What type of `NameError` do you think this is?
->    In other words, is it a string with no quotes,
->    a misspelled variable,
->    or a variable that should have been defined but was not?
-> 3. Fix the error.
-> 4. Repeat steps 2 and 3, until you have fixed all the errors.
->
-> ~~~ {.python}
-> for number in range(10):
->     # use a if the number is a multiple of 3, otherwise use b
->     if (Number % 3) == 0:
->         message = message + a
->     else:
->         message = message + "b"
-> print(message)
-> ~~~
-
-> #### Identifying Index Errors {.challenge}
->
-> 1. Read the code below, and (without running it) try to identify what the errors are.
-> 2. Run the code, and read the error message. What type of error is it?
-> 3. Fix the error.
->
-> ~~~ {.python}
-> seasons = ['Spring', 'Summer', 'Fall', 'Winter']
-> print('My favorite season is ', seasons[4])
 > ~~~
 
 > #### Debug with a Neighbour {.challenge}
