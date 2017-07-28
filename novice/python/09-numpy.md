@@ -201,10 +201,12 @@ print(data[0:4, 0:10])
  [ 0.  0.  2.  0.  4.  2.  2.  1.  6.  7.]]
 ~~~
 
-The [slice](../../reference.html#slice) `0:4` means,
-"Start at index 0 and go up to, but not including, index 4."
-Again,
-the up-to-but-not-including takes a bit of getting used to,
+The [slice](../../reference.html#slice) `0:4` means, numpy selects items between boundries [0,4] and [0,10].
+
+
+*See slide [Slicing a List Example I](motivation.html#slicing-a-list-example-i)*.
+
+Again, this takes a bit of getting used to,
 but the rule is that the difference between the upper and lower bounds is the number of values in the slice.
 
 We don't have to start slices at 0:
