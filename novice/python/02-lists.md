@@ -11,18 +11,21 @@ minutes: 15
 
 ### Arrays in Python
 
-One of the most fundamental data structures in any language is the array. Python doesn't have 
-a native array data structure, but it has the list which is much more general and can be used 
-as a multidimensional array quite easily.
+So we can use variables to hold values - useful! But what about when we need to hold many
+different values, such as a set of phone numbers?
+
+One of the most fundamental data structures in any language is the array, used to hold many
+values at once. Python doesn't have a native array data structure, but it has the list which
+is much more general and can be used as a multidimensional array quite easily.
 
 ### List basics
 
-A list in python is just an ordered collection of items which can be of any type. By comparison 
-an array is an ordered collection of items of a single type - so a list is more flexible than an 
+A list in python is just an ordered collection of items which can be of any type. By comparison
+an array is an ordered collection of items of a single type - so a list is more flexible than an
 array.
 
-A list is also a dynamic mutable type and this means we can add and delete elements from the list 
-at any time. 
+A list is also a dynamic mutable type and this means we can add and delete elements from the list
+at any time.
 
 Lists are built into the language (so we don't have to load a library to use them).
 
@@ -38,7 +41,7 @@ print('Odds are:', odds)
 Odds are: [1, 3, 5, 7, 9, 11, 15]
 ~~~
 
-This looks like an array because we can use *slicing* notation to pick out an individual element - 
+This looks like an array because we can use *slicing* notation to pick out an individual element -
 indexes start from 0.
 
 Programming languages like Fortran and MATLAB start counting at 1,
@@ -56,13 +59,13 @@ We select individual elements from lists by indexing them:
 print('first and last:', odds[0], odds[-1])
 ~~~
 
-will print first and last elements, i.e. value 1 and 7 in this case. 
+will print first and last elements, i.e. value 1 and 7 in this case.
 
 ~~~ {.output}
 first and last: 1 15
 ~~~
 
-Similarly to change the seventh element we can 
+Similarly to change the seventh element we can
 assign directly to it:
 
 ~~~{.python}
@@ -79,10 +82,10 @@ odds[2:5]
 [5, 7, 9]
 ~~~
 
-is a sublist from the third element to the fifth i.e. from `odds[2]` to `odds[4]`. Notice that the 
+is a sublist from the third element to the fifth i.e. from `odds[2]` to `odds[4]`. Notice that the
 final element specified i.e. `[5]` is not included in the slice.
 
-Also notice that you can leave out either of the start and end indexes and they will be assumed to have their maximum possible value. 
+Also notice that you can leave out either of the start and end indexes and they will be assumed to have their maximum possible value.
 For example:
 
 ~~~{.python}
@@ -158,16 +161,16 @@ odds[1]=19
 
 **NOTE:**
 
-Finally it is worth knowing that the list we assign to a slice doesn't have to be the same size as the slice - 
+Finally it is worth knowing that the list we assign to a slice doesn't have to be the same size as the slice -
 it simply replaces it even if it is a different size.
 
-### Thin slices 
+### Thin slices
 
 The expression `element[3:3]` produces an [empty string](../../reference.html#empty-string),
  i.e., a string that contains no characters.
- 
+
 ### Lists and Strings
- 
+
 There is one important difference between lists and strings:
 we can change the values in a list,
 but we cannot change the characters in a string.
@@ -202,24 +205,24 @@ TypeError: 'str' object does not support item assignment
 does not.
 
 > ## Ch-Ch-Ch-Changes {.callout}
-> 
+>
 > Data which can be modified in place is called [mutable](reference.html#mutable),
 > while data which cannot be modified is called [immutable](reference.html#immutable).
 > Strings and numbers are immutable. This does not mean that variables with string or number values are constants,
-> but when we want to change the value of a string or number variable, we can only replace the old value 
+> but when we want to change the value of a string or number variable, we can only replace the old value
 > with a completely new value.
 >
-> Lists and arrays, on the other hand, are mutable: we can modify them after they have been created. We can 
-> change individual elements, append new elements, or reorder the whole list.  For some operations, like 
-> sorting, we can choose whether to use a function that modifies the data in place or a function that returns a 
+> Lists and arrays, on the other hand, are mutable: we can modify them after they have been created. We can
+> change individual elements, append new elements, or reorder the whole list.  For some operations, like
+> sorting, we can choose whether to use a function that modifies the data in place or a function that returns a
 > modified copy and leaves the original unchanged.
 >
-> Be careful when modifying data in place.  If two variables refer to the same list, and you modify the list 
-> value, it will change for both variables! If you want variables with mutable values to be independent, you 
+> Be careful when modifying data in place.  If two variables refer to the same list, and you modify the list
+> value, it will change for both variables! If you want variables with mutable values to be independent, you
 > must make a copy of the value when you assign it.
 >
-> Because of pitfalls like this, code which modifies data in place can be more difficult to understand. However, 
-> it is often far more efficient to modify a large data structure in place than to create a modified copy for 
+> Because of pitfalls like this, code which modifies data in place can be more difficult to understand. However,
+> it is often far more efficient to modify a large data structure in place than to create a modified copy for
 > every small change. You should consider both of these aspects when writing your code.
 
 There are many ways to change the contents of lists besides assigning new values to
@@ -286,9 +289,9 @@ This is different from how variables worked in lesson 1, and more similar to how
 
 So far so good, and it looks as if using a list is as easy as using an array.
 
-Where things start to go wrong just a little is when we attempt to push the similarities 
-between lists and arrays one step too far. For example, suppose we want to create an array 
-initialised to a particular value. Following the general array idiom in most languages we 
+Where things start to go wrong just a little is when we attempt to push the similarities
+between lists and arrays one step too far. For example, suppose we want to create an array
+initialised to a particular value. Following the general array idiom in most languages we
 might initialise the elements to a value, say, 1. e.g.:
 
 ~~~ {.python}
@@ -333,7 +336,7 @@ This works but it only works if we need to build up the list in this particular 
 >
 > Would your solution work regardless of whether you knew beforehand
 > the length of the string or list
-> (e.g. if you wanted to apply the solution to a set of lists of different 
+> (e.g. if you wanted to apply the solution to a set of lists of different
 > lengths)?
 > If not, try to change your approach to make it more robust.
 >
@@ -370,7 +373,7 @@ This works but it only works if we need to build up the list in this particular 
 >
 > > ## Solution {.solution}
 > >
-> > The multiplication operator `*` used on a list replicates elements of the 
+> > The multiplication operator `*` used on a list replicates elements of the
 > > list and concatenates them together:
 > >
 > > ~~~ {.output}
