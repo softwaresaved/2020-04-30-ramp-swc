@@ -49,7 +49,7 @@
 <p>Let’s look at adding a feature to our code to perform a conversion from Fahrenheit to Celsius on the temperature data we are looking at:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">celsius <span class="op">=</span> ((data[<span class="dv">3</span>] <span class="op">-</span> <span class="dv">32</span>) <span class="op">*</span> (<span class="dv">5</span><span class="op">/</span><span class="dv">9</span>))</code></pre></div>
 <p>Now this wouldn’t work as it is - we can’t just apply this formula directly to <code>data[3]</code> since it’s a string. We need to convert it to a number first. To be specific, a floating point number.</p>
-<p>Fortunately, Python has some built-in functions to do these <code>type</code> conversions:</p>
+<p>Fortunately, Python has some built-in functions to do these <code>type</code> conversions (<em>see <code>climate_analysis-5.py</code></em>):</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">climate_data <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
 
 <span class="cf">for</span> line <span class="op">in</span> climate_data:
@@ -63,7 +63,7 @@
         fahr <span class="op">=</span> <span class="bu">float</span>(data[<span class="dv">3</span>])
 
         <span class="co"># apply standard Fahrenheit to Celsius formula</span>
-        celsius <span class="op">=</span> ((fahr <span class="op">-</span> <span class="dv">32</span>) <span class="op">*</span> (<span class="dv">5</span><span class="op">/</span><span class="dv">9</span>)) 
+        celsius <span class="op">=</span> ((fahr <span class="op">-</span> <span class="dv">32</span>) <span class="op">*</span> (<span class="dv">5</span><span class="op">/</span><span class="dv">9</span>))
 
         <span class="bu">print</span>(<span class="st">&#39;Max temperature in Celsius&#39;</span>, celsius)</code></pre></div>
 <p>So we first convert our <code>data[3]</code> value to a floating point number using <code>float()</code>, then we are free to use it in our conversion formula. Depending on the structure of your own data, you may find you end up doing this a lot!</p>
@@ -82,7 +82,7 @@ Max temperature in Celsius 16.33888888888889</code></pre>
 <p>Whilst this is a simple calculation, there are many things we may want to do that are more complex. What is essentially a single task may require a number of lines of code to accomplish it, and with many of these our code could become quite messy. And if we’d like to reuse that code elsewhere, we’d have to copy it.</p>
 <p>Duplicating portions of code can lead to a host of problems with modifying our code in the future, aside from making the code more lengthy and unreadable. We’d have to update all our copies if we wanted to update how we accomplished that task, which can introduce errors. And if errors already exist in our original code, we would have to correct all copies, which would become a code maintenance nightmare.</p>
 <p>We’d ideally like a way to package our code succinctly, so we only need to change it in one place, and so that it is easier to reuse. Python provides for this by letting us define things called ‘functions’ - a shorthand way of re-executing pieces of code.</p>
-<p>So going back to our climate code, we can modularise our temperature conversion code into a function:</p>
+<p>So going back to our climate code, we can modularise our temperature conversion code into a function (<em>see <code>climate_analysis-6.py</code></em>):</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">climate_data <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
 
 <span class="kw">def</span> fahr_to_celsius(fahr):
@@ -183,7 +183,7 @@ is_palindrome(<span class="st">&quot;Deed&quot;</span>)
     <span class="co"># apply standard Fahrenheit to Kelvin formula</span>
     kelvin <span class="op">=</span> fahr_to_celsius(fahr) <span class="op">+</span> <span class="fl">273.15</span>
     <span class="cf">return</span> kelvin</code></pre></div>
-<p>Which we insert after the <code>fahr_to_celsius</code> function (since our new function needs to call that one). We can then amend our code to also call that new function and output the result. Our code then becomes:</p>
+<p>Which we insert after the <code>fahr_to_celsius</code> function (since our new function needs to call that one). We can then amend our code to also call that new function and output the result. Our code then becomes (<em>see <code>climate_analysis-7.py</code></em>):</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">climate_data <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
 
 <span class="kw">def</span> fahr_to_celsius(fahr):
@@ -216,7 +216,7 @@ is_palindrome(<span class="st">&quot;Deed&quot;</span>)
 <p>A library is a collection of code (precompiled routines, functions) that a program can use. They are particularly useful for storing frequently used routines because you don’t need to explicitly link them to every program that uses them. Libraries will be automatically looked for routines that are not found elsewhere.</p>
 <p>So we can go one step further to improve the structure of our code. We can separate out the two functions and have them in a separate Python module (or library) which we can use.</p>
 <p>Create a new file called <code>temp_conversion.py</code> and copy and paste those two functions into it, then save it, and remove those functions from the original <code>climate_analysis.py</code> script and save that. We’ll see how to use those library functions shortly. But first, let’s take this opportunity to improve our documentation of those functions!</p>
-<p>The usual way to put documentation in software is to add comments, as we’ve already seen. But when describing functions, there’s a better way. If the first thing in a function is a string that isn’t assigned to a variable, that string is attached to the function as its documentation:</p>
+<p>The usual way to put documentation in software is to add comments, as we’ve already seen. But when describing functions, there’s a better way. If the first thing in a function is a string that isn’t assigned to a variable, that string is attached to the function as its documentation (<em>see <code>temp_conversion.py</code></em>):</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">&quot;&quot;&quot;A library to perform temperature conversions&quot;&quot;&quot;</span>
 
 <span class="kw">def</span> fahr_to_celsius(fahr):
@@ -287,7 +287,7 @@ fahr_to_celsius(fahr)
     
     Arguments:
     fahr -- the temperature in Fahrenheit</code></pre>
-<p>And then we need to <code>import</code> that function from our module into our script, so we can use it.</p>
+<p>And then we need to <code>import</code> that function from our module into our script, so we can use it (<em>see <code>climate_analysis-8.py</code></em>).</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> temp_conversion
 
 climate_data <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)

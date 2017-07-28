@@ -28,7 +28,7 @@ others (as well as ourselves, when we might come back to it at a later date).
 
 We first need to be able to read in our data from the `sc_climate_data_10.csv`
 file, and using a loop, print out each line. Let's write another script
-called `climate_analysis.py`, and enter the following:
+called `climate_analysis.py`, and enter the following (*see `climate_analysis-1.py`*):
 
 ~~~ {.python}
 climate_data = open('../data/sc_climate_data_10.csv', 'r')
@@ -122,7 +122,7 @@ So what's happening here?
 > removes the trailing newline. There are many other String methods which
 > are incredibly useful!
 
-So, let's try that out:
+So, let's try that out (*see `climate_analysis-2.py`*):
 
 ~~~ {.python}
 climate_data = open('../data/sc_climate_data_10.csv', 'r')
@@ -166,7 +166,7 @@ We've seen how we can trim trailing newlines from strings with `rstrip()` acting
 Although in this case, we're capturing the returned list from `split()` into a 
 variable called `data`. We can access elements in that list as before.
 
-So, let's change our code accordingly:
+So, let's change our code accordingly (*see `climate_analysis-3.py`*):
 
 ~~~ {.python}
 climate_data = open('../data/sc_climate_data_10.csv', 'r')

@@ -199,7 +199,7 @@ We're still getting our column header at the top of our output, and perhaps
 we don't want that. We need to able to check whether the line begins with
 a '#' (which denotes a comment line), and if so, avoid printing it out.
 
-So let's use an `if` statement to do that:
+So let's use an `if` statement to do that (*see `climate_analysis-4.py`*):
 
 ~~~ {.python}
 climate_data = open('../data/sc_climate_data_10.csv', 'r')

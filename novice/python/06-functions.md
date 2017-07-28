@@ -34,7 +34,8 @@ Now this wouldn't work as it is - we can't just apply this formula directly to
 `data[3]` since it's a string. We need to convert it to a number first. To be 
 specific, a floating point number.
 
-Fortunately, Python has some built-in functions to do these `type` conversions:
+Fortunately, Python has some built-in functions to do these `type` conversions
+(*see `climate_analysis-5.py`*):
 
 ~~~ {.python}
 climate_data = open('../data/sc_climate_data_10.csv', 'r')
@@ -50,7 +51,7 @@ for line in climate_data:
         fahr = float(data[3])
 
         # apply standard Fahrenheit to Celsius formula
-        celsius = ((fahr - 32) * (5/9)) 
+        celsius = ((fahr - 32) * (5/9))
 
         print('Max temperature in Celsius', celsius)
 ~~~
@@ -95,7 +96,7 @@ Python provides for this by letting us define things called 'functions' -
 a shorthand way of re-executing pieces of code.
 
 So going back to our climate code, we can modularise our temperature
-conversion code into a function:
+conversion code into a function (*see `climate_analysis-6.py`*):
 
 ~~~ {.python}
 climate_data = open('../data/sc_climate_data_10.csv', 'r')
@@ -256,7 +257,7 @@ def fahr_to_kelvin(fahr):
 
 Which we insert after the `fahr_to_celsius` function (since our new function
 needs to call that one). We can then amend our code to also call that new
-function and output the result. Our code then becomes:
+function and output the result. Our code then becomes (*see `climate_analysis-7.py`*):
 
 ~~~ {.python}
 climate_data = open('../data/sc_climate_data_10.csv', 'r')
@@ -316,7 +317,7 @@ documentation of those functions!
 The usual way to put documentation in software is to add comments, as
 we've already seen. But when describing functions, there's a better way.
 If the first thing in a function is a string that isn't assigned to a variable,
-that string is attached to the function as its documentation:
+that string is attached to the function as its documentation (*see `temp_conversion.py`*):
 
 ~~~ {.python}
 """A library to perform temperature conversions"""
@@ -424,7 +425,7 @@ fahr_to_celsius(fahr)
 ~~~
 
 And then we need to `import` that function from our module into our script, so 
-we can use it.
+we can use it (*see `climate_analysis-8.py`*).
 
 ~~~ {.python}
 import temp_conversion

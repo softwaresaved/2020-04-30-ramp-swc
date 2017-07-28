@@ -32,7 +32,7 @@ temperature conversion functions, we need to import the `sys` library.
 The first argument (`sys.argv[0]`) always contains the name of the script,
 with the arguments passed in as `sys.argv[1]`, `sys.argv[2]`, etc.
 
-So we can change our script to handle a filename argument:
+So we can change our script to handle a filename argument (*see `climate_analysis-9.py`*):
 
 ~~~ {.python}
 import sys
@@ -119,7 +119,8 @@ should make sure we fully understand the data we are using, and what
 it means. Otherwise, we run the risk of making assumptions and 
 processing the data incorrectly.
 
-In this case, we can fix our code by adding in a condition:
+In this case, we can fix our code by adding in a condition
+(*see `climate_analysis-10.py`*):
 
 ~~~ {.python}
         # don't process invalid temperature readings of -9999
@@ -152,7 +153,7 @@ present. This is not very helpful! To make it easier to diagnose
 such problems, we can implement a simple check to ensure the right
 number of arguments are given to our script.
 
-Insert the following before the `filename` assignment:
+Insert the following before the `filename` assignment (*see `climate_analysis-11.py`*):
 
 ~~~ {.python}
 script = sys.argv[0]
@@ -194,10 +195,10 @@ Here, we are using Python's `+` operator to **concatenate** strings
 together, so we can get output such as `20.561111111111114, 293.7111111111111`.
 
 We could run the script now in a pipeline, for example, to get the first
-10 rows of output:
+10 rows of output (*see `climate_analysis-12.py`*):
 
 ~~~ {.bash}
-python climate_analysis-12.py ../data/sc_climate_data_1000.csv | head -10
+python climate_analysis.py ../data/sc_climate_data_1000.csv | head -10
 ~~~
 
 But now we get a really odd error:
@@ -216,7 +217,7 @@ This is an odd consequence of using Python in a command line pipeline ---
 it doesn't cope with piping output to other commands very well.
 
 We can fix this by including the following at the top, after our 
-`temp_conversion` import:
+`temp_conversion` import (*see `climate_analysis-13.py`*):
 
 ~~~ {.python}
 import signal
@@ -227,7 +228,7 @@ We're telling our Python script to ignore any pipe errors --- not ideal,
 but solves our problem. We can now do things like:
 
 ~~~ {.bash}
-python climate_analysis-12.py ../data/sc_climate_data_1000.csv | wc -l
+python climate_analysis.py ../data/sc_climate_data_1000.csv | wc -l
 ~~~
 
 Which tells us the number of lines it processed, taking into account the

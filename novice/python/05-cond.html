@@ -144,7 +144,7 @@ number <span class="op">=</span> <span class="dv">0</span>
 <p><code>while</code> loops are a more general case of loops which are often useful (you can even simulate a <code>for</code> loop using a <code>while</code> loop). But you should preferably use <code>for</code> loops as opposed to <code>while</code> loops where you can, since they are more specific and it’s more readable - it’s easier to figure out how many times the loop will execute.</p>
 <h2 id="climate-analysis-adding-a-condition-to-avoid-printing-comments">Climate Analysis: adding a condition to avoid printing comments</h2>
 <p>We’re still getting our column header at the top of our output, and perhaps we don’t want that. We need to able to check whether the line begins with a ‘#’ (which denotes a comment line), and if so, avoid printing it out.</p>
-<p>So let’s use an <code>if</code> statement to do that:</p>
+<p>So let’s use an <code>if</code> statement to do that (<em>see <code>climate_analysis-4.py</code></em>):</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">climate_data <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
 
 <span class="cf">for</span> line <span class="op">in</span> climate_data:
