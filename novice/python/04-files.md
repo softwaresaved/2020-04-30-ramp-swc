@@ -152,12 +152,15 @@ Much better!
 ### Selecting and printing out only part of the data
 
 But we're not being very discriminating with our data, we're just blindly
-printing out everything. Since we need to process the individual column
-that represents the maximum temperature for July, the 4th one, how do we extract it from the line of data?
+printing out everything. Let's assume we need to process the individual column
+that represents the maximum temperature for July, the 4th one, how do we extract
+it from the line of data?
 
-As luck (or more likely, good design) would have it, there's a handy string method called `split()` which can separate all the columns into a list.
+As luck (or more likely, good design) would have it, there's a handy string
+method called `split()` which can separate all the columns into a list.
 
-We've seen how we can trim trailing newlines from strings with `rstrip()` acting on a string object. Well, we use `split()` in exactly the same way:
+We've seen how we can trim trailing newlines from strings with `rstrip()` acting
+on a string object. Well, we use `split()` in exactly the same way:
 
 ~~~ {.python}
     data = line.split(',')

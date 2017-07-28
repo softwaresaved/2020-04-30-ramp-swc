@@ -213,25 +213,37 @@ And when we run it again --- which we most definitely should, to make sure it's 
 > 1. 20
 > 2. 80
 > 3. 0
-> 
-> This is really useful, since it means we don't have to worry about
-> conflicts with variable names that are defined outside of our function
-> that may cause it to behave incorrectly.
-
-> ## Palindrome String check {.challenge}
 >
-> A "Palindrome" is a word, phrase, number, or other sequence of characters which reads the same backward or forward.
->Write a function (any name of your choice) that takes `input_string` as a parameter
->and returns either `True` or `False` based on whether the input string is a palindrome or not respectively. 
->Try to make it case insensitive.  
->Following the function definition, a call to your function should look like this:
+> > ## Solution {.solution}
+> > 3 - the f and k variables defined and used within the function
+> > do not interfere with those defined outside of the function.
+> >
+> > This is really useful, since it means we don't have to worry about
+> > conflicts with variable names that are defined outside of our function
+> > that may cause it to behave incorrectly. This is known as variable scoping.
+
+> ## Does the sum of a list equal a given value? {.challenge}
+>
+> Write a function to take a list of numbers and another value, and return
+> whether or not the sum of the list of numbers is equal to that value.
+>
+> Following the function definition, a call to your function should look like this:
 >
 > ~~~{.python}
-> is_palindrome("hello")
-> False
-> is_palindrome("Deed")
+> is_sum_equal([1,2,3], 6))
 > True
+> is_sum_equal([2,4,6], 100)
+> False
 > ~~~
+> > ## Solution {.solution}
+> > ~~~
+> > def is_sum_equal(number_list, sum_value):
+> >     count = 0
+> >     for number in number_list:
+> >         count = count + number
+> >
+> >     return count == sum_value
+> > ~~~
 
 ## Performing more temperature conversions
 

@@ -111,7 +111,7 @@
 299196.8188,972890.0521,48.07,61.41,0.78</code></pre>
 <p>Much better!</p>
 <h3 id="selecting-and-printing-out-only-part-of-the-data">Selecting and printing out only part of the data</h3>
-<p>But we’re not being very discriminating with our data, we’re just blindly printing out everything. Since we need to process the individual column that represents the maximum temperature for July, the 4th one, how do we extract it from the line of data?</p>
+<p>But we’re not being very discriminating with our data, we’re just blindly printing out everything. Let’s assume we need to process the individual column that represents the maximum temperature for July, the 4th one, how do we extract it from the line of data?</p>
 <p>As luck (or more likely, good design) would have it, there’s a handy string method called <code>split()</code> which can separate all the columns into a list.</p>
 <p>We’ve seen how we can trim trailing newlines from strings with <code>rstrip()</code> acting on a string object. Well, we use <code>split()</code> in exactly the same way:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">    data <span class="op">=</span> line.split(<span class="st">&#39;,&#39;</span>)</code></pre></div>

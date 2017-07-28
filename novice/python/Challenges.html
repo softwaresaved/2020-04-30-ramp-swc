@@ -196,16 +196,11 @@ repeats <span class="op">=</span> counts <span class="op">*</span> <span class="
 <p>“Adding” two strings produces their concatenation: <code>'a' + 'b'</code> is <code>'ab'</code>. Write a short function called <code>fence</code> that takes two parameters called <code>original</code> and <code>wrapper</code> and returns a new string that has the wrapper character at the beginning and end of the original. A call to your function should look like this:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(fence(<span class="st">&#39;name&#39;</span>, <span class="st">&#39;*&#39;</span>))</code></pre></div>
 <pre class="output"><code>*name*</code></pre>
-<blockquote>
-<h2 id="solution" class="solution">Solution</h2>
-<pre><code>def fence(original, wrapper):
-    return wrapper + original + wrapper</code></pre>
-</blockquote>
 </div>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h4 id="how-do-function-parameters-work"><span class="glyphicon glyphicon-pencil"></span>How do function parameters work?</h4>
+<h2 id="how-do-function-parameters-work"><span class="glyphicon glyphicon-pencil"></span>How do function parameters work?</h2>
 </div>
 <div class="panel-body">
 <p>We actually used the same variable name <code>fahr</code> in our main code and and the function. But it’s important to note that even though they share the same name, they don’t refer to the same thing. This is because of variable <strong>scoping</strong>.</p>
@@ -227,19 +222,20 @@ multiply_by_10(<span class="dv">8</span>)
 <li>80</li>
 <li>0</li>
 </ol>
-<p>This is really useful, since it means we don’t have to worry about conflicts with variable names that are defined outside of our function that may cause it to behave incorrectly.</p>
 </div>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h4 id="palindrome-string-check"><span class="glyphicon glyphicon-pencil"></span>Palindrome String check</h4>
+<h2 id="does-the-sum-of-a-list-equal-a-given-value"><span class="glyphicon glyphicon-pencil"></span>Does the sum of a list equal a given value?</h2>
 </div>
 <div class="panel-body">
-<p>A “Palindrome” is a word, phrase, number, or other sequence of characters which reads the same backward or forward. Write a function (any name of your choice) that takes <code>input_string</code> as a parameter and returns either <code>True</code> or <code>False</code> based on whether the input string is a palindrome or not respectively. If you have time, you could make it case insensitive - if you have a string in a variable called ‘word’, you can use <code>word.lower()</code> to return it as lowercase, or <code>word.upper()</code> to return it as uppercase. Following the function definition, a call to your function should look like this:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">is_palindrome(<span class="st">&quot;hello&quot;</span>)
-<span class="va">False</span>
-is_palindrome(<span class="st">&quot;Deed&quot;</span>)
-<span class="va">True</span></code></pre></div>
+<p>Write a function to take a list of numbers and another value, and return whether or not the sum of the list of numbers is equal to that value.</p>
+<p>Following the function definition, a call to your function should look like this:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">is_sum_equal([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], <span class="dv">6</span>))
+<span class="va">True</span>
+is_sum_equal([<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>], <span class="dv">100</span>)
+<span class="va">False</span></code></pre></div>
+<p>This is really useful, since it means we don’t have to worry about conflicts with variable names that are defined outside of our function that may cause it to behave incorrectly.</p>
 </div>
 </section>
 <section class="challenge panel panel-success">
