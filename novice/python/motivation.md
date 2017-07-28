@@ -65,19 +65,19 @@ numerical processing, education, HPC, at Google, ...
 -  Python Style Guide (PEP 8) recommends 4 spaces
 -  And no tab characters
 
-## Indexing and Slicing a List Example
+## Indexing a List Example I
 
 ![](img/index_list_odd.png)
 
-## Indexing and Slicing a List Example
+## Indexing a List Example II
 
 ![](img/index_list_odd2.png)
 
-## Indexing and Slicing a List Example
+## Slicing a List Example I
 
 ![](img/slice_list_odd.png)
 
-## Indexing and Slicing a List Example
+## Slicing a List Example II
 
 ![](img/slice_list_string.png)
 

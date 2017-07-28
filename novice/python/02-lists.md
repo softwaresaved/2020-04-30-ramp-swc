@@ -11,8 +11,8 @@ minutes: 15
 
 ### Arrays in Python
 
-So we can use variables to hold values - useful! But what about when we need to hold many
-different values, such as a set of phone numbers?
+So we can use variables to hold values which we can then manipulate - useful! But what about
+when we need to hold many different values, such as a set of phone numbers?
 
 One of the most fundamental data structures in any language is the array, used to hold many
 values at once. Python doesn't have a native array data structure, but it has the list which
@@ -24,8 +24,8 @@ A list in python is just an ordered collection of items which can be of any type
 an array is an ordered collection of items of a single type - so a list is more flexible than an
 array.
 
-A list is also a dynamic mutable type and this means we can add and delete elements from the list
-at any time.
+We can also add and delete elements from a Python list at any time - Python lists are what is known
+as a *dynamic and mutable* type.
 
 Lists are built into the language (so we don't have to load a library to use them).
 
@@ -41,7 +41,7 @@ print('Odds are:', odds)
 Odds are: [1, 3, 5, 7, 9, 11, 15]
 ~~~
 
-This looks like an array because we can use *slicing* notation to pick out an individual element -
+This looks like an array because we can use indexing to pick out an individual element -
 indexes start from 0.
 
 Programming languages like Fortran and MATLAB start counting at 1,
@@ -59,11 +59,13 @@ We select individual elements from lists by indexing them:
 print('first and last:', odds[0], odds[-1])
 ~~~
 
-will print first and last elements, i.e. value 1 and 7 in this case.
+Which will print first and last elements, i.e. value 1 and 15 in this case.
 
 ~~~ {.output}
 first and last: 1 15
 ~~~
+
+*See slide [Indexing a List Example I](motivation.html#indexing-a-list-example-i)*.
 
 Similarly to change the seventh element we can
 assign directly to it:
@@ -71,6 +73,10 @@ assign directly to it:
 ~~~{.python}
 odds[6] = 13
 ~~~
+
+*See slide [Indexing a List Example II](motivation.html#indexing-a-list-example-ii)*.
+
+### Slicing
 
 The *Slicing* notation looks like array indexing but it is a lot more flexible. For example:
 
@@ -81,6 +87,8 @@ odds[2:5]
 ~~~{.output}
 [5, 7, 9]
 ~~~
+
+*See slide [Slicing a List Example I](motivation.html#slicing-a-list-example-i)*.
 
 is a sublist from the third element to the fifth i.e. from `odds[2]` to `odds[4]`. Notice that the
 final element specified i.e. `[5]` is not included in the slice.
@@ -118,7 +126,7 @@ odds[:]
 
 is the entire list.
 
-### Slicing strings 
+### Slicing strings
 
 A section of an array is called a [slice](../../reference.html#slice).
 We can take slices of character strings as well:
@@ -128,6 +136,8 @@ element = 'oxygen'
 print('first three characters:', element[0:3])
 print('last three characters:', element[3:6])
 ~~~
+
+*See slide [Slicing a List Example II](motivation.html#slicing-a-list-example-ii)*.
 
 ~~~ {.output}
 first three characters: oxy
