@@ -36,7 +36,11 @@ subtitle: 0. Introduction
 
 We've all been in this situation before - it seems ridiculous to have multiple nearly-identical versions of the same document. Some word processors let us deal with this a little better, like Microsoft Word ("Track Changes") or Google Docs version history.
 
-BUT research isn't just Words docs.  With **Version Control**, at any point in the future, you can retrieve the **correct versions** of your documents, scripts or code.  So, for example, a year after publication, you can get hold of the precise combination of scripts and data that you used to assemble a paper.  
+Using version control means we don't keep dozens of different versions of our files hanging about taking up space.  Explain how later.
+
+If we're just dealing with Docs, some word processors let us deal with this a little better, like Microsoft Word ("Track Changes") or Google Docs version history.
+
+BUT research isn't just Words docs, it's code and data and diagrams too.  With **Version Control**, at any point in the future, you can retrieve the **correct versions** of your documents, scripts or code.  So, for example, a year after publication, you can get hold of the precise combination of scripts and data that you used to assemble a paper.  
 
 Version control makes **reproducibility** simpler. If you're not using version control can you honestly say that your research is reproducible?
 
@@ -44,11 +48,11 @@ Version control makes **reproducibility** simpler. If you're not using version c
 
 ### 2. A Collaboration Tool ###
 
-As well as maintaining a revison history, VC tools also help multiple authors collaborate on the **same file** or set of files.
+As well as maintaining a revison history, VC tools also help multiple authors **collaborate** on the **same file** or set of files.
 
-VC is what **professional software developers** use to work in large **teams** and to keep track of what they've done.  They know who has changed what and when.  And who to blame when things break!
+VC is what **professional software developers** use to work in large **teams** and to keep track of what they've done.  They know who has changed what and when.  And who to **blame** when things break!
 
-Every large software development project relies on VC, and most programmers use it for their small jobs as well.
+**Every** large software development project relies on VC, and most programmers use it for their small jobs as well.
 
 **VC isn't just for software**: papers, small data sets, and anything that changes over time, or needs to be shared can, and probably should be stored in a version control system.
 
