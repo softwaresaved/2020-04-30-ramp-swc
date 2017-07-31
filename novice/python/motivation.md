@@ -30,7 +30,7 @@ numerical processing, education, HPC, at Google, ...
 ## We'll be teaching Python 3
 
 - Python 3 is currently the standard version
-- We will be using version 3.4
+- We'll teach using version 3!
 - Python 3 has many advantages over Python 2
     + Many consistency improvements - removing redundancy
     + In places, simply more sensible e.g. integer division
@@ -52,7 +52,7 @@ numerical processing, education, HPC, at Google, ...
 ## Turning on Python Interpreter
 
 - The interpreter provides an interactive environment to play with the language
-- Mac/Linux: Open a terminal window and type **python3.4**
+- Mac/Linux: Open a terminal window and type **python3**
 - Windows: Open **Git Bash**  and type **python**
 - At the prompt type 'hello world!'
   ![](img/hello.png)
