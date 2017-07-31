@@ -28,7 +28,7 @@ subtitle: 0. Introduction
 
 ## What is Version Control & Why should I use it? ##
 
-Version control tools, also known as **revision control** or **source control** tools, track **changes** to files.  
+**Version control** tools, also known as **revision control** or **source control** tools, track **changes** to files.  
 
 ### 1. A More Efficient Backup + Reproducibility ###
 
