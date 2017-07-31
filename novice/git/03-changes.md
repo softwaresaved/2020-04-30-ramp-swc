@@ -37,7 +37,7 @@ Changes to be committed:
 ~~~
 
 Git now knows that it's supposed to keep track of `climate_analysis.py` and `temp_conversion.py`,
-but it hasn't recorded these changes as a commit yet.
+but it hasn't recorded these changes as a commit yet:
 
 ###Initial Commit###
 To get it to do that,
