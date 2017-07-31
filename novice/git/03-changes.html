@@ -59,11 +59,12 @@ Changes to be committed:
 
         new file:   climate_analysis.py
         new file:   temp_conversion.py</code></pre>
-<p>Git now knows that it’s supposed to keep track of <code>climate_analysis.py</code> and <code>temp_conversion.py</code>, but it hasn’t recorded these changes as a commit yet:</p>
+<p>Git now knows that it’s supposed to <strong>keep track</strong> of <code>climate_analysis.py</code> and <code>temp_conversion.py</code>, but it <strong>hasn’t recorded these changes as a commit</strong> yet:</p>
 <h3 id="initial-commit">Initial Commit</h3>
 <p>To get it to do that, we need to run one more command:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> commit -m <span class="st">&quot;Initial commit of climate analysis code&quot;</span></code></pre></div>
-<p>We use the <code>-m</code> flag (for “<strong>message</strong>”) to record a short, descriptive, and specific comment that will help us remember later on what we did and why. If we just run <code>git commit</code> without the <code>-m</code> option, Git will launch <code>nano</code> (or whatever other editor we configured at the start) so that we can write a longer message.</p>
+<p>We use the <code>-m</code> flag (for “<strong>message</strong>”) to record a short, descriptive, and specific comment that will help us remember later on what we did and why.</p>
+<p>If we just run <code>git commit</code> without the <code>-m</code> option, Git will launch <code>nano</code> (or whatever other editor we configured at the start) so that we can write a longer message.</p>
 <p><strong>Good commit messages</strong> start with a brief (&lt;50 characters) summary of changes made in the commit.</p>
 <p><strong>NOT “Bug Fixes”</strong> or <strong>“Changes”</strong>!</p>
 <p>If you want to go into more detail, add a blank line between the summary line and your additional notes.</p>
@@ -94,8 +95,14 @@ Author: John R &lt;j.robinson@software.ac.uk&gt;
 Date:   Mon Dec 7 14:13:32 2015 +0000
 
     Initial commit of climate analysis code</code></pre>
-<p><code>git log</code> lists all revisions made to a repository in reverse chronological order.</p>
-<p>The listing for each revision includes the revision’s full identifier (which starts with the same characters as the short identifier printed by the <code>git commit</code> command earlier), the revision’s author, when it was created, and the log message Git was given when the revision was created.</p>
+<p><code>git log</code> lists all <strong>revisions committed</strong> to a repository in reverse chronological order.</p>
+<p>The listing for each revision includes</p>
+<ul>
+<li>the <strong>revision’s full identifier</strong> (which starts with the same characters as the short identifier printed by the <code>git commit</code> command earlier),</li>
+<li>the revision’s <strong>author</strong>,</li>
+<li><strong>when</strong> it was created,</li>
+<li>the <strong>log message</strong> Git was given when the revision was committed.</li>
+</ul>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
 <h2 id="where-are-my-changes"><span class="glyphicon glyphicon-pushpin"></span>Where Are My Changes?</h2>
@@ -122,7 +129,7 @@ no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&q
 <p>So, while we have changed this file, but we haven’t told Git we will want to save those changes (which we do with <code>git add</code>) much less actually saved them (which we do with <code>git commit</code>).</p>
 <p><strong>It’s important to remember that git only stores changes when you make a commit</strong></p>
 <h3 id="review-changes-and-commit">Review Changes and Commit</h3>
-<p>It is good practice to always review our changes before saving them. We do this using <code>git diff</code>. This shows us the differences between the current state of the file and the most recently saved version:</p>
+<p>It is good practice to always review our changes before saving them. We do this using <code>git diff</code>. This shows us the differences between the current state of the file and the most recently commited version:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> diff</code></pre></div>
 <pre class="output"><code>diff --git a/climate_analysis.py b/climate_analysis.py
 index 277d6c7..d5b442d 100644
@@ -141,12 +148,12 @@ import signal</code></pre>
 <p><strong>No newline at end of file</strong> This message is displayed because otherwise there is no way to tell the difference between a file where there is a newline at the end and one where is not. Diff has to output a newline anyway, or the result would be harder to read or process automatically. This can safely be ignored, but you can avoid seeing it by leaving a blank line at the end of your file.</p>
 </div>
 </aside>
-<p>The output is cryptic because it is actually a series of commands for tools like editors and <code>patch</code> telling them how to reconstruct one file given the other.</p>
+<p>The output is <strong>cryptic</strong> because it is actually a series of <strong>commands</strong> for tools like editors and <code>patch</code> telling them how <strong>to reconstruct one file given the other</strong>.</p>
 <p>The key things to note are:</p>
 <ol style="list-style-type: decimal">
-<li>Line 1: The files that are being compared (a/ and b/ are labels, not paths)</li>
-<li>Line 2: The two hex strings on the second line which parts of the hashes of the files being compares</li>
-<li>Line 5: The lines that have changed.</li>
+<li>Line 1: The <strong>files</strong> that are being <strong>compared</strong> (a/ and b/ are labels, not paths)</li>
+<li>Line 2: The two <strong>hex strings</strong> on the second line which parts of the <strong>hashes</strong> of the files being compares</li>
+<li>Line 5: The <strong>lines</strong> that have changed. (It’s complex)</li>
 <li>Below that, the changes - note the ‘<strong>+</strong>’ marker which shows an addtion</li>
 </ol>
 <p>After reviewing our change, it’s time to commit it:</p>

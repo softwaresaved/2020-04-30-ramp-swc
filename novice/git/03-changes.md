@@ -36,8 +36,8 @@ Changes to be committed:
         new file:   temp_conversion.py
 ~~~
 
-Git now knows that it's supposed to keep track of `climate_analysis.py` and `temp_conversion.py`,
-but it hasn't recorded these changes as a commit yet:
+Git now knows that it's supposed to **keep track** of `climate_analysis.py` and `temp_conversion.py`,
+but it **hasn't recorded these changes as a commit** yet:
 
 ###Initial Commit###
 To get it to do that,
@@ -49,6 +49,7 @@ $ git commit -m "Initial commit of climate analysis code"
 
 We use the `-m` flag (for "**message**")
 to record a short, descriptive, and specific comment that will help us remember later on what we did and why.
+
 If we just run `git commit` without the `-m` option,
 Git will launch `nano` (or whatever other editor we configured at the start)
 so that we can write a longer message.
@@ -113,15 +114,14 @@ Date:   Mon Dec 7 14:13:32 2015 +0000
     Initial commit of climate analysis code
 ~~~
 
-`git log` lists all revisions  made to a repository in reverse chronological order.
+`git log` lists all **revisions committed** to a repository in reverse chronological order.
 
-The listing for each revision includes
-the revision's full identifier
-(which starts with the same characters as
-the short identifier printed by the `git commit` command earlier),
-the revision's author,
-when it was created,
-and the log message Git was given when the revision was created.
+The listing for each revision includes 
+
+* the **revision's full identifier** (which starts with the same characters as the short identifier printed by the `git commit` command earlier),
+* the revision's **author**,
+* **when** it was created,
+* the **log message** Git was given when the revision was committed.
 
 > ## Where Are My Changes? {.callout}
 >
@@ -173,7 +173,7 @@ much less actually saved them (which we do with `git commit`).
 It is good practice to always review
 our changes before saving them. We do this using `git diff`.
 This shows us the differences between the current state
-of the file and the most recently saved version:
+of the file and the most recently commited version:
 
 ~~~ {.bash}
 $ git diff
@@ -197,15 +197,15 @@ import signal
 > This can safely be ignored, but you can avoid seeing it by leaving a blank line at the end of your file.
 
 
-The output is cryptic because
-it is actually a series of commands for tools like editors and `patch`
-telling them how to reconstruct one file given the other.
+The output is **cryptic** because
+it is actually a series of **commands** for tools like editors and `patch`
+telling them how **to reconstruct one file given the other**.
 
 The key things to note are:
 
- 1. Line 1: The files that are being compared (a/ and b/ are labels, not paths)
- 2. Line 2: The two hex strings on the second line which parts of the hashes of the files being compares
- 3. Line 5: The lines that have changed. 
+ 1. Line 1: The **files** that are being **compared** (a/ and b/ are labels, not paths)
+ 2. Line 2: The two **hex strings** on the second line which parts of the **hashes** of the files being compares
+ 3. Line 5: The **lines** that have changed. (It's complex)
  4. Below that, the changes - note the '**+**' marker which shows an addtion
 
 
