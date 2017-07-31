@@ -28,19 +28,21 @@ subtitle: 0. Introduction
 
 ## What is Version Control & Why should I use it? ##
 
-**Version control** tools, also known as **revision control** or **source control** tools, track **changes** to files.  
+**Version control** or **revision control** or **source control**.  These are tools which track **changes** to files.  
 
 ### 1. A More Efficient Backup + Reproducibility ###
 
 ![Why Use Version Control? #1](img/slides/version-control-with-git-slides - 03.jpg)
 
-We've all been in this situation before - it seems ridiculous to have multiple nearly-identical versions of the same document. Some word processors let us deal with this a little better, like Microsoft Word ("Track Changes") or Google Docs version history.
+We've **all** been in this situation before - it seems **ridiculous** to have **multiple nearly-identical** versions of the same file with no meaningful **explanation** of the differences are. 
 
-Using version control means we don't keep dozens of different versions of our files hanging about taking up space.  Explain how later.
+If we're just dealing with Docs, some word processors let us deal with this a little better, like Microsoft Word ("Track Changes") or Google Docs version history. BUT **research isn't just Words docs**, it's code and data and diagrams too. 
 
-If we're just dealing with Docs, some word processors let us deal with this a little better, like Microsoft Word ("Track Changes") or Google Docs version history.
 
-BUT research isn't just Words docs, it's code and data and diagrams too.  With **Version Control**, at any point in the future, you can retrieve the **correct versions** of your documents, scripts or code.  So, for example, a year after publication, you can get hold of the precise combination of scripts and data that you used to assemble a paper.  
+Using version control means **we don't keep dozens of different versions** of our files hanging about taking up **space**, and when we store a revision, we store an **explanation** of what changed.  Explain how later.
+
+
+With **Version Control**, at any point in the future, you can retrieve the **correct versions** of your documents, scripts or code.  So, for example, a year after **publication**, you can get hold of the precise combination of scripts and data that you used to assemble a paper.  
 
 Version control makes **reproducibility** simpler. If you're not using version control can you honestly say that your research is reproducible?
 

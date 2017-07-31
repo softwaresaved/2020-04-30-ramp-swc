@@ -58,8 +58,8 @@ You can set your favourite text editor, following this table:
 
 (See the Etherpad)
 
-Git commands are written `git verb`,
-where `verb` is what we actually want it to do.
+Git commands are written `git action`,
+where `action` is what we actually want it to do.
 In this case,
 we're telling Git:
 
