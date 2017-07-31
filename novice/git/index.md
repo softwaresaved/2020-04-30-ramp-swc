@@ -98,7 +98,7 @@ Whereas with **Subversion** a single master copy of the repository (the files un
 
 **Git** was written by Linus Torvalds (maintainer of the Linux kernel), to scratch his own itch, so if you think it's idiosyncractic in places, you know who to blame.
 
-Git has found wider prominence partly through the rise of **GitHub** - a web based Git repository hosting service.  GitHub also provide bells and whistles like **bug tracking**, **task management** and other tools for managing software projects.
+Git has found wider prominence partly through the rise of **GitHub** - a web based Git repository hosting service which simplifies collaboration.  GitHub also provide bells and whistles like **bug tracking**, **task management** and other tools for managing software projects.
 
 You don't **need** to use GitHub to employ Git, but we will use it today to demonstrate the use of remote repositories.
 
