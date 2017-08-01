@@ -71,10 +71,10 @@ and then push the change to GitHub:
 
 ~~~ {.bash}
 $ git add rainfall_conversion.py
-$ git commit -m "Developer A added a line"
+$ git commit -m "Developer A added a ToDo"
 ~~~
 ~~~ {.output}
-[master 5ae9631] Developer A added a line
+[master 5ae9631] Developer A added a ToDo
  1 file changed, 1 insertion(+)
 ~~~
 ~~~ {.bash}

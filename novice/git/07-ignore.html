@@ -40,7 +40,7 @@
 </ul>
 </div>
 </section>
-<p>What if we have files that we do not want Git to track for us, like backup files created by our editor or intermediate files created during data analysis. Let’s create a few dummy files:</p>
+<p>What if we have files that we <strong>do not</strong> want Git to track for us, like <strong>backup files</strong> created by our editor or <strong>intermediate</strong> files created during data analysis. Let’s create a few dummy files:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mkdir</span> results
 $ <span class="kw">touch</span> a.dat b.dat c.dat results/a.out results/b.out</code></pre></div>
 <p>and see what Git says:</p>
@@ -54,13 +54,13 @@ $ <span class="kw">touch</span> a.dat b.dat c.dat results/a.out results/b.out</c
 #   c.dat
 #   results/
 nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
-<p>Putting these files under version control would be a waste of disk space. What’s worse, having them all listed could distract us from changes that actually matter, so let’s tell Git to ignore them.</p>
+<p>Putting these files under version control would be a <strong>waste of disk space</strong>. What’s worse, having them all listed could <strong>distract</strong> us from changes that actually matter, so let’s tell Git to <strong>ignore</strong> them.</p>
 <p>We do this by creating a file in the root directory of our project called <code>.gitignore</code>.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> .gitignore
 $ <span class="kw">cat</span> .gitignore</code></pre></div>
 <pre class="output"><code>*.dat
 results/</code></pre>
-<p>These patterns tell Git to ignore any file whose name ends in <code>.dat</code> and everything in the <code>results</code> directory. (If any of these files were already being tracked, Git would continue to track them.)</p>
+<p>These patterns tell Git to <strong>ignore</strong> any file whose name ends in <strong><code>.dat</code></strong> and everything in the <strong><code>results</code></strong> directory. (If any of these files were <strong>already</strong> being tracked, Git would <strong>continue</strong> to track them.)</p>
 <p>Once we have created this file, the output of <code>git status</code> is much cleaner:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> status</code></pre></div>
 <pre class="output"><code># On branch master
@@ -69,13 +69,13 @@ results/</code></pre>
 #
 #   .gitignore
 nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
-<p>The only thing Git notices now is the newly-created <code>.gitignore</code> file. You might think we wouldn’t want to track it, but everyone we’re sharing our repository with will probably want to ignore the same things that we’re ignoring. Let’s add and commit <code>.gitignore</code>:</p>
+<p>The only thing Git notices now is the newly-created <code>.gitignore</code> file. You might think we wouldn’t want to track it, but everyone we’re <strong>sharing</strong> our repository with will probably <strong>want to ignore the same</strong> things that we’re ignoring. Let’s add and commit <code>.gitignore</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add .gitignore
 $ <span class="kw">git</span> commit -m <span class="st">&quot;Add the ignore file&quot;</span>
 $ <span class="kw">git</span> status</code></pre></div>
 <pre class="output"><code># On branch master
 nothing to commit, working directory clean</code></pre>
-<p>As a bonus, using <code>.gitignore</code> helps us avoid accidentally adding files to the repository that we don’t want.</p>
+<p>As a bonus, using <code>.gitignore</code> helps us <strong>avoid accidentally adding files</strong> to the repository that we don’t want.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add a.dat</code></pre></div>
 <pre class="output"><code>The following paths are ignored by one of your .gitignore files:
 a.dat

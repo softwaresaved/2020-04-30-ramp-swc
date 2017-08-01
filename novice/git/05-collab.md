@@ -107,7 +107,7 @@ The only difference should be your username instead of `js-robinson`.
 We can check that the command has worked by running `git remote -v`:
 
 ~~~ {.bash}
-$ git remote -v
+$ git remote --verbose
 ~~~
 ~~~ {.output}
 origin  https://github.com/js-robinson/climate-analysis.git (fetch)

@@ -114,7 +114,7 @@ Date:   Mon Dec 7 14:13:32 2015 +0000
     Initial commit of climate analysis code
 ~~~
 
-`git log` lists all **revisions committed** to a repository in reverse chronological order.
+`git log` lists all **revisions committed** to a repository in reverse chronological order (most recent at the top).
 
 The listing for each revision includes 
 

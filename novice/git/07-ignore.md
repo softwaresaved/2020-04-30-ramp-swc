@@ -9,9 +9,9 @@ minutes: 5
 > *   Configure Git to ignore specific files,
 >     and explain why it is sometimes useful to do so.
 
-What if we have files that we do not want Git to track for us,
-like backup files created by our editor
-or intermediate files created during data analysis.
+What if we have files that we **do not** want Git to track for us,
+like **backup files** created by our editor
+or **intermediate** files created during data analysis.
 Let's create a few dummy files:
 
 ~~~ {.bash}
@@ -36,10 +36,10 @@ $ git status
 nothing added to commit but untracked files present (use "git add" to track)
 ~~~
 
-Putting these files under version control would be a waste of disk space.
+Putting these files under version control would be a **waste of disk space**.
 What's worse,
-having them all listed could distract us from changes that actually matter,
-so let's tell Git to ignore them.
+having them all listed could **distract** us from changes that actually matter,
+so let's tell Git to **ignore** them.
 
 We do this by creating a file in the root directory of our project called `.gitignore`.
 
@@ -52,10 +52,10 @@ $ cat .gitignore
 results/
 ~~~
 
-These patterns tell Git to ignore any file whose name ends in `.dat`
-and everything in the `results` directory.
-(If any of these files were already being tracked,
-Git would continue to track them.)
+These patterns tell Git to **ignore** any file whose name ends in **`.dat`**
+and everything in the **`results`** directory.
+(If any of these files were **already** being tracked,
+Git would **continue** to track them.)
 
 Once we have created this file,
 the output of `git status` is much cleaner:
@@ -74,8 +74,8 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 The only thing Git notices now is the newly-created `.gitignore` file.
 You might think we wouldn't want to track it,
-but everyone we're sharing our repository with will probably want to ignore
-the same things that we're ignoring.
+but everyone we're **sharing** our repository with will probably **want to ignore
+the same** things that we're ignoring.
 Let's add and commit `.gitignore`:
 
 ~~~ {.bash}
@@ -89,7 +89,7 @@ nothing to commit, working directory clean
 ~~~
 
 As a bonus,
-using `.gitignore` helps us avoid accidentally adding files to the repository that we don't want.
+using `.gitignore` helps us **avoid accidentally adding files** to the repository that we don't want.
 
 ~~~ {.bash}
 $ git add a.dat
