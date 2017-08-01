@@ -34,7 +34,7 @@ minutes: 10
 The first time we use Git on a new machine,
 we need to configure a few things.
 
-Make sure you're in your home directory (not another repository).
+Make sure you're in your **home directory** (not another repository).
 
 ~~~ {.bash}
 $ cd
@@ -63,11 +63,11 @@ where `action` is what we actually want it to do.
 In this case,
 we're telling Git:
 
-*   our name and email address,
-*   what our favorite text editor is, and
-*   that we want to use these settings globally (i.e., for every project),
+*   our **name** and **email address**,
+*   what our favorite **text editor** is, and
+*   that we want to use these settings **globally** (i.e., for every project),
 
-The three commands above only need to be run once:
+The three commands above only need to be **run once**:
 the flag `--global` tells Git to use the settings for every project on this machine.
 
 You can check your settings at any time:

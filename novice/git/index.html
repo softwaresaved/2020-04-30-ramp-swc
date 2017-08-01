@@ -61,29 +61,31 @@
 <img src="img/slides/version-control-with-git-slides%20-%2002.jpg" alt="What is Version Control?" />
 <p class="caption">What is Version Control?</p>
 </div>
-<h2 id="what-is-version-control-why-should-i-use-it">What is Version Control &amp; Why should I use it?</h2>
-<p><strong>Version control</strong> or <strong>revision control</strong> or <strong>source control</strong>. These are tools which track <strong>changes</strong> to files.</p>
-<h3 id="a-more-efficient-backup-reproducibility">1. A More Efficient Backup + Reproducibility</h3>
+<h2 id="what-is-version-control">What is Version Control?</h2>
+<p>Also called <strong>revision control</strong> or <strong>source control</strong>. At there simplest these are tools which track <strong>changes</strong> to files.</p>
+<h2 id="why-should-i-use-it---three-reasons">Why should I use it? - Three reasons</h2>
+<h3 id="a-more-efficient-backup">1. A More Efficient Backup</h3>
 <div class="figure">
 <img src="img/slides/version-control-with-git-slides%20-%2003.jpg" alt="Why Use Version Control? #1" />
 <p class="caption">Why Use Version Control? #1</p>
 </div>
-<p>We’ve <strong>all</strong> been in this situation before - it seems <strong>ridiculous</strong> to have <strong>multiple nearly-identical</strong> versions of the same file with no meaningful <strong>explanation</strong> of the differences are.</p>
+<p>We’ve <strong>all</strong> been in this situation before - <strong>multiple nearly-identical</strong> versions of the same file with no meaningful <strong>explanation</strong> of the differences are.</p>
 <p>If we’re just dealing with Docs, some word processors let us deal with this a little better, like Microsoft Word (“Track Changes”) or Google Docs version history. BUT <strong>research isn’t just Words docs</strong>, it’s code and data and diagrams too.</p>
 <p>Using version control means <strong>we don’t keep dozens of different versions</strong> of our files hanging about taking up <strong>space</strong>, and when we store a revision, we store an <strong>explanation</strong> of what changed. Explain how later.</p>
+<h3 id="reproducibility">2. Reproducibility</h3>
 <p>With <strong>Version Control</strong>, at any point in the future, you can retrieve the <strong>correct versions</strong> of your documents, scripts or code. So, for example, a year after <strong>publication</strong>, you can get hold of the precise combination of scripts and data that you used to assemble a paper.</p>
-<p>Version control makes <strong>reproducibility</strong> simpler. If you’re not using version control can you honestly say that your research is reproducible?</p>
+<p>Version control makes <strong>reproducibility</strong> simpler. Without using version control it’s very hard to say that your research is truly reproducible?</p>
 <div class="figure">
 <img src="img/slides/version-control-with-git-slides%20-%2004.jpg" alt="Why Use Version Control? #2" />
 <p class="caption">Why Use Version Control? #2</p>
 </div>
-<h3 id="a-collaboration-tool">2. A Collaboration Tool</h3>
+<h3 id="to-aid-collaboration">3. To Aid Collaboration</h3>
 <p>As well as maintaining a revison history, VC tools also help multiple authors <strong>collaborate</strong> on the <strong>same file</strong> or set of files.</p>
 <p>VC is what <strong>professional software developers</strong> use to work in large <strong>teams</strong> and to keep track of what they’ve done. They know who has changed what and when. And who to <strong>blame</strong> when things break!</p>
 <p><strong>Every</strong> large software development project relies on VC, and most programmers use it for their small jobs as well.</p>
 <p><strong>VC isn’t just for software</strong>: papers, small data sets, and anything that changes over time, or needs to be shared can, and probably should be stored in a version control system.</p>
 <p>We’ll look at both the backup and collaboration scenarios, but first it’s useful to understand what going on under the hood.</p>
-<h3 id="how-do-version-control-tools-work">3. How do Version Control Tools Work?</h3>
+<h2 id="how-do-version-control-tools-work">How do Version Control Tools Work?</h2>
 <hr />
 <div class="figure">
 <img src="img/slides/version-control-with-git-slides%20-%2005.jpg" alt="Changes are tracked sequentially" />
@@ -103,16 +105,17 @@
 </div>
 <p>If there aren’t conflicts, you can even try to play two sets of changes onto the same base document. A process call <strong>merging</strong>.</p>
 <hr />
-<h2 id="version-control-alternatives">3. Version Control Alternatives</h2>
+<h2 id="version-control-alternatives">Version Control Alternatives</h2>
 <div class="figure">
 <img src="img/slides/version-control-with-git-slides%20-%2008.jpg" alt="Version Control Alternatives" />
 <p class="caption">Version Control Alternatives</p>
 </div>
-<p>These are the most popular current Version Control systems.</p>
-<p><strong>Subversion</strong> has been around since about 2000, it was developed to replace the venerable <strong>Concurrent Versioning System (CVS)</strong> It introduced such revolutionary concepts as the ability to move and rename files whilst retaining their version history.</p>
+<p><strong>These are the most popular current Version Control systems</strong>:</p>
+<p><strong>Subversion</strong> has been around since about 2000, it was developed to replace the venerable <strong>Concurrent Versioning System (CVS)</strong>. It introduced such revolutionary concepts as the ability <strong>rename</strong> files whilst retaining their version history.</p>
 <p>Both <strong>Mercurial</strong> and <strong>Git</strong> arose from the need to find a new Version Control System for the Linux Kernel, after BitKeeper became non-free in 2005.</p>
-<p>Whereas with <strong>Subversion</strong> a single master copy of the repository (the files under version control) exists - the only place where all revision history is kept, <strong>Mercurial</strong> and <strong>Git</strong> are newer and work a little differently - they are <strong>Distributed</strong> Version control systems - each developer in a team has his own copy of the repository which are then synchronised. You can use Git without a network connection and there’s no single point of failuire.</p>
-<p><strong>Git</strong> was written by Linus Torvalds (maintainer of the Linux kernel), to scratch his own itch, so if you think it’s idiosyncractic in places, you know who to blame.</p>
+<p>With <strong>Subversion</strong> a single master copy of the repository (the files under version control) exists - the only place where all revision history is kept.</p>
+<p><strong>Mercurial</strong> and <strong>Git</strong> are newer and work a little differently - they are <strong>Distributed</strong> Version control systems - each developer in a team has their <strong>own full copy</strong> of the repository which are then synchronised. You can use Git without a network connection and there’s no single point of failuire.</p>
+<p><strong>Git</strong> was written by Linus Torvalds <strong>(who he?)</strong> (maintainer of the Linux kernel), to scratch his own itch, so if you think it’s idiosyncractic in places, you know who to blame.</p>
 <p>Git has found wider prominence partly through the rise of <strong>GitHub</strong> - a web based Git repository hosting service which simplifies collaboration. GitHub also provide bells and whistles like <strong>bug tracking</strong>, <strong>task management</strong> and other tools for managing software projects.</p>
 <p>You don’t <strong>need</strong> to use GitHub to employ Git, but we will use it today to demonstrate the use of remote repositories.</p>
 <h2 id="other-resources">Other Resources</h2>

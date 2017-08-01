@@ -26,29 +26,31 @@ subtitle: 0. Introduction
 
 ![What is Version Control?](img/slides/version-control-with-git-slides - 02.jpg)
 
-## What is Version Control & Why should I use it? ##
+## What is Version Control? ##
 
-**Version control** or **revision control** or **source control**.  These are tools which track **changes** to files.  
+Also called **revision control** or **source control**.  At there simplest these are tools which track **changes** to files.  
 
-### 1. A More Efficient Backup + Reproducibility ###
+## Why should I use it? - Three reasons##
+
+### 1. A More Efficient Backup ###
 
 ![Why Use Version Control? #1](img/slides/version-control-with-git-slides - 03.jpg)
 
-We've **all** been in this situation before - it seems **ridiculous** to have **multiple nearly-identical** versions of the same file with no meaningful **explanation** of the differences are. 
+We've **all** been in this situation before -  **multiple nearly-identical** versions of the same file with no meaningful **explanation** of the differences are. 
 
 If we're just dealing with Docs, some word processors let us deal with this a little better, like Microsoft Word ("Track Changes") or Google Docs version history. BUT **research isn't just Words docs**, it's code and data and diagrams too. 
 
-
 Using version control means **we don't keep dozens of different versions** of our files hanging about taking up **space**, and when we store a revision, we store an **explanation** of what changed.  Explain how later.
 
+### 2. Reproducibility ###
 
 With **Version Control**, at any point in the future, you can retrieve the **correct versions** of your documents, scripts or code.  So, for example, a year after **publication**, you can get hold of the precise combination of scripts and data that you used to assemble a paper.  
 
-Version control makes **reproducibility** simpler. If you're not using version control can you honestly say that your research is reproducible?
+Version control makes **reproducibility** simpler. Without using version control it's very hard to say that your research is truly reproducible?
 
 ![Why Use Version Control? #2](img/slides/version-control-with-git-slides - 04.jpg)
 
-### 2. A Collaboration Tool ###
+### 3. To Aid Collaboration ###
 
 As well as maintaining a revison history, VC tools also help multiple authors **collaborate** on the **same file** or set of files.
 
@@ -60,7 +62,7 @@ VC is what **professional software developers** use to work in large **teams** a
 
 We'll look at both the backup and collaboration scenarios, but first it's useful to understand what going on under the hood.
 
-### 3. How do Version Control Tools Work? ###
+## How do Version Control Tools Work? ##
 
 ---------------------------------------------------------------
 
@@ -86,19 +88,21 @@ If there aren't conflicts, you can even try to play two sets of changes onto the
 
 
 ---------------------------------------------------------------
-## 3. Version Control Alternatives ##
+## Version Control Alternatives ##
 
 ![Version Control Alternatives](img/slides/version-control-with-git-slides - 08.jpg)
 
-These are the most popular current Version Control systems.  
+**These are the most popular current Version Control systems**:  
 
-**Subversion** has been around since about 2000, it was developed to replace the venerable **Concurrent Versioning System (CVS)** It introduced such revolutionary concepts as the ability to move and rename files whilst retaining their version history.
+**Subversion** has been around since about 2000, it was developed to replace the venerable **Concurrent Versioning System (CVS)**.  It introduced such revolutionary concepts as the ability **rename** files whilst retaining their version history.
 
 Both **Mercurial** and **Git** arose from the need to find a new Version Control System for the Linux Kernel, after BitKeeper became non-free in 2005. 
 
-Whereas with **Subversion** a single master copy of the repository (the files under version control) exists - the only place where all revision history is kept,  **Mercurial** and **Git** are newer and work a little differently - they are **Distributed** Version control systems - each developer in a team has his own copy of the repository which are then synchronised.  You can use Git without a network connection and there's no single point of failuire.
+With **Subversion** a single master copy of the repository (the files under version control) exists - the only place where all revision history is kept.
 
-**Git** was written by Linus Torvalds (maintainer of the Linux kernel), to scratch his own itch, so if you think it's idiosyncractic in places, you know who to blame.
+**Mercurial** and **Git** are newer and work a little differently - they are **Distributed** Version control systems - each developer in a team has their **own full copy** of the repository which are then synchronised.  You can use Git without a network connection and there's no single point of failuire.
+
+**Git** was written by Linus Torvalds **(who he?)** (maintainer of the Linux kernel), to scratch his own itch, so if you think it's idiosyncractic in places, you know who to blame.
 
 Git has found wider prominence partly through the rise of **GitHub** - a web based Git repository hosting service which simplifies collaboration.  GitHub also provide bells and whistles like **bug tracking**, **task management** and other tools for managing software projects.
 
