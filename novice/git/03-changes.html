@@ -63,7 +63,7 @@ Changes to be committed:
 <h3 id="initial-commit">Initial Commit</h3>
 <p>To get it to do that, we need to run one more command:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> commit -m <span class="st">&quot;Initial commit of climate analysis code&quot;</span></code></pre></div>
-<p>We use the <code>-m</code> flag (for “<strong>message</strong>”) to record a short, descriptive, and specific comment that will help us remember later on what we did and why.</p>
+<p>We use the <code>-m</code> flag (for “<strong>message</strong>”) to record a short, <strong>descriptive comment</strong> that will help us remember later on what we did and why.</p>
 <p>If we just run <code>git commit</code> without the <code>-m</code> option, Git will launch <code>nano</code> (or whatever other editor we configured at the start) so that we can write a longer message.</p>
 <p><strong>Good commit messages</strong> start with a brief (&lt;50 characters) summary of changes made in the commit.</p>
 <p><strong>NOT “Bug Fixes”</strong> or <strong>“Changes”</strong>!</p>
@@ -72,7 +72,7 @@ Changes to be committed:
  2 files changed, 50 insertions(+)
  create mode 100644 climate_analysis.py
  create mode 100644 temp_conversion.py</code></pre>
-<p>When we run <code>git commit</code>, Git takes everything we have told it to save by using <code>git add</code> and stores a copy permanently inside the special <code>.git</code> directory. This permanent copy is called a <a href="reference.html#revision">revision</a> and its short identifier is <code>a10bd8f</code>. (Your revision will have different identifier.)</p>
+<p>When we run <code>git commit</code>, Git takes everything we have told it to save by using <code>git add</code> and stores a copy permanently inside the special <code>.git</code> directory. This permanent copy is called a <strong><a href="reference.html#revision">revision</a></strong> and its short <strong>identifier</strong> is <code>a10bd8f</code>. (Your revision will have different identifier.)</p>
 <p>If we run <code>git status</code> now:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> status</code></pre></div>
 <pre class="output"><code># On branch master
@@ -88,7 +88,7 @@ nothing to commit, working directory clean</code></pre>
 <p class="caption">Exploring history #1</p>
 </div>
 <h3 id="review-the-log">Review the Log</h3>
-<p>If we want to know what we’ve done recently, we can ask Git to show us the project’s history using <code>git log</code>:</p>
+<p>If we want to know what we’ve done recently, we can ask Git to show us the <strong>project’s history</strong> using <code>git log</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> log</code></pre></div>
 <pre class="output"><code>commit a10bd8f6192f9ab29b1821d7d7929fbf6484686a
 Author: John R &lt;j.robinson@software.ac.uk&gt;
@@ -129,7 +129,7 @@ no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&q
 <p>So, while we have changed this file, but we haven’t told Git we will want to save those changes (which we do with <code>git add</code>) much less actually saved them (which we do with <code>git commit</code>).</p>
 <p><strong>It’s important to remember that git only stores changes when you make a commit</strong></p>
 <h3 id="review-changes-and-commit">Review Changes and Commit</h3>
-<p>It is good practice to always review our changes before saving them. We do this using <code>git diff</code>. This shows us the differences between the current state of the file and the most recently commited version:</p>
+<p>It is good practice to always <strong>review our changes</strong> before saving them. We do this using <code>git diff</code>. This shows us the differences between the current state of the file and the most recently commited version:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> diff</code></pre></div>
 <pre class="output"><code>diff --git a/climate_analysis.py b/climate_analysis.py
 index 277d6c7..d5b442d 100644
@@ -169,8 +169,8 @@ $ <span class="kw">git</span> commit -m <span class="st">&quot;Add Docstring&quo
 <pre class="output"><code>[master 6077ba7] Add Docstring
  1 file changed, 1 insertion(+)</code></pre>
 <p><img src="img/slides/version-control-with-git-slides%20-%2012.jpg" alt="Add and Commit" /> ** Recapping add / commit**</p>
-<p>Git insists that we <strong>add</strong> files to the set we want to commit before actually committing anything because we may not want to commit everything at once.</p>
-<p>For example, suppose we’re adding a few citations to our supervisor’s work to our thesis. We might want to commit those additions, and the corresponding addition to the bibliography, but <em>not</em> commit the work we’re doing on the conclusion (which we haven’t finished yet).</p>
+<p>Git insists that we <strong>add</strong> files to the set we want to commit before actually committing anything because we may not want to commit <strong>everything at once</strong>.</p>
+<p>For example, suppose we might have <strong>fixed a bug</strong> in some existing code, but we might have added new code that’s <strong>not ready to share</strong></p>
 <div class="figure">
 <img src="img/slides/version-control-with-git-slides%20-%2013.jpg" alt="Exploring history #1" />
 <p class="caption">Exploring history #1</p>
@@ -197,7 +197,7 @@ index d5b442d..c463f71 100644
 $ <span class="kw">git</span> diff</code></pre></div>
 <pre class="output"><code></code></pre>
 <p><strong>There is no output</strong>:</p>
-<p><strong>git diff</strong> shows us the differences between the <em>working copy</em> and what’s been added to the <strong>change set</strong> in staging area.</p>
+<p><strong>git diff</strong> shows us the differences between the <strong>working copy</strong> and what’s been added to the <strong>change set</strong> in staging area.</p>
 <p>However, if we do this:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> diff --staged</code></pre></div>
 <pre class="output"><code>diff --git a/climate_analysis.py b/climate_analysis.py

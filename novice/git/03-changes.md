@@ -48,7 +48,7 @@ $ git commit -m "Initial commit of climate analysis code"
 ~~~
 
 We use the `-m` flag (for "**message**")
-to record a short, descriptive, and specific comment that will help us remember later on what we did and why.
+to record a short, **descriptive comment** that will help us remember later on what we did and why.
 
 If we just run `git commit` without the `-m` option,
 Git will launch `nano` (or whatever other editor we configured at the start)
@@ -72,8 +72,8 @@ a blank line between the summary line and your additional notes.
 When we run `git commit`,
 Git takes everything we have told it to save by using `git add`
 and stores a copy permanently inside the special `.git` directory.
-This permanent copy is called a [revision](reference.html#revision)
-and its short identifier is `a10bd8f`.
+This permanent copy is called a **[revision](reference.html#revision)**
+and its short **identifier** is `a10bd8f`.
 (Your revision will have different identifier.)
 
 
@@ -101,7 +101,7 @@ and `git commit` then copies them to long-term storage (as a commit)
 
 ###Review the Log###
 If we want to know what we've done recently,
-we can ask Git to show us the project's history using `git log`:
+we can ask Git to show us the **project's history** using `git log`:
 
 ~~~ {.bash}
 $ git log
@@ -170,8 +170,8 @@ much less actually saved them (which we do with `git commit`).
 **It's important to remember that git only stores changes when you make a commit**
 
 ###Review Changes and Commit###
-It is good practice to always review
-our changes before saving them. We do this using `git diff`.
+It is good practice to always **review
+our changes** before saving them. We do this using `git diff`.
 This shows us the differences between the current state
 of the file and the most recently commited version:
 
@@ -240,15 +240,10 @@ $ git commit -m "Add Docstring"
 
 Git insists that we **add** files to the set we want to commit
 before actually committing anything
-because we may not want to commit everything at once.
+because we may not want to commit **everything at once**.
 
 For example,
-suppose we're adding a few citations to our supervisor's work
-to our thesis.
-We might want to commit those additions,
-and the corresponding addition to the bibliography,
-but *not* commit the work we're doing on the conclusion
-(which we haven't finished yet).
+suppose we might have **fixed a bug** in some existing code, but we might have added new code that's **not ready to share**
 
 
 ![Exploring history #1](img/slides/version-control-with-git-slides - 13.jpg)
@@ -298,7 +293,7 @@ $ git diff
 
 **There is no output**:
 
-**git diff** shows us the differences between the *working copy* and what's been added to the **change set** in staging area.
+**git diff** shows us the differences between the **working copy** and what's been added to the **change set** in staging area.
 
 However, if we do this:
 

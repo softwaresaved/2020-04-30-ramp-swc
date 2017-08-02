@@ -67,7 +67,7 @@ You can optionally give it a friendly **description** and prove a **README.md** 
 
 GitHub will host **Publicly** accessible repositories **free** of charge, but makes a charge for Private ones.  **BitBucket** offers free private repositories for teams of up to 5.  
 
-You need to be sure that you really want to make your code publicly accessible, think about **licensing**, and that you're not breaching the terms of any license of shared code by making it publicly available.
+You need to be sure that you **really want to make your code publicly accessible**, think about **licensing**, and that you're not **breaching the terms of any license** of shared code by making it publicly available.
 
 and then click **"Create Repository"**:
 
@@ -81,8 +81,8 @@ but the **remote** repository on GitHub doesn't contain any files yet:
 
 The next step is to **connect** the two repositories.
 
-We do this by making the GitHub repository a [remote](reference.html#remote)
-for the local repository.  A **remote** is a repository conected to another in such way that both can be kept in sync exchanging commits.
+We do this by making the GitHub repository a **[remote](reference.html#remote)**
+for the local repository.  A **remote** is a repository conected to another in such way that both can be kept **in sync** exchanging commits.
 
 The home page of the repository on GitHub includes
 the string we need to identify it:
@@ -91,7 +91,7 @@ the string we need to identify it:
 
 Copy that URL from the browser,
 go back to your local repository,
-and run this command:
+and run this command **using your repository name** not mine:
 
 ~~~ {.bash}
 $ git remote add origin https://github.com/js-robinson/climate-analysis.git
@@ -101,10 +101,9 @@ The name `origin` is a **local nickname** for your **remote repository**:
 we **could** use something else if we wanted to,
 but `origin` is **conventional**, and will come in useful later.
 
-Make sure to use the URL for your repository rather than mine!
 The only difference should be your username instead of `js-robinson`.
 
-We can check that the command has worked by running `git remote -v`:
+We can check that the command has worked by running `git remote --verbose`:
 
 ~~~ {.bash}
 $ git remote --verbose
@@ -133,13 +132,13 @@ To https://github.com/js-robinson/climate-analysis.git
 ~~~
 The push command takes two arguments, the **remote name** ('origin') and a **branch name** ('master').
 
-We haven't yet discussed **branching** yet, and we won't have time to do so today.
+We haven't yet discussed **branching** yet, and we won't go into it today, but basically.
 
 **Branching** is a feature common
 to almost all version control systems and gives you the ability to **diverge** from the main line of development
 and to continue to do work without messing with that main line.  The main (default) branch is the **master**.
 
-At a later time you can re-integrate branches to the master.
+At a later time you can **re-integrate** branches to the **master**.
 
 So, for **Developer A**, our local and remote repositories are now **in sync**! You can check in your browser that the files have reached your GitHub repository.
 
@@ -207,7 +206,7 @@ climate_analysis.py  temp_conversion.py
 ~~~
 
 ###Developer B - Add rainfall_conversion.py ###
-Lets expand our library of climate analysis functions by adding a new module:
+Lets expand our library of climate analysis functions by adding a **new file**:
 
 ~~~ {.bash}
 $ nano rainfall_conversion.py

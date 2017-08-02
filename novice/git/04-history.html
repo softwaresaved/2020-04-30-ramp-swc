@@ -48,8 +48,8 @@
 </div>
 <h3 id="relative-history">Relative History</h3>
 <p>Let’s look a bit deeper at how we can see <strong>what we changed when</strong></p>
-<p>We use <code>git diff</code> again, but refer to old versions using the notation <code>HEAD~1</code>, <code>HEAD~2</code>, and so on.</p>
 <p><strong>HEAD</strong> is the conventional name used to refer to the <strong>most recent</strong> end of the chain of revisions.</p>
+<p>We use <code>git diff</code> again, but refer to old versions using the notation <code>HEAD~1</code>, <code>HEAD~2</code>, and so on.</p>
 <p>We can refer to previous revisions using the <code>~</code> notation, so <code>HEAD~1</code> (pronounced “head minus one”) means “the previous revision”, while <code>HEAD~123</code> goes back 123 revisions from where we are now.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> diff HEAD~1 climate_analysis.py</code></pre></div>
 <pre class="output"><code>diff --git a/climate_analysis.py b/climate_analysis.py
@@ -81,7 +81,7 @@ index 277d6c7..c463f71 100644
 +# TODO(me): Add call to process rainfall</code></pre>
 <p>And here we see the state <strong>before the last two commits</strong>, HEAD minus2</p>
 <h3 id="absolute-history">Absolute History</h3>
-<p>So, that’s useful as far as it goes, but we can also refer to revisions using those long strings of digits and letters that <code>git log</code> displays.</p>
+<p>So, that’s useful as far as it goes, but we can also refer to <strong>specific revisions</strong> using those long strings of digits and letters that <code>git log</code> displays.</p>
 <p>These are unique IDs for the changes, and “unique” really does mean unique: every change to any set of files on any machine has a unique 40-character identifier. (A SHA-1 hash of the new, post-commit state of the repository).</p>
 <p>Our first commit was given the ID: <strong>[bottom ID from git log]</strong></p>
 <p>a10bd8f6192f9ab29b1821d7d7929fbf6484686a, so let’s try this:</p>

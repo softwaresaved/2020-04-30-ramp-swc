@@ -27,7 +27,7 @@ minutes: 10
 
 ![Local Configuration](img/slides/version-control-with-git-slides - 09.jpg)
 
-**Working individually**, we’ll start by exploring how version control can be used to keep track of what *one person* did and when.
+**Working individually**, we’ll start by exploring how version control can be used to keep track of what **one person** did and when.
 
 ## Setting Up ##
 

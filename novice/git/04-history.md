@@ -16,11 +16,11 @@ minutes: 10
 
 Let's look a bit deeper at how we can see **what we changed when**
 
+**HEAD** is the conventional name used to refer to the **most recent** end of the chain of revisions.
+
 We use `git diff` again,
 but refer to old versions
 using the notation `HEAD~1`, `HEAD~2`, and so on.
-
-**HEAD** is the conventional name used to refer to the **most recent** end of the chain of revisions.
 
 We can refer to previous revisions using the `~` notation,
 so `HEAD~1` (pronounced "head minus one")
@@ -68,7 +68,7 @@ And here we see the state **before the last two commits**, HEAD minus2
 
 ###Absolute History###
 
-So, that's useful as far as it goes, but we can also refer to revisions using
+So, that's useful as far as it goes, but we can also refer to **specific revisions** using
 those long strings of digits and letters
 that `git log` displays.
 
