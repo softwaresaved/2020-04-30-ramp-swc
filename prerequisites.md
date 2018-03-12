@@ -62,21 +62,21 @@ We use Python 3, because it is generally the most widely used version of Python.
 
 #### Windows
 
-Download the [Python3.6 Anaconda installer](https://repo.continuum.io/archive/Anaconda3-5.0.0-Windows-x86_64.exe). Double click the installer and follow the instructions.
+Download the [Python3.6 Anaconda installer](https://repo.continuum.io/archive/Anaconda3-5.1.0-Windows-x86_64.exe). Double click the installer and follow the instructions.
 
 #### Mac OS X
 
-Download the [Python 3.6 Anaconda Mac OS X Graphical installer](https://repo.continuum.io/archive/Anaconda3-5.0.0-MacOSX-x86_64.pkg). Double click the `.pkg` file and follow the instructions.
+Download the [Python 3.6 Anaconda Mac OS X Graphical installer](https://repo.continuum.io/archive/Anaconda3-5.1.0-MacOSX-x86_64.pkg). Double click the `.pkg` file and follow the instructions.
 
 #### Linux
 
-Download the [Python3.6 Anaconda installation script](https://repo.continuum.io/archive/Anaconda3-5.0.0-Linux-x86_64.sh). Install via the terminal like this:
+Download the [Python3.6 Anaconda installation script](https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh). Install via the terminal like this:
 
 ~~~{.code}
-bash Anaconda3-5.0.0-Linux-x86_64.sh
+bash Anaconda3-5.1.0-Linux-x86_64.sh
 ~~~
 
-When asked "Do you wish the installer to prepend the Anaconda install location to PATH", answer "yes". After it's finished, close and reopen your terminal to reload the updated PATH and allow the installed Python to be found.
+When asked "Do you wish the installer to prepend the Anaconda install location to PATH", answer "yes". After it's finished, *close and reopen your terminal to reload the updated PATH and allow the installed Python to be found*.
 
 ## Git
 
@@ -94,7 +94,7 @@ Download and install [Git for Windows](http://git-scm.com/download/win). **Pleas
 
 #### Mac OS X
 
-On Mac OS X 10.12 Sierra, 10.11 El Capitan, 10.10 Yosemite and 10.9 Mavericks, Git will be installed automatically the first time you try to run it.  Open a terminal and enter:
+On Mac OS X 10.9 Mavericks and later, Git will be installed automatically the first time you try to run it.  Open a terminal and enter:
 
 ~~~ {.code}
 git
