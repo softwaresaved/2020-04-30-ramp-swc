@@ -2,7 +2,7 @@
 layout: workshop
 root: .
 venue: University of Southampton      # brief name of host site
-address: 1007, Building 67 & 3077, Building 32 
+address: Building 67 / room 1007 and Building 32 / room 3077
 address2: University Road # street address of home location
 country: United-Kingdom    # country (hyphenated if need be, like 'United-Kingdom')
 language: en   # language code like 'en' or 'fr'
@@ -71,12 +71,11 @@ etherpad:
 <p>
   <strong>Where:</strong>
   {{page.address}}.
+  <a href="http://data.southampton.ac.uk/room/67-1007.html">Building 67 / Room 1007</a> and <a href="http://data.southampton.ac.uk/room/32-3077.html">Building 32 / Room 3077</a    >
   Get directions with
   <a href="//www.openstreetmap.org/?mlat={{page.latlng | replace:',','&mlon='}}&zoom=16">OpenStreetMap</a>
   or
   <a href="//maps.google.com/maps?q={{page.latlng}}">Google Maps</a>
-  or University's Open Data Service for 
-  <a href="http://data.southampton.ac.uk/room/85-2209.html">Building 85 / Room 2209</a>.
 </p>
 {% endif %}
 
