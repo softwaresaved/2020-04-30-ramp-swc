@@ -136,7 +136,7 @@ Enter the command below into your terminal. It will download the python script a
 From the Git folder in the Start Menu, open the Git Bash terminal.
 
 ~~~ {.code}
-curl -L http://goo.gl/qQ4d5J | python
+curl -s https://swc.rsgsoton.net/static/installation_test_rsg.py | python
 ~~~
 
 #### Mac OS X, Linux
@@ -144,7 +144,7 @@ curl -L http://goo.gl/qQ4d5J | python
 Close your existing terminal and reopen it.  **This is important!**
 
 ~~~ {.code}
-curl -L http://goo.gl/qQ4d5J | python3
+curl -s https://swc.rsgsoton.net/static/installation_test_rsg.py | python3
 ~~~
 
 
