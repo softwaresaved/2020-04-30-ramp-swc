@@ -9,13 +9,6 @@ title: Software Prerequisites
 
 There is little time during the workshop to deal with installation problems, so it makes the day run much more smoothly if you arrive with your software already installed.
 
-## Help!
-
-We maintain a list of common problems that can occur during installation and ways of solving them. Take a look at the [Configuration Problems and Solutions wiki page](https://github.com/swcarpentry/workshop-template/wiki/Configuration-Problems-and-Solutions) for help.
-
-<!-- 
-If you still have trouble, we will run a **Software Installation surgery from 13.00 PM until 16.00 PM** on ***Tuesday, August 30, 2016***. This will take place in room 3013 (Simon Hettrick's office), Building 32, Highfield campus. If you would like to come along to the surgery, [email us to arrange a time](mailto:rsg-info@soton.ac.uk). 
--->
 
 ## Bash
 
@@ -162,6 +155,7 @@ check Matplotlib (matplotlib)...	pass
 ~~~
 
 If anything fails, please [contact us](mailto:rsg-info@soton.ac.uk) before the workshop.
+
 
 ## During the workshop
 
