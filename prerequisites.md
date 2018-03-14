@@ -144,10 +144,9 @@ curl -s https://swc.rsgsoton.net/static/installation_test_rsg.py | python3
 On Windows, Mac OS X and Linux, the script will run and output some text. If everything has installed correctly, within the text you will see eight passes and no failures, like this:
 
 ~~~ {.code}
+
 check command line shell (virtual-shell)...	pass
 check Git (git)...	pass
-check Nose (nosetests)...	pass
-check Nose Python package (nose)...	pass
 check Python version (python)...	pass
 check Argparse (argparse)...	pass
 check NumPy (numpy)...	pass
