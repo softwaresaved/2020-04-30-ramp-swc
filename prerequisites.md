@@ -53,6 +53,8 @@ To exit nano press CTRL+X (you might be prompted you to save or discard modified
 
 We use Python 3, because it is generally the most widely used version of Python. We will also use the numpy and matplotlib libraries and the nose unit testing framework. Fortunately, these do not need to be installed separately! The "Python3.6 Anaconda" installation provides everything Python-related you will need for the workshop. To install Anaconda, follow the instructions below.
 
+When asked "Add Anaconda to my PATH environment variable", answer "yes". After it's finished, *close and reopen your terminal to reload the updated PATH and allow the installed Python to be found*.
+
 #### Windows
 
 Download the [Python3.6 Anaconda installer](https://repo.continuum.io/archive/Anaconda3-5.1.0-Windows-x86_64.exe). Double click the installer and follow the instructions.
