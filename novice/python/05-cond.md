@@ -14,7 +14,8 @@ So what if we want to do something that's dependent on whether a given condition
 
 ## Conditionals
 
-We can ask Python to take different actions, depending on a condition, with an if statement:
+We can ask Python to take different actions, depending on a condition, with an if statement
+(you'll need to type this in - don't copy and paste this code directly, it won't work):
 
 ~~~ {.python}
 num = 37
@@ -22,7 +23,6 @@ if num > 100:
     print("greater")
 else:
     print("not greater")
-
 print("done")
 ~~~
 ~~~ {.output}
@@ -42,7 +42,8 @@ Only one or the other is ever executed:
 
 Conditional statements don't have to necessarily include an `else`.
 If there isn't one,
-Python simply does nothing if the test is false:
+Python simply does nothing if the test is false
+(you'll need to type this in - don't copy and paste this code directly, it won't work):
 
 ~~~ {.python}
 num = 53
@@ -61,13 +62,12 @@ which is short for "else if" as shown in the example code chunk below:
 
 ~~~ {.python}
 num = -3
-    if num > 0:
-        print("Sign of a number:",num,"is:",1)
-    elif num == 0:
-        print("Sign of a number",num,"is:",0)
-    else:
-        print("Sign of a number",num, "is:",-1)
-
+if num > 0:
+    print("Sign of a number:",num,"is:",1)
+elif num == 0:
+    print("Sign of a number",num,"is:",0)
+else:
+    print("Sign of a number",num, "is:",-1)
 ~~~
 ~~~ {.output}
 sign of a number -3 is:  -1

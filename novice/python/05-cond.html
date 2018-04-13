@@ -42,13 +42,12 @@
 </section>
 <p>So what if we want to do something that’s dependent on whether a given condition is true? In this lesson, we’ll learn how to write code that runs only when certain conditions are true.</p>
 <h2 id="conditionals">Conditionals</h2>
-<p>We can ask Python to take different actions, depending on a condition, with an if statement:</p>
+<p>We can ask Python to take different actions, depending on a condition, with an if statement (you’ll need to type this in - don’t copy and paste this code directly, it won’t work):</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">num <span class="op">=</span> <span class="dv">37</span>
 <span class="cf">if</span> num <span class="op">&gt;</span> <span class="dv">100</span>:
     <span class="bu">print</span>(<span class="st">&quot;greater&quot;</span>)
 <span class="cf">else</span>:
     <span class="bu">print</span>(<span class="st">&quot;not greater&quot;</span>)
-
 <span class="bu">print</span>(<span class="st">&quot;done&quot;</span>)</code></pre></div>
 <pre class="output"><code>not greater
 done</code></pre>
@@ -57,7 +56,7 @@ done</code></pre>
 <img src="img/python-flowchart-conditional.svg" alt="Executing a Conditional" />
 <p class="caption">Executing a Conditional</p>
 </div>
-<p>Conditional statements don’t have to necessarily include an <code>else</code>. If there isn’t one, Python simply does nothing if the test is false:</p>
+<p>Conditional statements don’t have to necessarily include an <code>else</code>. If there isn’t one, Python simply does nothing if the test is false (you’ll need to type this in - don’t copy and paste this code directly, it won’t work):</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">num <span class="op">=</span> <span class="dv">53</span>
 <span class="bu">print</span>(<span class="st">&quot;before conditional...&quot;</span>)
 <span class="cf">if</span> num <span class="op">&gt;</span> <span class="dv">100</span>:
@@ -67,12 +66,12 @@ done</code></pre>
 ...after conditional</code></pre>
 <p>We can also chain several tests together using <code>elif</code>, which is short for “else if” as shown in the example code chunk below:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">num <span class="op">=</span> <span class="op">-</span><span class="dv">3</span>
-    <span class="cf">if</span> num <span class="op">&gt;</span> <span class="dv">0</span>:
-        <span class="bu">print</span>(<span class="st">&quot;Sign of a number:&quot;</span>,num,<span class="st">&quot;is:&quot;</span>,<span class="dv">1</span>)
-    <span class="cf">elif</span> num <span class="op">==</span> <span class="dv">0</span>:
-        <span class="bu">print</span>(<span class="st">&quot;Sign of a number&quot;</span>,num,<span class="st">&quot;is:&quot;</span>,<span class="dv">0</span>)
-    <span class="cf">else</span>:
-        <span class="bu">print</span>(<span class="st">&quot;Sign of a number&quot;</span>,num, <span class="st">&quot;is:&quot;</span>,<span class="op">-</span><span class="dv">1</span>)</code></pre></div>
+<span class="cf">if</span> num <span class="op">&gt;</span> <span class="dv">0</span>:
+    <span class="bu">print</span>(<span class="st">&quot;Sign of a number:&quot;</span>,num,<span class="st">&quot;is:&quot;</span>,<span class="dv">1</span>)
+<span class="cf">elif</span> num <span class="op">==</span> <span class="dv">0</span>:
+    <span class="bu">print</span>(<span class="st">&quot;Sign of a number&quot;</span>,num,<span class="st">&quot;is:&quot;</span>,<span class="dv">0</span>)
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">&quot;Sign of a number&quot;</span>,num, <span class="st">&quot;is:&quot;</span>,<span class="op">-</span><span class="dv">1</span>)</code></pre></div>
 <pre class="output"><code>sign of a number -3 is:  -1</code></pre>
 <p>The keyword <code>elif</code> is short for <code>else if</code>, and is useful to avoid excessive indentation. An <code>if ... elif ... elif ...</code> sequence is a substitute for the <code>switch</code> or <code>case</code> statements found in other languages.</p>
 <p>One important thing to notice in the code above is that we use a double equals sign <code>==</code> to test for equality rather than a single equals sign because the latter is used to mean assignment. This convention was inherited from C, and while many other programming languages work the same way, it does take a bit of getting used to…</p>
