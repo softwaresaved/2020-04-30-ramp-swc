@@ -53,23 +53,23 @@ To exit nano press CTRL+X (you might be prompted you to save or discard modified
 
 We use Python 3, because it is generally the most widely used version of Python. We will also use the numpy and matplotlib libraries and the nose unit testing framework. Fortunately, these do not need to be installed separately! The "Python3.6 Anaconda" installation provides everything Python-related you will need for the workshop. To install Anaconda, follow the instructions below.
 
-**IMPORTANT: When asked "Add Anaconda to my PATH environment variable", answer "yes". 
+**<span style="color:red">IMPORTANT</span>: When asked "Add Anaconda to my PATH environment variable", answer "yes". 
 After it's finished, close and reopen your terminal to reload the updated PATH and allow the installed Python to be found.**
 
 #### Windows
 
-Download the [Python3.6 Anaconda installer](https://repo.continuum.io/archive/Anaconda3-5.1.0-Windows-x86_64.exe). Double click the installer and follow the instructions.
+Download the [Python3.6 Anaconda installer](https://repo.anaconda.com/archive/Anaconda3-5.2.0-Windows-x86_64.exe). Double click the installer and follow the instructions.
 
 #### Mac OS X
 
-Download the [Python 3.6 Anaconda Mac OS X Graphical installer](https://repo.continuum.io/archive/Anaconda3-5.1.0-MacOSX-x86_64.pkg). Double click the `.pkg` file and follow the instructions.
+Download the [Python 3.6 Anaconda Mac OS X Graphical installer](https://repo.anaconda.com/archive/Anaconda3-5.2.0-MacOSX-x86_64.pkg). Double click the `.pkg` file and follow the instructions.
 
 #### Linux
 
-Download the [Python3.6 Anaconda installation script](https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh). Install via the terminal like this:
+Download the [Python3.6 Anaconda installation script](https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh). Install via the terminal like this:
 
 ~~~{.code}
-bash Anaconda3-5.1.0-Linux-x86_64.sh
+bash Anaconda3-5.2.0-Linux-x86_64.sh
 ~~~
 
 ## Git
@@ -158,4 +158,4 @@ If anything fails, please [contact us](mailto:rsg-info@soton.ac.uk) before the w
 
 ## During the workshop
 
-We will make use of the [Etherpad](https://public.etherpad-mozilla.org/p/SWC-Soton-Apr2018) collaboration tool during the workshop (Etherpad allows a group to edit documents online collaboratively in real-time). Please use this to keep collaborative notes and ask (and answer!) each others questions.
+We will make use of the [Etherpad](https://public.etherpad-mozilla.org/p/SWC-Soton-Sep2018) collaboration tool during the workshop (Etherpad allows a group to edit documents online collaboratively in real-time). Please use this to keep collaborative notes and ask (and answer!) each others questions.
