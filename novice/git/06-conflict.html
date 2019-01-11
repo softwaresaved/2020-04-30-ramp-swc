@@ -45,7 +45,7 @@
 <p>This will even happen with a single person: if we are working on a piece of software on both our laptop and a server in the lab, we could make different changes to each copy.</p>
 <p>These situations are called <strong>conflicts</strong> Version control helps us manage these <a href="reference.html#conflicts">conflicts</a> by giving us tools to <a href="reference.html#resolve">resolve</a> overlapping changes.</p>
 <p>To see how we can resolve conflicts, we must first create one. The file <code>rainfall_conversion.py</code> currently looks like this in both partners’ copies of our <code>climate-analysis</code> repository:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> rainfall_conversion.py</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">cat</span> rainfall_conversion.py</code></pre></div>
 <pre class="output"><code>&quot;&quot;&quot;A library to perform rainfall unit conversions&quot;&quot;&quot;
 
 def inches_to_mm(inches):
@@ -62,8 +62,8 @@ def inches_to_mm(inches):
 <p class="caption">Conflicts</p>
 </div>
 <p>Let’s add a line to the bottom of Developer A’s copy only:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> rainfall_conversion.py
-$ <span class="kw">cat</span> rainfall_conversion.py</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">nano</span> rainfall_conversion.py
+$ <span class="fu">cat</span> rainfall_conversion.py</code></pre></div>
 <pre class="output"><code>&quot;&quot;&quot;A library to perform rainfall unit conversions&quot;&quot;&quot;
 
 def inches_to_mm(inches):
@@ -77,11 +77,11 @@ def inches_to_mm(inches):
 
 # TODO(Developer B): Add function to convert from inches to centimetres</code></pre>
 <p>and then push the change to GitHub:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add rainfall_conversion.py
-$ <span class="kw">git</span> commit -m <span class="st">&quot;Developer A added a ToDo&quot;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> add rainfall_conversion.py
+$ <span class="fu">git</span> commit -m <span class="st">&quot;Developer A added a ToDo&quot;</span></code></pre></div>
 <pre class="output"><code>[master 5ae9631] Developer A added a ToDo
  1 file changed, 1 insertion(+)</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> push origin master</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> push origin master</code></pre></div>
 <pre class="output"><code>Counting objects: 5, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
@@ -91,8 +91,8 @@ To https://github.com/js-robinson/climate-analysis.git
    3973c44..479a5d2  master -&gt; master</code></pre>
 <h3 id="developer-b---modify-and-push-without-pull">Developer B - Modify and push without pull</h3>
 <p>Now let’s have Developer B make a different change to their copy <em>without</em> updating (pulling) from GitHub:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> rainfall_conversion.py
-$ <span class="kw">cat</span> rainfall_conversion.py</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">nano</span> rainfall_conversion.py
+$ <span class="fu">cat</span> rainfall_conversion.py</code></pre></div>
 <pre class="output"><code>&quot;&quot;&quot;A library to perform rainfall unit conversions&quot;&quot;&quot;
 
 def inches_to_mm(inches):
@@ -106,12 +106,12 @@ def inches_to_mm(inches):
 
 # TODO(Developer A): Add function to convert from inches to centimetres</code></pre>
 <p>We can commit the change locally:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add rainfall_conversion.py
-$ <span class="kw">git</span> commit -m <span class="st">&quot;Developer B added a different line&quot;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> add rainfall_conversion.py
+$ <span class="fu">git</span> commit -m <span class="st">&quot;Developer B added a different line&quot;</span></code></pre></div>
 <pre class="output"><code>[master 07ebc69] Developer B added a different line
  1 file changed, 1 insertion(+)</code></pre>
 <p>but Git won’t let us push it to GitHub:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> push origin master</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> push origin master</code></pre></div>
 <pre class="output"><code>To https://github.com/js-robinson/climate-analysis.git
  ! [rejected]        master -&gt; master (fetch first)
 error: failed to push some refs to &#39;https://github.com/js-robinson/climate-analysis.git&#39;
@@ -128,7 +128,7 @@ hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; fo
 <p>What we have to do is <strong>pull</strong> the changes from GitHub, <a href="reference.html#merge">merge</a> them into the copy we’re currently working in, and <strong>then push</strong> that.</p>
 <h3 id="developer-b---pull-and-resolve">Developer B - Pull and resolve</h3>
 <p>Let’s start by pulling:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> pull origin master</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> pull origin master</code></pre></div>
 <pre class="output"><code>remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (1/1), done.
 remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0
@@ -139,7 +139,7 @@ Auto-merging rainfall_conversion.py
 CONFLICT (content): Merge conflict in rainfall_conversion.py
 Automatic merge failed; fix conflicts and then commit the result.</code></pre>
 <p><code>git pull</code> tells us there’s a <strong>conflict</strong>, and marks that conflict in the affected file:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> rainfall_conversion.py</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">cat</span> rainfall_conversion.py</code></pre></div>
 <pre class="output"><code>&quot;&quot;&quot;A library to perform rainfall unit conversions&quot;&quot;&quot;
 
 def inches_to_mm(inches):
@@ -160,7 +160,7 @@ def inches_to_mm(inches):
 <p>It is now <strong>up to us</strong> to <strong>edit</strong> this file to <strong>remove these markers</strong> and <strong>reconcile the changes</strong>.</p>
 <p>We can do anything we want: <strong>keep the change made in the local repository</strong>, <strong>keep the change made in the remote repository</strong>, write something new to <strong>replace both</strong>, or <strong>get rid of the change</strong> entirely.</p>
 <p>Let’s <strong>replace</strong> both so that the file looks like this:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> rainfall_conversion.py</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">cat</span> rainfall_conversion.py</code></pre></div>
 <pre class="output"><code>&quot;&quot;&quot;A library to perform rainfall unit conversions&quot;&quot;&quot;
 
 def inches_to_mm(inches):
@@ -175,8 +175,8 @@ def inches_to_mm(inches):
 # TODO(all): Hire a new developer</code></pre>
 <h3 id="developer-b---add-commit-and-push">Developer B - Add, Commit and Push</h3>
 <p>To finish merging, we add <code>rainfall_conversion.py</code> to the changes being made by the merge and then commit:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add rainfall_conversion.py
-$ <span class="kw">git</span> status</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> add rainfall_conversion.py
+$ <span class="fu">git</span> status</code></pre></div>
 <pre class="output"><code>On branch master
 Your branch and &#39;origin/master&#39; have diverged,
 and have 1 and 1 different commit each, respectively.
@@ -189,10 +189,10 @@ Changes to be committed:
 
         modified:   rainfall_conversion.py
 </code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> commit -m <span class="st">&quot;Merging changes from GitHub&quot;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> commit -m <span class="st">&quot;Merging changes from GitHub&quot;</span></code></pre></div>
 <pre class="output"><code>[master 2abf2b1] Merging changes from GitHub</code></pre>
 <p>Now we can push our changes to GitHub:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> push origin master</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> push origin master</code></pre></div>
 <pre class="output"><code>Counting objects: 10, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (6/6), done.
@@ -202,7 +202,7 @@ To https://github.com/js-robinson/climate-analysis.git
    dabb4c8..2abf2b1  master -&gt; master</code></pre>
 <p>Git keeps track of what we’ve merged with what, so we don’t have to fix things by hand again when <strong>Developer A</strong> who made the first change pulls again:</p>
 <h3 id="developer-a-pull">Developer A Pull</h3>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> pull origin master</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> pull origin master</code></pre></div>
 <pre class="output"><code>remote: Counting objects: 10, done.        
 remote: Compressing objects: 100% (4/4), done.        
 remote: Total 6 (delta 2), reused 6 (delta 2)        
@@ -214,7 +214,7 @@ Fast-forward
 rainfall_conversion.py | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)</code></pre>
 <p>we get the merged file:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> rainfall_conversion.py</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">cat</span> rainfall_conversion.py</code></pre></div>
 <pre class="output"><code>&quot;&quot;&quot;A library to perform rainfall unit conversions&quot;&quot;&quot;
 
 def inches_to_mm(inches):
@@ -254,7 +254,7 @@ def inches_to_mm(inches):
       <div class="footer">
         This work is derived from prior works that are Copyright © <a href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
-        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2018-09-18-southampton-swc">Source</a>
+        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2019-03-13-southampton-swc">Source</a>
       </div>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->

@@ -55,7 +55,7 @@ NameError: name &#39;a&#39; is not defined</code></pre>
   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
 NameError: name &#39;hello&#39; is not defined</code></pre>
 <p>The second is that you just forgot to create the variable before using it. In the following example, <code>count</code> should have been defined (e.g., with <code>count = 0</code>) before the for loop:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> number <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>):
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> number <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):
     count <span class="op">=</span> count <span class="op">+</span> number
 <span class="bu">print</span>(<span class="st">&quot;The count is:&quot;</span>, count)</code></pre></div>
 <pre><code>Traceback (most recent call last):
@@ -63,7 +63,7 @@ NameError: name &#39;hello&#39; is not defined</code></pre>
 NameError: name &#39;count&#39; is not defined</code></pre>
 <p>Finally, the third possibility is that you made a typo when you were writing your code. Let’s say we fixed the error above by adding the line <code>Count = 0</code> before the for loop. Frustratingly, this actually does not fix the error. Remember that variables are <a href="reference.html/#case-sensitive">case-sensitive</a>, so the variable <code>count</code> is different from <code>Count</code>. We still get the same error, because we still have not defined <code>count</code>:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">Count <span class="op">=</span> <span class="dv">0</span>
-<span class="cf">for</span> number <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>):
+<span class="cf">for</span> number <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):
     count <span class="op">=</span> count <span class="op">+</span> number
 <span class="bu">print</span>(<span class="st">&quot;The count is:&quot;</span>, count)</code></pre></div>
 <pre><code>Traceback (most recent call last):
@@ -80,7 +80,7 @@ NameError: name &#39;count&#39; is not defined</code></pre>
 <li>Fix the error.</li>
 <li>Repeat steps 2 and 3, until you have fixed all the errors.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> number <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>):
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> number <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):
     <span class="co"># use a if the number is a multiple of 3, otherwise use b</span>
     <span class="cf">if</span> (Number <span class="op">%</span> <span class="dv">3</span>) <span class="op">==</span> <span class="dv">0</span>:
         message <span class="op">=</span> message <span class="op">+</span> a
@@ -206,8 +206,8 @@ IndexError: list index out of range</code></pre>
 <span class="kw">def</span> favorite_ice_cream():
     ice_creams <span class="op">=</span> [
         <span class="st">&quot;chocolate&quot;</span>,
-        <span class="co">&quot;vanilla&quot;</span>,
-        <span class="co">&quot;strawberry&quot;</span>
+        <span class="st">&quot;vanilla&quot;</span>,
+        <span class="st">&quot;strawberry&quot;</span>
     ]
     <span class="bu">print</span>(ice_creams[<span class="dv">3</span>])
 
@@ -251,12 +251,12 @@ IndexError: list index out of range</code></pre>
 <span class="kw">def</span> print_message(day):
     messages <span class="op">=</span> {
         <span class="st">&quot;monday&quot;</span>: <span class="st">&quot;Hello, world!&quot;</span>,
-        <span class="co">&quot;tuesday&quot;</span>: <span class="st">&quot;Today is tuesday!&quot;</span>,
-        <span class="co">&quot;wednesday&quot;</span>: <span class="st">&quot;It is the middle of the week.&quot;</span>,
-        <span class="co">&quot;thursday&quot;</span>: <span class="st">&quot;Today is Donnerstag in German!&quot;</span>,
-        <span class="co">&quot;friday&quot;</span>: <span class="st">&quot;Last day of the week!&quot;</span>,
-        <span class="co">&quot;saturday&quot;</span>: <span class="st">&quot;Hooray for the weekend!&quot;</span>,
-        <span class="co">&quot;sunday&quot;</span>: <span class="st">&quot;Aw, the weekend is almost over.&quot;</span>
+        <span class="st">&quot;tuesday&quot;</span>: <span class="st">&quot;Today is tuesday!&quot;</span>,
+        <span class="st">&quot;wednesday&quot;</span>: <span class="st">&quot;It is the middle of the week.&quot;</span>,
+        <span class="st">&quot;thursday&quot;</span>: <span class="st">&quot;Today is Donnerstag in German!&quot;</span>,
+        <span class="st">&quot;friday&quot;</span>: <span class="st">&quot;Last day of the week!&quot;</span>,
+        <span class="st">&quot;saturday&quot;</span>: <span class="st">&quot;Hooray for the weekend!&quot;</span>,
+        <span class="st">&quot;sunday&quot;</span>: <span class="st">&quot;Aw, the weekend is almost over.&quot;</span>
     }
     <span class="bu">print</span>(messages[day])
 
@@ -324,7 +324,7 @@ KeyError: &#39;Friday&#39;</code></pre>
 <span class="kw">def</span> calculate_bmi(weight, height):
     <span class="cf">return</span> weight <span class="op">/</span> (height <span class="op">**</span> <span class="dv">2</span>)
 
-<span class="cf">for</span> patient <span class="op">in</span> patients:
+<span class="cf">for</span> patient <span class="kw">in</span> patients:
     height, weight <span class="op">=</span> patients[<span class="dv">0</span>]
     bmi <span class="op">=</span> calculate_bmi(height, weight)
     <span class="bu">print</span>(<span class="st">&quot;Patient&#39;s BMI is: </span><span class="sc">%f</span><span class="st">&quot;</span> <span class="op">%</span> bmi)</code></pre></div>
@@ -363,7 +363,7 @@ io.UnsupportedOperation: not readable</code></pre>
       <div class="footer">
         This work is derived from prior works that are Copyright © <a href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
-        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2018-09-18-southampton-swc">Source</a>
+        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2019-03-13-southampton-swc">Source</a>
       </div>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->

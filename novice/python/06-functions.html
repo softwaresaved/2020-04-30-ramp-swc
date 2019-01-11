@@ -52,7 +52,7 @@
 <p>Fortunately, Python has some built-in functions to do these <code>type</code> conversions (<em>see <code>climate_analysis-5.py</code></em>):</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">climate_data <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
 
-<span class="cf">for</span> line <span class="op">in</span> climate_data:
+<span class="cf">for</span> line <span class="kw">in</span> climate_data:
     data <span class="op">=</span> line.split(<span class="st">&#39;,&#39;</span>)
 
     <span class="cf">if</span> data[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">==</span> <span class="st">&#39;#&#39;</span>:
@@ -90,7 +90,7 @@ Max temperature in Celsius 16.33888888888889</code></pre>
     celsius <span class="op">=</span> ((fahr <span class="op">-</span> <span class="dv">32</span>) <span class="op">*</span> (<span class="dv">5</span><span class="op">/</span><span class="dv">9</span>)) 
     <span class="cf">return</span> celsius
 
-<span class="cf">for</span> line <span class="op">in</span> climate_data:
+<span class="cf">for</span> line <span class="kw">in</span> climate_data:
     data <span class="op">=</span> line.split(<span class="st">&#39;,&#39;</span>)
 
     <span class="cf">if</span> data[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">==</span> <span class="st">&#39;#&#39;</span>:
@@ -209,7 +209,7 @@ is_sum_equal([<span class="dv">2</span>,<span class="dv">4</span>,<span class="d
     kelvin <span class="op">=</span> fahr_to_celsius(fahr) <span class="op">+</span> <span class="fl">273.15</span>
     <span class="cf">return</span> kelvin
 
-<span class="cf">for</span> line <span class="op">in</span> climate_data:
+<span class="cf">for</span> line <span class="kw">in</span> climate_data:
     data <span class="op">=</span> line.split(<span class="st">&#39;,&#39;</span>)
 
     <span class="cf">if</span> data[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">==</span> <span class="st">&#39;#&#39;</span>:
@@ -255,9 +255,9 @@ is_sum_equal([<span class="dv">2</span>,<span class="dv">4</span>,<span class="d
     <span class="cf">return</span> kelvin</code></pre></div>
 <p>A string like this is called a <a href="../../reference.html#docstring">docstring</a>. We don’t need to use triple quotes when we write one, but if we do, we can break the string across multiple lines. This also applies to modules</p>
 <p>So how would we use this module and its functions in code? We do this by <code>import</code>ing the module into Python.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">Python <span class="fl">3.4.3</span> <span class="op">|</span>Anaconda <span class="fl">2.3.0</span> (x86_64)<span class="op">|</span> (default, Mar  <span class="dv">6</span> <span class="dv">2015</span>, <span class="dv">12</span>:<span class="dv">07</span>:<span class="dv">41</span>) 
-[GCC <span class="fl">4.2.1</span> (Apple Inc. build <span class="dv">5577</span>)] on darwin
-Type <span class="st">&quot;help&quot;</span>, <span class="st">&quot;copyright&quot;</span>, <span class="st">&quot;credits&quot;</span> <span class="op">or</span> <span class="st">&quot;license&quot;</span> <span class="cf">for</span> more information.
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">Python <span class="dv">3</span>.<span class="fl">4.3</span> <span class="op">|</span>Anaconda <span class="dv">2</span>.<span class="fl">3.0</span> (x86_64)<span class="op">|</span> (default, Mar  <span class="dv">6</span> <span class="dv">2015</span>, <span class="dv">12</span>:<span class="dv">07</span>:<span class="dv">41</span>) 
+[GCC <span class="dv">4</span>.<span class="fl">2.1</span> (Apple Inc. build <span class="dv">5577</span>)] on darwin
+Type <span class="st">&quot;help&quot;</span>, <span class="st">&quot;copyright&quot;</span>, <span class="st">&quot;credits&quot;</span> <span class="kw">or</span> <span class="st">&quot;license&quot;</span> <span class="cf">for</span> more information.
 <span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> temp_conversion</code></pre></div>
 <p>When modules and functions are described in docstrings, we can ask for these explanations directly from the interpreter which can be useful. Following on from the above:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="bu">help</span>(temp_conversion)</code></pre></div>
@@ -285,7 +285,7 @@ FUNCTIONS
         fahr -- the temperature in Fahrenheit
 
 FILE
-    /Users/user/Projects/RSG/Training/2018-09-18-southampton-swc/novice/python/code/temp_conversion.py</code></pre>
+    /Users/user/Projects/RSG/Training/2019-03-13-southampton-swc/novice/python/code/temp_conversion.py</code></pre>
 <p>Here, note we’ve used the term <code>library</code> in the code documentation. This is a more conventional, general term for a set of routines in any language.</p>
 <p>Similarly, for Docstrings in functions, e.g.:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="bu">help</span>(temp_conversion.fahr_to_celsius)</code></pre></div>
@@ -305,7 +305,7 @@ fahr_to_celsius(fahr)
 
 climate_data <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
 
-<span class="cf">for</span> line <span class="op">in</span> climate_data:
+<span class="cf">for</span> line <span class="kw">in</span> climate_data:
     data <span class="op">=</span> line.split(<span class="st">&#39;,&#39;</span>)
 
     <span class="cf">if</span> data[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">==</span> <span class="st">&#39;#&#39;</span>:
@@ -335,7 +335,7 @@ climate_data <span class="op">=</span> <span class="bu">open</span>(<span class=
       <div class="footer">
         This work is derived from prior works that are Copyright © <a href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
-        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2018-09-18-southampton-swc">Source</a>
+        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2019-03-13-southampton-swc">Source</a>
       </div>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->

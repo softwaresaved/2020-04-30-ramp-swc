@@ -3,7 +3,7 @@ layout: page-md
 title: Software Prerequisites
 ---
 
-[[Home]](https://southampton-rsg.github.io/2018-09-18-southampton-swc/)
+[[Home]](https://southampton-rsg.github.io/2019-03-13-southampton-swc/)
 
 **Prior to the workshop, it is vital that you install some software on your laptop and create an account at Github by following the instructions below!**
 
@@ -158,4 +158,4 @@ If anything fails, please [contact us](mailto:rsg-info@soton.ac.uk) before the w
 
 ## During the workshop
 
-We will make use of the [Etherpad](https://public.etherpad-mozilla.org/p/SWC-Soton-Sep2018) collaboration tool during the workshop (Etherpad allows a group to edit documents online collaboratively in real-time). Please use this to keep collaborative notes and ask (and answer!) each others questions.
+We will make use of the [Etherpad](https://public.etherpad-mozilla.org/p/SWC-Soton-Mar2019) collaboration tool during the workshop (Etherpad allows a group to edit documents online collaboratively in real-time). Please use this to keep collaborative notes and ask (and answer!) each others questions.

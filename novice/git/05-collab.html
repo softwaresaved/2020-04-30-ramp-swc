@@ -96,16 +96,16 @@
 <p class="caption">Where to Find Repository URL on GitHub</p>
 </div>
 <p>Copy that URL from the browser, go back to your local repository, and run this command <strong>using your repository name</strong> not mine:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> remote add origin https://github.com/js-robinson/climate-analysis.git</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> remote add origin https://github.com/js-robinson/climate-analysis.git</code></pre></div>
 <p>The name <code>origin</code> is a <strong>local nickname</strong> for your <strong>remote repository</strong>: we <strong>could</strong> use something else if we wanted to, but <code>origin</code> is <strong>conventional</strong>, and will come in useful later.</p>
 <p>The only difference should be your username instead of <code>js-robinson</code>.</p>
 <p>We can check that the command has worked by running <code>git remote --verbose</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> remote --verbose</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> remote --verbose</code></pre></div>
 <pre class="output"><code>origin  https://github.com/js-robinson/climate-analysis.git (fetch)
 origin  https://github.com/js-robinson/climate-analysis.git (push)</code></pre>
 <h3 id="push-commits-from-local-to-remote">Push commits from local to remote</h3>
 <p>Once the remote is set up, we can <strong>push</strong> the changes from our local repository to the repository on GitHub:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> push origin master</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> push origin master</code></pre></div>
 <pre class="output"><code>Counting objects: 10, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (10/10), done.
@@ -120,7 +120,7 @@ To https://github.com/js-robinson/climate-analysis.git
 <p>So, for <strong>Developer A</strong>, our local and remote repositories are now <strong>in sync</strong>! You can check in your browser that the files have reached your GitHub repository.</p>
 <h3 id="testing-pull">Testing Pull</h3>
 <p><strong>Still as Dev. A</strong> We can <strong>pull</strong> changes from the remote repository to the local one as well:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> pull origin master</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> pull origin master</code></pre></div>
 <pre class="output"><code>From https://github.com/js-robinson/climate-analysis
  * branch            master     -&gt; FETCH_HEAD
 Already up-to-date.</code></pre>
@@ -133,10 +133,10 @@ Already up-to-date.</code></pre>
 </div>
 <p>Now <strong>Developer B gets a go</strong>! - <strong>Developer A</strong>, you can <strong>take a break</strong> and watch.</p>
 <p>First, we need to accept Developer A’s invitation to collaborate on GitHub. You will receive an email, but we can avoid the wait by logging into GitHub in our browsers, and visiting the invite link:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">https</span>://github.com/js-robinson/climate-analysis/invitations</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">https</span>://github.com/js-robinson/climate-analysis/invitations</code></pre></div>
 <p>Then, we need to move away from our own copies of the filse, to avoif confusion. Remember, in this example, Developer B is playing the role of a fresh collaborator on the project</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> clone https://github.com/js-robinson/climate-analysis.git</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="bu">cd</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> clone https://github.com/js-robinson/climate-analysis.git</code></pre></div>
 <pre class="output"><code>Cloning into &#39;climate-analysis&#39;...
 remote: Counting objects: 10, done.
 remote: Compressing objects: 100% (8/8), done.
@@ -145,13 +145,13 @@ Unpacking objects: 100% (10/10), done.
 Checking connectivity... done.</code></pre>
 <p><code>git clone</code> creates a fresh local copy of a remote repository.</p>
 <p>Let check what we’ve got:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> climate-analysis
-$ <span class="kw">ls</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="bu">cd</span> climate-analysis
+$ <span class="fu">ls</span></code></pre></div>
 <pre class="output"><code>climate_analysis.py  temp_conversion.py</code></pre>
 <h3 id="developer-b---add-rainfall_conversion.py">Developer B - Add rainfall_conversion.py</h3>
 <p>Lets expand our library of climate analysis functions by adding a <strong>new file</strong>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> rainfall_conversion.py
-$ <span class="kw">cat</span> rainfall_conversion.py</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">nano</span> rainfall_conversion.py
+$ <span class="fu">cat</span> rainfall_conversion.py</code></pre></div>
 <pre class="output"><code>&quot;&quot;&quot;A library to perform rainfall unit conversions&quot;&quot;&quot;
 
 def inches_to_mm(inches):
@@ -162,13 +162,13 @@ def inches_to_mm(inches):
     &quot;&quot;&quot;
     mm = inches * 25.4
     return mm</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add rainfall_conversion.py
-$ <span class="kw">git</span> commit -m <span class="st">&quot;Add rainfall module&quot;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> add rainfall_conversion.py
+$ <span class="fu">git</span> commit -m <span class="st">&quot;Add rainfall module&quot;</span></code></pre></div>
 <pre class="output"><code>[master bcbf9be] Add rainfall module
  1 file changed, 11 insertions(+)
  create mode 100644 rainfall_conversion.py</code></pre>
 <p>then push the change to GitHub:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> push origin master</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> push origin master</code></pre></div>
 <pre class="output"><code>Counting objects: 4, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
@@ -184,7 +184,7 @@ To https://github.com/js-robinson/climate-analysis.git
 </div>
 <p>Developer A can now update their repository with the changes made by B:</p>
 <p>[** Check Working Directory**]</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> pull origin master</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> pull origin master</code></pre></div>
 <pre class="output"><code>remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (3/3), done.
 remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
@@ -213,7 +213,7 @@ Fast-forward
       <div class="footer">
         This work is derived from prior works that are Copyright © <a href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
-        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2018-09-18-southampton-swc">Source</a>
+        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2019-03-13-southampton-swc">Source</a>
       </div>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->

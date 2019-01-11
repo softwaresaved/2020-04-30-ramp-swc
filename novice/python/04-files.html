@@ -48,12 +48,12 @@
 <p>We first need to be able to read in our data from the <code>sc_climate_data_10.csv</code> file, and using a loop, print out each line. Let’s write another script called <code>climate_analysis.py</code>, and enter the following (<em>see <code>climate_analysis-1.py</code></em>):</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">climate_data <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
 
-<span class="cf">for</span> line <span class="op">in</span> climate_data:
+<span class="cf">for</span> line <span class="kw">in</span> climate_data:
     <span class="bu">print</span>(line)</code></pre></div>
 <p>Using <code>open</code>, we first specify the file we wish to open, and then include how we want to use that file. If we wanted to open a file to write to, we would use ‘w’, but in this case, we specify <code>r</code> for reading.</p>
 <p>In general, we know that a loop will iterate over a collection and set a loop variable to be each item in that collection. When Python deals with files, it does something quite helpful in a loop. By specifying <code>climate_data</code> as our collection, it reads in a single line at a time from our data file, assigning it to our <code>line</code> loop control variable.</p>
 <p>We can run our code with:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">python</span> climate_analysis.py</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">python</span> climate_analysis.py</code></pre></div>
 <p>And we get the following output:</p>
 <pre><code># POINT_X,POINT_Y,Min_temp_Jul_F,Max_temp_jul_F,Rainfall_jul_inch
 
@@ -95,7 +95,7 @@
 <p>So, let’s try that out (<em>see <code>climate_analysis-2.py</code></em>):</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">climate_data <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
 
-<span class="cf">for</span> line <span class="op">in</span> climate_data:
+<span class="cf">for</span> line <span class="kw">in</span> climate_data:
     <span class="bu">print</span>(line.rstrip())</code></pre></div>
 <p>And now we get:</p>
 <pre><code># POINT_X,POINT_Y,Min_temp_Jul_F,Max_temp_jul_F,Rainfall_jul_inch
@@ -119,7 +119,7 @@
 <p>So, let’s change our code accordingly (<em>see <code>climate_analysis-3.py</code></em>):</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">climate_data <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;../data/sc_climate_data_10.csv&#39;</span>, <span class="st">&#39;r&#39;</span>)
 
-<span class="cf">for</span> line <span class="op">in</span> climate_data:
+<span class="cf">for</span> line <span class="kw">in</span> climate_data:
     data <span class="op">=</span> line.split(<span class="st">&#39;,&#39;</span>)
 
     <span class="co"># print 4th column (max temperature)</span>
@@ -154,7 +154,7 @@ Max temperature 61.41</code></pre>
       <div class="footer">
         This work is derived from prior works that are Copyright © <a href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
-        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2018-09-18-southampton-swc">Source</a>
+        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2019-03-13-southampton-swc">Source</a>
       </div>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->

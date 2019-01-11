@@ -260,7 +260,7 @@ is_sum_equal([<span class="dv">2</span>,<span class="dv">4</span>,<span class="d
 <li>Fix the error.</li>
 <li>Repeat steps 2 and 3, until you have fixed all the errors.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> number <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>):
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> number <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):
     <span class="co"># use a if the number is a multiple of 3, otherwise use b</span>
     <span class="cf">if</span> (Number <span class="op">%</span> <span class="dv">3</span>) <span class="op">==</span> <span class="dv">0</span>:
         message <span class="op">=</span> message <span class="op">+</span> a
@@ -318,12 +318,12 @@ is_sum_equal([<span class="dv">2</span>,<span class="dv">4</span>,<span class="d
 <span class="kw">def</span> print_message(day):
     messages <span class="op">=</span> {
         <span class="st">&quot;monday&quot;</span>: <span class="st">&quot;Hello, world!&quot;</span>,
-        <span class="co">&quot;tuesday&quot;</span>: <span class="st">&quot;Today is tuesday!&quot;</span>,
-        <span class="co">&quot;wednesday&quot;</span>: <span class="st">&quot;It is the middle of the week.&quot;</span>,
-        <span class="co">&quot;thursday&quot;</span>: <span class="st">&quot;Today is Donnerstag in German!&quot;</span>,
-        <span class="co">&quot;friday&quot;</span>: <span class="st">&quot;Last day of the week!&quot;</span>,
-        <span class="co">&quot;saturday&quot;</span>: <span class="st">&quot;Hooray for the weekend!&quot;</span>,
-        <span class="co">&quot;sunday&quot;</span>: <span class="st">&quot;Aw, the weekend is almost over.&quot;</span>
+        <span class="st">&quot;tuesday&quot;</span>: <span class="st">&quot;Today is tuesday!&quot;</span>,
+        <span class="st">&quot;wednesday&quot;</span>: <span class="st">&quot;It is the middle of the week.&quot;</span>,
+        <span class="st">&quot;thursday&quot;</span>: <span class="st">&quot;Today is Donnerstag in German!&quot;</span>,
+        <span class="st">&quot;friday&quot;</span>: <span class="st">&quot;Last day of the week!&quot;</span>,
+        <span class="st">&quot;saturday&quot;</span>: <span class="st">&quot;Hooray for the weekend!&quot;</span>,
+        <span class="st">&quot;sunday&quot;</span>: <span class="st">&quot;Aw, the weekend is almost over.&quot;</span>
     }
     <span class="bu">print</span>(messages[day])
 
@@ -357,7 +357,7 @@ KeyError: &#39;Friday&#39;</code></pre>
 <span class="kw">def</span> calculate_bmi(weight, height):
     <span class="cf">return</span> weight <span class="op">/</span> (height <span class="op">**</span> <span class="dv">2</span>)
 
-<span class="cf">for</span> patient <span class="op">in</span> patients:
+<span class="cf">for</span> patient <span class="kw">in</span> patients:
     height, weight <span class="op">=</span> patients[<span class="dv">0</span>]
     bmi <span class="op">=</span> calculate_bmi(height, weight)
     <span class="bu">print</span>(<span class="st">&quot;Patient&#39;s BMI is: </span><span class="sc">%f</span><span class="st">&quot;</span> <span class="op">%</span> bmi)</code></pre></div>
@@ -425,7 +425,7 @@ Patient&#39;s BMI is: 21.604938</code></pre>
       <div class="footer">
         This work is derived from prior works that are Copyright © <a href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
-        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2018-09-18-southampton-swc">Source</a>
+        <a class="label swc-blue-bg" href="https://github.com/Southampton-RSG/2019-03-13-southampton-swc">Source</a>
       </div>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
