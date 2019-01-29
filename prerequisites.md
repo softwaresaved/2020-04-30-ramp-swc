@@ -3,7 +3,7 @@ layout: page-md
 title: Software Prerequisites
 ---
 
-[[Home]](https://southampton-rsg.github.io/2019-03-13-southampton-swc/)
+[[Home]](https://southampton-rsg.github.io/2019-02-13-southampton-swc/)
 
 **Prior to the workshop, it is vital that you install some software on your laptop and create an account at Github by following the instructions below!**
 
@@ -53,7 +53,7 @@ To exit nano press CTRL+X (you might be prompted you to save or discard modified
 
 We use Python 3, because it is generally the most widely used version of Python. We will also use the numpy and matplotlib libraries and the nose unit testing framework. Fortunately, these do not need to be installed separately! The "Python3.6 Anaconda" installation provides everything Python-related you will need for the workshop. To install Anaconda, follow the instructions below.
 
-**<span style="color:red">IMPORTANT</span>: When asked "Add Anaconda to my PATH environment variable", answer "yes". 
+**<span style="color:red">IMPORTANT</span>: When asked "Add Anaconda to my PATH environment variable", answer "yes".
 After it's finished, close and reopen your terminal to reload the updated PATH and allow the installed Python to be found.**
 
 #### Windows
@@ -96,7 +96,7 @@ git
 
 There may be a short delay whilst the installer operates. You can then follow the prompts to install the Apple command line development tools.
 
-On Mac OS X 10.6 Snow Leoapard, Mac OS X 10.7 Lion and 10.8 Mountain Lion, download and open the [Git installer image](http://downloads.sourceforge.net/project/git-osx-installer/git-2.3.5-intel-universal-snow-leopard.dmg?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fgit-osx-installer%2Ffiles%2F&ts=1441637770&use_mirror=kent). Double click the `.pkg` file and follow the instructions.
+On Mac OS X 10.6 Snow Leopard, Mac OS X 10.7 Lion and 10.8 Mountain Lion, download and open the [Git installer image](http://downloads.sourceforge.net/project/git-osx-installer/git-2.3.5-intel-universal-snow-leopard.dmg?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fgit-osx-installer%2Ffiles%2F&ts=1441637770&use_mirror=kent). Double click the `.pkg` file and follow the instructions.
 
 If you intend to use an earlier version of Mac OS X, please contact us before the event.
 
@@ -123,39 +123,21 @@ To make sure that everything has installed correctly, we have written a simple P
 
 **Close your existing terminal and reopen it (this is important!)**.
 
-Enter the command below into your terminal. It will download the python script and run it to check your prerequisites. 
+Enter the command below into your terminal. It will download the python script and run it to check your prerequisites.
 
-#### Windows
+Once you've got your terminal open, enter the following commands to move to the workshop directory and run the test script:
 
-From the Git folder in the Start Menu, open the Git Bash terminal.
-
-~~~ {.code}
-curl -s https://swc.rsgsoton.net/static/installation_test_rsg.py | python
+~~~ {.bash}
+$ cd ~/2019-02-13-southampton-swc/
+$ python test.py
 ~~~
 
-#### Mac OS X, Linux
-
-Close your existing terminal and reopen it.  **This is important!**
-
-~~~ {.code}
-curl -s https://swc.rsgsoton.net/static/installation_test_rsg.py | python3
-~~~
-
-
-On Windows, Mac OS X and Linux, the script will run and output some text. If everything has installed correctly, within the text you will see all passes and no failures, like this:
+It should run and output some text. If everything has installed correctly, within the text you will see all passes and no failures, like this:
 
 ~~~ {.code}
 check command line shell (virtual-shell)...	pass
 check Git (git)...	pass
 check Python version (python)...	pass
-check Argparse (argparse)...	pass
-check NumPy (numpy)...	pass
-check Matplotlib (matplotlib)...	pass
 ~~~
 
 If anything fails, please [contact us](mailto:rsg-info@soton.ac.uk) before the workshop.
-
-
-## During the workshop
-
-We will make use of the [Etherpad](https://public.etherpad-mozilla.org/p/SWC-Soton-Mar2019) collaboration tool during the workshop (Etherpad allows a group to edit documents online collaboratively in real-time). Please use this to keep collaborative notes and ask (and answer!) each others questions.

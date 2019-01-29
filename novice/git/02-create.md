@@ -5,7 +5,7 @@ subtitle: 2. Creating a Repository
 minutes: 10
 ---
 > ## Learning Objectives {.objectives}
-> 
+>
 > *   Explain how to create a Git repository locally.
 
 ![Creating a Repository](img/slides/version-control-with-git-slides - 10.jpg)
@@ -13,7 +13,7 @@ minutes: 10
 So, first let's **change to our code directory**.  Note that this is **not the directory that you were using in the Python** lesson, but should contain **clean versions** of the same files you were working on.  This is to ensure that everyone has the same files to start the lesson.
 
 ~~~ {.bash}
-$ cd ~/2019-03-13-southampton-swc/novice/git/code
+$ cd ~/2019-02-13-southampton-swc/novice/git/code
 $ ls
 ~~~
 
