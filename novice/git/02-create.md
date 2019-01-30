@@ -10,7 +10,7 @@ minutes: 10
 
 ![Creating a Repository](img/slides/version-control-with-git-slides - 10.jpg)
 
-So, first let's **change to our code directory**.  Note that this is **not the directory that you were using in the Python** lesson, but should contain **clean versions** of the same files you were working on.  This is to ensure that everyone has the same files to start the lesson.
+So, first let's **change to our code directory**.  
 
 ~~~ {.bash}
 $ cd ~/2019-02-13-southampton-swc/novice/git/code
