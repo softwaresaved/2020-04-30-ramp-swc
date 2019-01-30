@@ -37,7 +37,7 @@ index d5b442d..c463f71 100644
 +++ b/climate_analysis.py
 @@ -26,3 +26,5 @@ for line in climate_data:
              kelvin = temp_conversion.fahr_to_kelvin(fahr)
- 
+
              print(str(celsius)+", "+str(kelvin))
 +
 +# TODO(me): Add call to process rainfall
@@ -59,12 +59,12 @@ index 277d6c7..c463f71 100644
  import signal
 @@ -25,3 +26,5 @@ for line in climate_data:
              kelvin = temp_conversion.fahr_to_kelvin(fahr)
- 
+
              print(str(celsius)+", "+str(kelvin))
 +
 +# TODO(me): Add call to process rainfall
 ~~~
-And here we see the state **before the last two commits**, HEAD minus2 
+And here we see the state **before the last two commits**, HEAD minus2
 
 ###Absolute History###
 
@@ -97,7 +97,7 @@ index 277d6c7..c463f71 100644
  import signal
 @@ -25,3 +26,5 @@ for line in climate_data:
              kelvin = temp_conversion.fahr_to_kelvin(fahr)
- 
+
              print(str(celsius)+", "+str(kelvin))
 +
 +# TODO(me): Add call to process rainfall
@@ -121,7 +121,7 @@ index 277d6c7..c463f71 100644
  import signal
 @@ -25,3 +26,5 @@ for line in climate_data:
              kelvin = temp_conversion.fahr_to_kelvin(fahr)
- 
+
              print(str(celsius)+", "+str(kelvin))
 +
 +# TODO(me): Add call to process rainfall
@@ -134,7 +134,7 @@ index 277d6c7..c463f71 100644
 All right:
 we can **save changes** to files and **see what we've changed** &mdash; suppose we need to **restore** older versions of things?
 
-Let's suppose we **accidentally** overwritem or delete our file:
+Let's suppose we **accidentally** overwrite or delete our file:
 
 ~~~ {.bash}
 $ rm climate_analysis.py
@@ -201,4 +201,4 @@ without also undoing changes made later to the conclusion.
 If the introduction and conclusion are stored in **separate files**,
 on the other hand, moving backward and forward in time becomes much easier.
 
-[Next - Collaborating](05-collab.html) 
+[Next - Collaborating](05-collab.html)
