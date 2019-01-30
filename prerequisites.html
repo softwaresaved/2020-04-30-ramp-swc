@@ -26,7 +26,7 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
                     <h1 class="title">Software Prerequisites</h1>
-          <p><a href="https://southampton-rsg.github.io/2019-03-13-southampton-swc/">[Home]</a></p>
+          <p><a href="https://southampton-rsg.github.io/2019-02-13-southampton-swc/">[Home]</a></p>
 <p><strong>Prior to the workshop, it is vital that you install some software on your laptop and create an account at Github by following the instructions below!</strong></p>
 <p>There is little time during the workshop to deal with installation problems, so it makes the day run much more smoothly if you arrive with your software already installed.</p>
 <h2 id="bash">Bash</h2>
@@ -69,7 +69,7 @@ You can verify you have nano installed by opening a terminal and entering:
 <p>On Mac OS X 10.9 Mavericks and later, Git will be installed automatically the first time you try to run it. Open a terminal and enter:</p>
 <pre class="code"><code>git</code></pre>
 <p>There may be a short delay whilst the installer operates. You can then follow the prompts to install the Apple command line development tools.</p>
-<p>On Mac OS X 10.6 Snow Leoapard, Mac OS X 10.7 Lion and 10.8 Mountain Lion, download and open the <a href="http://downloads.sourceforge.net/project/git-osx-installer/git-2.3.5-intel-universal-snow-leopard.dmg?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fgit-osx-installer%2Ffiles%2F&amp;ts=1441637770&amp;use_mirror=kent">Git installer image</a>. Double click the <code>.pkg</code> file and follow the instructions.</p>
+<p>On Mac OS X 10.6 Snow Leopard, Mac OS X 10.7 Lion and 10.8 Mountain Lion, download and open the <a href="http://downloads.sourceforge.net/project/git-osx-installer/git-2.3.5-intel-universal-snow-leopard.dmg?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fgit-osx-installer%2Ffiles%2F&amp;ts=1441637770&amp;use_mirror=kent">Git installer image</a>. Double click the <code>.pkg</code> file and follow the instructions.</p>
 <p>If you intend to use an earlier version of Mac OS X, please contact us before the event.</p>
 <h4 id="linux-2">Linux</h4>
 <p>Install via a terminal like this:</p>
@@ -79,25 +79,17 @@ You can verify you have nano installed by opening a terminal and entering:
 <pre class="code"><code>su -
 dnf install git</code></pre>
 <h2 id="verify-your-setup">Verify your setup</h2>
-<p>To make sure that everything has installed correctly, we have written a simple Python script to test the prerequisites.</p>
+<p>To make sure that everything has installed correctly, you need to download the workshop materials and run a simple Python script to test the prerequisites.</p>
 <p><strong>Close your existing terminal and reopen it (this is important!)</strong>.</p>
-<p>Enter the command below into your terminal. It will download the python script and run it to check your prerequisites.</p>
-<h4 id="windows-4">Windows</h4>
-<p>From the Git folder in the Start Menu, open the Git Bash terminal.</p>
-<pre class="code"><code>curl -s https://swc.rsgsoton.net/static/installation_test_rsg.py | python</code></pre>
-<h4 id="mac-os-x-linux">Mac OS X, Linux</h4>
-<p>Close your existing terminal and reopen it. <strong>This is important!</strong></p>
-<pre class="code"><code>curl -s https://swc.rsgsoton.net/static/installation_test_rsg.py | python3</code></pre>
-<p>On Windows, Mac OS X and Linux, the script will run and output some text. If everything has installed correctly, within the text you will see all passes and no failures, like this:</p>
+<p>Once you’ve got your terminal open, enter the following commands to download the workshop content, move to the workshop directory and run the test script:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> clone https://github.com/Southampton-RSG/2019-02-13-southampton-swc.git
+$ <span class="bu">cd</span> ~/2019-02-13-southampton-swc/
+$ <span class="ex">python</span> test.py</code></pre></div>
+<p>It should run and output some text. If everything has installed correctly, within the text you will see all passes and no failures, like this:</p>
 <pre class="code"><code>check command line shell (virtual-shell)... pass
 check Git (git)...  pass
-check Python version (python)...    pass
-check Argparse (argparse)...    pass
-check NumPy (numpy)...  pass
-check Matplotlib (matplotlib)...    pass</code></pre>
+check Python version (python)...    pass</code></pre>
 <p>If anything fails, please <a href="mailto:rsg-info@soton.ac.uk">contact us</a> before the workshop.</p>
-<!-- <h2 id="during-the-workshop">During the workshop</h2>
-<p>We will make use of the <a href="https://public.etherpad-mozilla.org/p/SWC-Soton-Mar2019">Etherpad</a> collaboration tool during the workshop (Etherpad allows a group to edit documents online collaboratively in real-time). Please use this to keep collaborative notes and ask (and answer!) each others questions.</p>
         </div>
       </div>
       </article>
@@ -112,4 +104,4 @@ check Matplotlib (matplotlib)...    pass</code></pre>
     <script src="{{page.root}}/js/jquery-1.9.1.min.js"></script>
     <script src="{{page.root}}/css/bootstrap/bootstrap-js/bootstrap.js"></script>
   </body>
-</html> -->
+</html>

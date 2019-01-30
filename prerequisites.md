@@ -119,15 +119,14 @@ dnf install git
 
 ## Verify your setup
 
-To make sure that everything has installed correctly, we have written a simple Python script to test the prerequisites.
+To make sure that everything has installed correctly, you need to download the workshop materials and run a simple Python script to test the prerequisites.
 
 **Close your existing terminal and reopen it (this is important!)**.
 
-Enter the command below into your terminal. It will download the python script and run it to check your prerequisites.
-
-Once you've got your terminal open, enter the following commands to move to the workshop directory and run the test script:
+Once you've got your terminal open, enter the following commands to download the workshop content, move to the workshop directory and run the test script:
 
 ~~~ {.bash}
+$ git clone https://github.com/Southampton-RSG/2019-02-13-southampton-swc.git
 $ cd ~/2019-02-13-southampton-swc/
 $ python test.py
 ~~~
