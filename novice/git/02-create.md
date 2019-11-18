@@ -13,7 +13,7 @@ minutes: 10
 So, first let's **change to our code directory**.  
 
 ~~~ {.bash}
-$ cd ~/2019-02-13-southampton-swc/novice/git/code
+$ cd ~/2019-11-19-southampton-swc/novice/git/code
 $ ls
 ~~~
 

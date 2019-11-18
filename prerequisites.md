@@ -3,7 +3,7 @@ layout: page-md
 title: Software Prerequisites
 ---
 
-[[Home]](https://southampton-rsg.github.io/2019-02-13-southampton-swc/)
+[[Home]](https://southampton-rsg.github.io/2019-11-19-southampton-swc/)
 
 **Prior to the workshop, it is vital that you install some software on your laptop and create an account at Github by following the instructions below!**
 
@@ -126,8 +126,8 @@ To make sure that everything has installed correctly, you need to download the w
 Once you've got your terminal open, enter the following commands to download the workshop content, move to the workshop directory and run the test script:
 
 ~~~ {.bash}
-$ git clone https://github.com/Southampton-RSG/2019-02-13-southampton-swc.git
-$ cd ~/2019-02-13-southampton-swc/
+$ git clone https://github.com/Southampton-RSG/2019-11-19-southampton-swc.git
+$ cd ~/2019-11-19-southampton-swc/
 $ python test.py
 ~~~
 
