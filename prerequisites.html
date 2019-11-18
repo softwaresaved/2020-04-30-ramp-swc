@@ -48,16 +48,7 @@ You can verify you have nano installed by opening a terminal and entering:
 <pre class="code"><code>nano</code></pre>
 <p>If nano is not installed, you will receive an error. If it is installed, nano will open (appearing not dissimilar to the terminal window, but with menu items at the bottom of the window).</p>
 <p>To exit nano press CTRL+X (you might be prompted you to save or discard modified buffer - just type “N” to exit without saving).</p>
-<h2 id="python">Python</h2>
-<p>We use Python 3, because it is generally the most widely used version of Python. We will also use the numpy and matplotlib libraries and the nose unit testing framework. Fortunately, these do not need to be installed separately! The “Python3.6 Anaconda” installation provides everything Python-related you will need for the workshop. To install Anaconda, follow the instructions below.</p>
-<p><strong><span style="color:red">IMPORTANT</span>: When asked “Add Anaconda to my PATH environment variable”, answer “yes”. After it’s finished, close and reopen your terminal to reload the updated PATH and allow the installed Python to be found.</strong></p>
-<h4 id="windows-2">Windows</h4>
-<p>Download the <a href="https://repo.anaconda.com/archive/Anaconda3-5.2.0-Windows-x86_64.exe">Python3.6 Anaconda installer</a>. Double click the installer and follow the instructions.</p>
-<h4 id="mac-os-x-1">Mac OS X</h4>
-<p>Download the <a href="https://repo.anaconda.com/archive/Anaconda3-5.2.0-MacOSX-x86_64.pkg">Python 3.6 Anaconda Mac OS X Graphical installer</a>. Double click the <code>.pkg</code> file and follow the instructions.</p>
-<h4 id="linux-1">Linux</h4>
-<p>Download the <a href="https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh">Python3.6 Anaconda installation script</a>. Install via the terminal like this:</p>
-<pre class="code"><code>bash Anaconda3-5.2.0-Linux-x86_64.sh</code></pre>
+
 <h2 id="git">Git</h2>
 <p>Git is the version control software we will use. It allows you to keep track of your software and the edits made to it.</p>
 <h4 id="create-a-github-account">Create a Github account</h4>
@@ -78,17 +69,8 @@ You can verify you have nano installed by opening a terminal and entering:
 <p>Fedora:</p>
 <pre class="code"><code>su -
 dnf install git</code></pre>
-<h2 id="verify-your-setup">Verify your setup</h2>
-<p>To make sure that everything has installed correctly, you need to download the workshop materials and run a simple Python script to test the prerequisites.</p>
-<p><strong>Close your existing terminal and reopen it (this is important!)</strong>.</p>
-<p>Once you’ve got your terminal open, enter the following commands to download the workshop content, move to the workshop directory and run the test script:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> clone https://github.com/Southampton-RSG/2019-11-19-southampton-swc.git
-$ <span class="bu">cd</span> ~/2019-11-19-southampton-swc/
-$ <span class="ex">python</span> test.py</code></pre></div>
-<p>It should run and output some text. If everything has installed correctly, within the text you will see all passes and no failures, like this:</p>
-<pre class="code"><code>check command line shell (virtual-shell)... pass
-check Git (git)...  pass
-check Python version (python)...    pass</code></pre>
+
+<h2>Support</h2>
 <p>If anything fails, please <a href="mailto:rsg-info@soton.ac.uk">contact us</a> before the workshop.</p>
         </div>
       </div>
