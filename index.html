@@ -2,7 +2,7 @@
 layout: workshop
 root: .
 venue: Online Zoom  # brief name of host site
-address: https://zoom.us/j/xxxxxxxxx
+address: https://carpentries.zoom.us/meeting/register/tJIvdemtpz0vGdBaUBmq7IiqEyA4AcX8khse
 address2:
 country: United-Kingdom    # country (hyphenated if need be, like 'United-Kingdom')
 language: en   # language code like 'en' or 'fr'
@@ -59,37 +59,13 @@ etherpad:
 </p>
 
 <!--
-  LOCATION
-  This block displays the address and links to maps showing directions
-  if the latitude and longitude of the workshop have been set.  You
-  can use http://itouchmap.com/latlong.html to find the lat/long of an
-  address.
--->
-{% if page.latlng %}
-<p>
-  <strong>Where:</strong> Seminar Room, Building 46. Get directions with
-  <a href="//www.openstreetmap.org/?mlat={{page.latlng | replace:',','&mlon='}}&zoom=16">OpenStreetMap</a>
-  or
-  <a href="//maps.google.com/maps?q={{page.latlng}}">Google Maps</a>
-</p>
-{% endif %}
-
-<!--
-  SPECIAL REQUIREMENTS
-  Modify the block below if there are any special requirements.
--->
-<p align="justify">
-  <strong>Requirements:</strong> Participants <strong>must</strong> bring a laptop with a few specific software packages installed (see below). They are also required to abide by Software Carpentry's  <a href="{{site.swc_site}}/conduct.html">Code of Conduct</a>.
-</p>
-
-<!--
   CONTACT EMAIL ADDRESS
   Display the contact email address set in the header.  If an address
   isn't set in the header, the Software Carpentry admin address is
   used.
 -->
 <p>
-  <strong>Contact</strong>:
+  <strong>Contact:</strong>
   This workshop is being organised by the <a href='https://www.software.ac.uk/'>Software Sustainability Institute </a>.
 
   Please mail
@@ -103,28 +79,18 @@ etherpad:
 
 <hr/>
 
-<!--
-  EVENTBRITE
-  This block includes the Eventbrite registration widget if
-  'eventbrite' has been set in the header.  You can delete it if you
-  are not using Eventbrite, or leave it in, since it will not be
-  displayed if the 'eventbrite' field in the header is not set.
--->
-{% if page.eventbrite %}
-<iframe
-  src="https://www.eventbrite.com/tickets-external?eid={{page.eventbrite}}&ref=etckt"
-  frameborder="0"
-  width="100%"
-  height="250px"
-  scrolling="auto">
-</iframe>
-{% endif %}
-
-<h2 margin=0px>What should I bring with me?</h2>
+<h2 margin=0px>Preparation:</h2>
 <p>
-You must bring your own laptop! Before attending the workshop you need to install some useful and free software. For more information, <a href = "prerequisites.html">see the software prerequisites</a>.
+Before attending the workshop you need to install some useful and free software. For more information, <a href = "prerequisites.html">see the software prerequisites</a>.
+</p>
+<p>
+Please also fill in the <a href="https://forms.gle/8EuHVjL56cc1GHTK6">Pre-workshop Survey</a>.
+</p>
+<p>
+Participants are required to abide by Software Carpentry's <a href="{{site.swc_site}}/conduct.html">Code of Conduct</a>.
 </p>
 
+<hr/>
 
 <!--
   SCHEDULE
@@ -132,51 +98,7 @@ You must bring your own laptop! Before attending the workshop you need to instal
   to match your plans.  You may also want to change 'Day 1' and 'Day
   2' to be actual dates or days of the week.
 -->
-<h2 margin=0px>Schedule</h2>
+<h2 margin=0px>Schedule:</h2>
 <p>
   Workshop schedule can be found at the <a href = "schedule.html">schedule page</a>.
 </p>
-
-<!--
-<h2 margin=0px>Surveys</h2>
-<p>Please be sure to complete these surveys before and after the workshop.</p>
-<p><a href="">Pre-workshop Survey</a></p>
-<p><a href="">Post-workshop Survey</a></p>
--->
-
-</hr>
-
-<!--
-  SETUP
-  Delete irrelevant sections from the setup instructions.  Each
-  section is inside a 'div' without any classes to make the beginning
-  and end easier to find.
-  This is the other place where people frequently make mistakes, so
-  please preview your site before committing, and make sure to run
-  'tools/check' as well.
--->
-
-<!--
-  ETHERPAD
-  Display the Etherpad for the workshop.  You can set this up in
-  advance or on the first day; either way, make sure you push changes
-  to GitHub after you have its URL.  To create an Etherpad, go to
-      http://etherpad.mozilla.org/YYYY-MM-DD-site
-  where 'YYYY-MM-DD-site' is the identifier for your workshop (e.g.,
-  '2015-06-10-esu'.
--->
-{% if page.etherpad %}
-
-<h2 margin=0px>Keep in touch during the workshop with Etherpad</h2>
-<p>
-  <strong>Etherpad:</strong> <a href="{{page.etherpad}}">{{page.etherpad}}</a>.
-  <br/>
-  We will use this Etherpad for chatting, taking notes, and sharing URLs and bits of code.
-</p>
-{% endif %}
-<!--
-<h2 margin=0px>Register an interest in our course for possible future dates</h2>
-
-<p>
-If you're interested in our training, but can't make the date, you can <a href="https://docs.google.com/forms/d/1KW8DTErxhEXUJbtbwUfVw7s6AWwHKFNZNWSsALV2E0A/viewform">sign up to be notified</a> about future events.
-</p> -->
