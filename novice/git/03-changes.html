@@ -62,8 +62,8 @@ Changes to be committed:
 <p>Git now knows that it’s supposed to <strong>keep track</strong> of <code>climate_analysis.py</code> and <code>temp_conversion.py</code>, but it <strong>hasn’t recorded these changes as a commit</strong> yet:</p>
 <h3 id="initial-commit">Initial Commit</h3>
 <p>To get it to do that, we need to run one more command:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> commit -m <span class="st">&quot;Initial commit of climate analysis code&quot;</span></code></pre></div>
-<p>We use the <code>-m</code> flag (for “<strong>message</strong>”) to record a short, <strong>descriptive comment</strong> that will help us remember later on what we did and why.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> commit -m <span class="st">&quot;Initial commit of climate analysis code&quot;</span> climate_analysis.py temp_conversion.py</code></pre></div>
+<p>We use the <code>-m</code> flag (for “<strong>message</strong>”) to record a short, <strong>descriptive comment</strong> that will help us remember later on what we did and why. The why is possibly the most important. As we'll see later, we can use Git to show us what exactly changed, but we need the reasoning behind the change to get a more useful overall picture of why it was done in the first place.</p>
 <p>If we just run <code>git commit</code> without the <code>-m</code> option, Git will launch <code>nano</code> (or whatever other editor we configured at the start) so that we can write a longer message.</p>
 <p><strong>Good commit messages</strong> start with a brief (&lt;50 characters) summary of changes made in the commit.</p>
 <p><strong>NOT “Bug Fixes”</strong> or <strong>“Changes”</strong>!</p>
@@ -77,12 +77,12 @@ Changes to be committed:
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> status</code></pre></div>
 <pre class="output"><code># On branch master
 nothing to commit, working directory clean</code></pre>
-<p>it tells us everything is up to date.</p>
+<p>it tells us everything is up to date. Let's look at what's happening in a bit more detail...</p>
 <div class="figure">
 <img src="img/slides/version-control-with-git-slides%20-%2012.jpg" alt="Add and Commit" />
 <p class="caption">Add and Commit</p>
 </div>
-<p>Git has a special <strong>staging</strong> area where it keeps track of things that have been <strong>added</strong> to the current change set but <strong>not yet committed</strong>. <code>git add</code> puts things in this area, and <code>git commit</code> then copies them to long-term storage (as a commit)</p>
+<p>Git has a special <strong>staging</strong> area where it keeps track of things that have been <strong>added</strong> to the current change set but <strong>not yet committed</strong>. <code>git add</code> puts things in this area, and <code>git commit</code> then copies them to long-term storage (as a commit) in the repository on our machine.</p>
 <div class="figure">
 <img src="img/slides/version-control-with-git-slides%20-%2013.jpg" alt="Exploring history #1" />
 <p class="caption">Exploring history #1</p>
@@ -99,7 +99,7 @@ Date:   Mon Dec 7 14:13:32 2015 +0000
 <p>The listing for each revision includes</p>
 <ul>
 <li>the <strong>revision’s full identifier</strong> (which starts with the same characters as the short identifier printed by the <code>git commit</code> command earlier),</li>
-<li>the revision’s <strong>author</strong>,</li>
+<li>the revision’s <strong>author</strong> (which we set earlier when we configured Git),</li>
 <li><strong>when</strong> it was created,</li>
 <li>the <strong>log message</strong> Git was given when the revision was committed.</li>
 </ul>
@@ -112,9 +112,10 @@ Date:   Mon Dec 7 14:13:32 2015 +0000
 </div>
 </aside>
 <h3 id="modify-a-file-1">Modify a file (1)</h3>
-<p>Now suppose we add more information, a <strong>Docstring</strong>, to the <strong>top</strong> of one of the files:</p>
+<p>Now suppose we add more information, such as <strong>Docstring</strong>, which is a type of Python comment, to the <strong>top</strong> of one of the files. Using your text editor of choice, locate and open the <code>climate_analysis.py</code> file. Using <code>nano</code>, we can do (in the code directory):</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">nano</span> climate_analysis.py</code></pre></div>
 <pre class="output"><code>&quot;&quot;&quot; Climate Analysis Tools &quot;&quot;&quot;</code></pre>
+<p>And save the file.</p>
 <p>When we run <code>git status</code> now, it tells us that a file it already knows about has been modified:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> status</code></pre></div>
 <pre class="output"><code>On branch master
@@ -145,16 +146,16 @@ import signal</code></pre>
 <h2 id="windows-users-note"><span class="glyphicon glyphicon-pushpin"></span>Windows users note</h2>
 </div>
 <div class="panel-body">
-<p><strong>No newline at end of file</strong> This message is displayed because otherwise there is no way to tell the difference between a file where there is a newline at the end and one where is not. Diff has to output a newline anyway, or the result would be harder to read or process automatically. This can safely be ignored, but you can avoid seeing it by leaving a blank line at the end of your file.</p>
+<p><strong>No newline at end of file</strong> This message is displayed because otherwise there is no way to tell the difference between a file where there is a newline at the end and one where there is not. Diff has to output a newline anyway, or the result would be harder to read or process automatically. This can safely be ignored, but you can avoid seeing it by leaving a blank line at the end of your file.</p>
 </div>
 </aside>
 <p>The output is <strong>cryptic</strong> because it is actually a series of <strong>commands</strong> for tools like editors and <code>patch</code> telling them how <strong>to reconstruct one file given the other</strong>.</p>
 <p>The key things to note are:</p>
 <ol style="list-style-type: decimal">
 <li>Line 1: The <strong>files</strong> that are being <strong>compared</strong> (a/ and b/ are labels, not paths)</li>
-<li>Line 2: The two <strong>hex strings</strong> on the second line which parts of the <strong>hashes</strong> of the files being compares</li>
+<li>Line 2: The two <strong>hex strings</strong> on the second line which are parts of the <strong>hashes</strong> of the files being compared</li>
 <li>Line 5: The <strong>lines</strong> that have changed. (It’s complex)</li>
-<li>Below that, the changes - note the ‘<strong>+</strong>’ marker which shows an addtion</li>
+<li>Below that, the changes - note the ‘<strong>+</strong>’ marker which shows an addition</li>
 </ol>
 <p>After reviewing our change, it’s time to commit it:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> commit -m <span class="st">&quot;Add Docstring&quot;</span></code></pre></div>
@@ -170,7 +171,7 @@ $ <span class="fu">git</span> commit -m <span class="st">&quot;Add Docstring&quo
  1 file changed, 1 insertion(+)</code></pre>
 <p><img src="img/slides/version-control-with-git-slides%20-%2012.jpg" alt="Add and Commit" /> ** Recapping add / commit**</p>
 <p>Git insists that we <strong>add</strong> files to the set we want to commit before actually committing anything because we may not want to commit <strong>everything at once</strong>.</p>
-<p>For example, suppose we might have <strong>fixed a bug</strong> in some existing code, but we might have added new code that’s <strong>not ready to share</strong></p>
+<p>For example, suppose we might have <strong>fixed a bug</strong> in some existing code, but we might have added new code that’s <strong>not ready to share.</strong> So we can (and should) group our different sets of changes logically together, as separate commits. If our bug fix required changes to several files, we would add each of these files to the staging area, and then do a commit which summarised the bug fix. Our new code would be added and committed separately.</p>
 <div class="figure">
 <img src="img/slides/version-control-with-git-slides%20-%2013.jpg" alt="Exploring history #1" />
 <p class="caption">Exploring history #1</p>
@@ -179,6 +180,7 @@ $ <span class="fu">git</span> commit -m <span class="st">&quot;Add Docstring&quo
 <p>Let’s add another line to the end of the file:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">nano</span> climate_analysis.py</code></pre></div>
 <pre class="output"><code># TODO(js-robinson): Add call to process rainfall</code></pre>
+<p>So here, we are including a reminder for ourselves to implement something at a later date.</p>
 <p>Check what’s changed with <strong>diff</strong>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> diff</code></pre></div>
 <pre class="output"><code>diff --git a/climate_analysis.py b/climate_analysis.py
