@@ -58,20 +58,16 @@
 
 <h3 id="the-missing-link">The missing link</h3>
 <p>We already have most of the machinery we need to do this; the only thing missing is to copy changes from one repository to another.</p>
-<div class="figure">
-  <img src="img/slides/version-control-with-git-slides%20-%2019.jpg" alt="Collaboration" />
-  <p class="caption">Collaboration</p>
-</div>
 <p>Systems like Git allow us to <strong>synchronise</strong> work between any two repositories.</p>
 <p>In practice, though, it’s easiest to use one copy as a <strong>central hub</strong>, and to keep it on the web rather than on someone’s laptop.</p>
 <p>Many programmers use hosting services like <strong>GitHub</strong> or <strong>BitBucket</strong> to hold those master copies. In this example, we'll use <strong>GitHub</strong>.</p>
+<div class="figure">
+  <img src="img/slides/version-control-with-git-slides%20-%2019.jpg" alt="Collaboration" /> 
+  <p class="caption">Collaboration</p>
+</div>
 
 <h3 id="exploring-the-collaborative-process">Exploring the collaborative process</h3>
 <p>But first let’s explore the collaborative process.</p>
-<div class="figure">
-  <img src="img/slides/version-control-with-git-slides%20-%2020.jpg" alt="Collaboration" /> 
-  <p class="caption">Collaboration</p>
-</div>
 <p>
   So far we have been working in isolation. We’re going to use <strong>GitHub</strong> to set up a remote repository, 
   so we can share our work and start <strong>“collaborating”</strong> with others.
@@ -79,17 +75,20 @@
 
 <h3 id="developer-a---to-github">To GitHub!</h3>
 <div class="figure">
-  <img src="img/slides/version-control-with-git-slides%20-%2021.jpg" alt="Remote Repositories #1" /> <!-- CHANGE THIS -->
-  <p class="caption">Remote Repositories #1</p>
+  <img src="img/slides/version-control-with-git-slides-remote.jpg" alt="Remote Repositories" />
+  <p class="caption">Remote Repositories</p>
 </div>
 <p>
   Let’s start by sharing the changes we’ve made to our current project with the world.
-  <strong>Log in to GitHub</strong>, then click on the icon in the top right corner to create a <strong>new repository</strong> called <code>climate-analysis</code>:
+  <strong>Log in to GitHub</strong>, then click on the button in the left-hand panel to create a <strong>new repository</strong> called <code>climate-analysis</code>:
 </p>
 <div class="figure">
   <img src="img/github-create-repo-01.png" alt="Creating a Repository on GitHub (Step 1)" />
   <p class="caption">Creating a Repository on GitHub (Step 1)</p>
 </div>
+<p>
+  (You can also click on the 'plus' icon in the top-right and select <strong>New repository</strong> too)
+</p>
 <p>
   <strong>Name your repository</strong> “climate-analysis”. 
   You can optionally give it a friendly <strong>description</strong> and prove a <strong>README.md</strong> which is rendered on the front page of the web interface.
@@ -151,7 +150,6 @@ To https://github.com/js-robinson/climate-analysis.git
   You can check in your browser that the files have reached your GitHub repository.
 </p>
 
-<!-- NEW FROM HERE ONWARDS -->
 <h3 id="introducing-branches">Introducing branches</h3>
 <p>
   Now we've shared our code with the world, and other people can download a copy of it- 
@@ -186,7 +184,8 @@ To https://github.com/js-robinson/climate-analysis.git
 </div>
 <p>
   In this workflow, we have a main (‘master’) branch which is the version of our code that's test and reliable,
-  and want to share- for example, the version of the code we used in a paper.
+  and want to share- for example, the version of the code we used in a paper. 
+  When sharing code used in a paper, you can mention the specific commit that you used!
 </p>
 <p>
   Then, we have a development (‘dev’) branch that we use for work-in-progress code.
@@ -398,10 +397,10 @@ To https://github.com/smangham/climate-analysis
   <p class="caption">GitHub pull request #3</p>
 </div>
 <p>
-  Fortunately, this commit can be <strong>automatically merged.</strong>
-  You can merge branches that have different commits in them, 
-  for example if you made another commit directly to ‘master’ before trying to merge in ‘dev’.
-  However, if both branches edit the same lines of the same file(s) then there may be a <strong>conflict</strong> that prevents automatic merging.
+  Fortunately, this branch can be <strong>automatically merged.</strong>
+  Not all branches can be automatically merged.
+  For example, if you had made more commits straight to ‘master’, 
+  if they edited the same lines in the same files as commits in ‘dev’ there would be a <strong>merge conflict</strong>.
 </p>
 <p>
   It is possible to <strong>resolve merge conflicts</strong> on the command-line git, but we won't cover it today.
@@ -415,8 +414,8 @@ To https://github.com/smangham/climate-analysis
   <p class="caption">GitHub pull request #4</p>
 </div>
 <p>
-  Now we've updated the ‘master’ branch with our new work from the ‘dev’ branch! All we need to do is to update our <strong>local version</strong>.
-  Let's go back to the command line and check out the master branch, then <strong>pull our changes</strong> from GitHub to our computer:
+  Now we've updated the ‘master’ branch on GitHub with our new work from the ‘dev’ branch! All we need to do is to update our <strong>local version</strong>.
+  Let's go back to our command line and check out the master branch, then <strong>pull our changes</strong> from GitHub to our computer:
 </p>
 
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> checkout master</code></pre></div>
@@ -436,21 +435,68 @@ Fast-forward
   create mode 100644 rainfall_conversion.py</code></pre>
 
 <p>
-  Now we've successfully merged the changes from our ‘dev’ branch into our local ‘master’ branch!
+  Now we've merged the changes from our ‘dev’ branch into our local ‘master’ branch!
 </p>
 
-<!-- FIX THIS ONWARDS -->
+<h3 id="introducing-branches">Feature-branch workflows</h3>
+<p>
+  Now we know how to keep a seperate working copy of our code, and use it to update the version we want other people to use.
+  But what if, whilst we're working on adding a new feature in our development branch, someone finds a bug in our code?
+  We don't want to have to complete the new feature in ‘dev’ before we can start fixing the bug!
+</p>
+<p>
+  Plus, what if <strong>multiple people</strong> want to work on the code at once, each working on a new feature?
+  If they're all using ‘dev’, there'll be plenty of <strong>merge conflicts</strong>. 
+  Plus, it makes testing the effect of the new features much harder- we only want to change one thing at a time!
+</p>
+<p>
+  This is where the <strong>feature-branch workflow</strong> we mentioned comes in! Remember the figure from earlier?
+</p>
+<div class="figure">
+  <img src="img/git-feature-branch.svg" alt="Feature-branch workflow 2" />
+  <p class="caption">Feature-branch workflow (again)</p>
+</div>
+<p>
+  There's a ‘master’ branch, a ‘dev’ branch, but also several <strong>feature branches</strong>.
+</p>
+<p>
+  When you want to make some changes to the code, like adding new features (or even fixing a complicated bug), you <strong>create a new feature branch</strong>.
+  Then, you can work on your <strong>feature branch</strong> without worrying about conflicts or confusing others with work-in-progress files.
+</p>
+<p>
+  Once you've finished and tested your new work, 
+  then you can submit a <strong>pull request</strong> from your <strong>feature branch</strong> back to the <strong>‘dev’ branch</strong>.
+</p>
+<p>
+  In some collaborations, only some people have permission to <strong>merge pull requests</strong> to the ‘dev’ and ‘master’ branches.
+  This makes sure that nothing gets into the shared versions of the code without it being properly reviewed and tested by others!
+</p>
 
-<p><strong>Hey look: We’re collaborating!</strong></p>
 <section class="challenge panel panel-success">
   <div class="panel-heading">
-  <h2 id="exercise-two-way-collaboration"><span class="glyphicon glyphicon-pencil"></span>Exercise: Two way collaboration</h2>
+  <h2 id="exercise-two-way-collaboration"><span class="glyphicon glyphicon-pencil"></span>Exercise: Feature branches</h2>
   </div>
   <div class="panel-body">
-  <p>Now lets work it the other way. Developer A can add a brief README.md stating the authors of the package we’re developing (You), and describing its purpose “Tools to parse and convert climate data from CSV” Add / commit them to their local repository and push them to github. Developer B can pull the updates</p>
+    <p>
+      Now let's put the feature-branch workflow into practise!
+    </p>
+    <p>
+      The code needs some documentation so people know what it does. Try creating a new branch coming off ‘dev’ called ‘doc’, 
+      then add a new file called <code>README.md</code> containing the text “Tools to parse and convert climate data from CSV”. 
+    </p>
+    <p>
+      Once you've done that, add and commit the file to your local repository, then push your changes up to GitHub. 
+      Then once they're on GitHub, create a pull request, merge your new feature branch back into your development branch,
+      and pull the changes to ‘dev’ back to your local repository.
+    </p>
   </div>
 </section>
-<p><img src="img/slides/version-control-with-git-slides%20-%2024.jpg" alt="Remote Repositories #4" /> <a href="06-conflict.html">Next - Conflicts</a></p>
+
+<p>
+  <img src="img/slides/version-control-with-git-slides-branch-exercise.jpg" alt="GitHub branches exercise" /> 
+  <a href="07-ignore.html">Next - Ignoring files</a>
+</p>
+
         </div>
       </div>
       </article>
